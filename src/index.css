@@ -12,3 +12,5 @@ body p {
   font-weight: 400;
   font-style: normal;
 }
+
+@import "tailwindcss";
