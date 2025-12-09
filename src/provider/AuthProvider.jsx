@@ -16,10 +16,11 @@ const AuthProvider = ({ children }) => {
     }
 
     const [user, serUser] = useState(null);
+    const [loading, setLoading] = useState(null);
 
     const authInfo = {
         toggleTheme, toggle,
-        user,
+        user, loading,
 
     }
 
