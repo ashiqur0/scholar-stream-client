@@ -31,7 +31,9 @@ const Register = () => {
                             type="email"
                             className="input w-full"
                             placeholder="Email"
+                            {...register('photo', {required: true})}
                         />
+                        {errors.photo === 'required' && <p className='text-red-500'>Photo is Required</p>}
 
                         <label className="label mt-4">Photo</label>
                         <input
