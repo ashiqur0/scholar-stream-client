@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import AuthContext from '../context/AuthContext';
+import { getAuth } from "firebase/auth";
+import app from '../firebase/firebase.config';
 
+const auth = getAuth(app)
 const AuthProvider = ({ children }) => {
 
     // Theme related functionalities
