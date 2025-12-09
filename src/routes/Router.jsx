@@ -4,6 +4,7 @@ import RootLayout from '../layout/RootLayout';
 import Home from '../pages/Root/Home/Home/Home';
 import AllScholarships from '../pages/Root/All-Scholarships/AllScholarships';
 import ScholarshipDetails from '../pages/Root/Scholaships-Details/ScholarshipDetails';
+import AuthLayout from '../layout/AuthLayout';
 
 const Router = createBrowserRouter([
     {
@@ -24,7 +25,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: '/',
-                Component: 
+                Component: AuthLayout
             }
         ]
     }
