@@ -1,9 +1,12 @@
 import React from 'react';
+import { useForm } from 'react-hook-form';
 
 const Register = () => {
 
-    const handleRegistration = () => {
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
+    const handleRegistration = (data) => {
+        console.log(data);
     }
 
     return (
@@ -11,7 +14,7 @@ const Register = () => {
             <div className='md:w-2/6 mx-auto bg-slate-950 p-10 rounded-2xl'>
                 <h1 className='text-center md:text-2xl text-xl font-semibold mb-5'>Register Your Account</h1>
 
-                <form onSubmit={handleRegistration} className=''>
+                <form onSubmit={handleSubmit(handleRegistration)} className=''>
                     <fieldset className="fieldset">
 
                         <label className="label">Name</label>
@@ -19,7 +22,9 @@ const Register = () => {
                             type="txt"
                             className="input w-full"
                             placeholder="Your name "
+                            {...register('name', { required: true })}
                         />
+                        {errors.name === 'required' && <p className='text-red-500'>Name is required</p>}
 
                         <label className="label mt-4">Email</label>
                         <input
