@@ -34,12 +34,12 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a onClick={toggleTheme} className="">
-                        {
-                            toggle? <MdLightMode /> : <MdDarkMode />
-
-                        }
-                    </a>
+                    <button onClick={toggleTheme} className="">
+                        <div className={`p-1 flex items-center gap-3 rounded-2xl ${toggle? 'bg-white': 'bg-slate-900'}`}>
+                            <div className={`${!toggle && 'bg-indigo-700 text-white' || 'text-amber-600'} p-1 rounded-full`}><MdLightMode /></div>
+                            <div className={`${toggle && 'bg-indigo-700 text-white' || 'text-white'} p-1 rounded-full`}><MdDarkMode /></div>
+                        </div>
+                    </button>
                 </div>
             </div>
         </nav>
