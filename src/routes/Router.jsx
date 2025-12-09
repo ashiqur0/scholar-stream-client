@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router";
 import RootLayout from '../layout/RootLayout';
 import Home from '../pages/Root/Home/Home/Home';
 import AllScholarships from '../pages/Root/All-Scholarships/AllScholarships';
+import ScholarshipDetails from '../pages/Root/Scholaships-Details/ScholarshipDetails';
 
 const Router = createBrowserRouter([
     {
@@ -16,6 +17,10 @@ const Router = createBrowserRouter([
             {
                 path: '/all-scholarships',
                 Component: AllScholarships
+            },
+            {
+                path: '/scholarships/details',
+                Component: ScholarshipDetails
             }
         ]
     }
