@@ -1,12 +1,21 @@
-import React from 'react';
+import { useState } from "react";
+import ThemePreview from "./ThemePreview";
 
 const App = () => {
+  
+  const [toggle, setToggle] = useState(true);
+  const [theme, setTheme] = useState('dark');
+
+  const changeTheme = () => {
+    toggle ?  setTheme('dark') : setTheme('light');
+    setToggle(!toggle);
+    
+    document.documentElement.setAttribute("data-theme", theme);
+  }
+
   return (
     <div>
-      <h1 className='text-3xl'>Lorem ipsum dolor sit amet.</h1>
-      <h1 className='text-red-500'>Lorem ipsum dolor sit amet.</h1>
-
-      <button className='btn btn-primary'>Button</button>
+      <button className="btn btn-primary" onClick={changeTheme}>Change Theme</button>
     </div>
   );
 };

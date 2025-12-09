@@ -15,3 +15,6 @@ body p {
 
 @import "tailwindcss";
 @plugin "daisyui";
+
+/* for dark and light theme */
+@tailwind utilities;
