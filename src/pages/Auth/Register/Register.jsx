@@ -24,16 +24,16 @@ const Register = () => {
                             placeholder="Your name "
                             {...register('name', { required: true })}
                         />
-                        {errors.name === 'required' && <p className='text-red-500'>Name is required</p>}
+                        {errors.name?.type === 'required' && <p className='text-red-500'>Name is required</p>}
 
                         <label className="label mt-4">Email</label>
                         <input
                             type="email"
                             className="input w-full"
                             placeholder="Email"
-                            {...register('photo', { required: true })}
+                            {...register('email', { required: true })}
                         />
-                        {errors.photo === 'required' && <p className='text-red-500'>Email is Required</p>}
+                        {errors.email?.type === 'required' && <p className='text-red-500'>Email is Required</p>}
 
                         <label className="label mt-4">Photo</label>
                         <input
@@ -42,14 +42,23 @@ const Register = () => {
                             placeholder="Photo URL"
                             {...register('photo', { required: true })}
                         />
-                        {errors.photo === 'required' && <p className='text-red-500'>Photo is required</p>}
+                        {errors.photo?.type === 'required' && <p className='text-red-500'>Photo is required</p>}
 
                         <label className="label mt-4">Password</label>
                         <input
                             type="password"
                             className="input w-full"
                             placeholder="Password"
+                            {...register('password', {
+                                required: true,
+                                minLength: 6,
+                                pattern: /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9]).{6,}$/
+                            })}
                         />
+                        {errors.password?.type === 'required' && <p className='text-red-500'>Password is required</p>}
+                        {errors.password?.type === 'minLength' && <p className='text-red-500'>Password should be at least 6 character</p>}
+                        {errors.password?.type === 'pattern' && <p className='text-red-500'>Password combination: uppercase, lowercase, digit, and special character</p>}
+
                         <div><a className="link link-hover">Forgot password?</a></div>
 
                         <button type='submit' className=" btn btn-neutral mt-4 bg-primary">Register</button>
