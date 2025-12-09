@@ -60,8 +60,6 @@ const Register = () => {
                         {errors.password?.type === 'minLength' && <p className='text-red-500'>Password should be at least 6 character</p>}
                         {errors.password?.type === 'pattern' && <p className='text-red-500'>Password combination: uppercase, lowercase, digit, and special character</p>}
 
-                        <div><a className="link link-hover">Forgot password?</a></div>
-
                         <button type='submit' className=" btn btn-neutral mt-4 bg-primary">Register</button>
                         <p>Already have an account? <Link to='/login' state={location?.state} className='text-blue-700'>login</Link> </p>
                     </fieldset>
