@@ -18,6 +18,10 @@ const AuthProvider = ({ children }) => {
     const [user, serUser] = useState(null);
     const [loading, setLoading] = useState(null);
 
+    const register = (email, password) => {
+        return createUserWithEmailAndPassword(auth, email, password);
+    }
+
     const authInfo = {
         toggleTheme, toggle,
         user, loading,
