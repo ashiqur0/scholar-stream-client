@@ -14,7 +14,7 @@ const AuthProvider = ({ children }) => {
     }
 
     const authInfo = {
-        toggleTheme,
+        toggleTheme, toggle
     }
 
     return <AuthContext value={authInfo}>{children}</AuthContext>;

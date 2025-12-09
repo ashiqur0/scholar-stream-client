@@ -2,10 +2,11 @@ import React from 'react';
 import Logo from './Logo';
 import { NavLink } from 'react-router';
 import useAuth from '../../hooks/useAuth';
+import { MdDarkMode, MdLightMode } from "react-icons/md";
 
 const Navbar = () => {
 
-    const { toggleTheme } = useAuth();
+    const { toggle, toggleTheme } = useAuth();
 
     const links = <>
         <li><NavLink to={'/'}>Home</NavLink></li>
@@ -33,7 +34,12 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a onClick={toggleTheme} className="btn">Button</a>
+                    <a onClick={toggleTheme} className="">
+                        {
+                            toggle? <MdLightMode /> : <MdDarkMode />
+
+                        }
+                    </a>
                 </div>
             </div>
         </nav>
