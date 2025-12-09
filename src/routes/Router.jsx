@@ -5,6 +5,7 @@ import Home from '../pages/Root/Home/Home/Home';
 import AllScholarships from '../pages/Root/All-Scholarships/AllScholarships';
 import ScholarshipDetails from '../pages/Root/Scholaships-Details/ScholarshipDetails';
 import AuthLayout from '../layout/AuthLayout';
+import Register from '../pages/Auth/Register/Register';
 
 const Router = createBrowserRouter([
     {
@@ -22,10 +23,16 @@ const Router = createBrowserRouter([
             {
                 path: '/scholarships/details',
                 Component: ScholarshipDetails
-            },
+            }
+        ]
+    },
+    {
+        path: '/',
+        Component: AuthLayout,
+        children: [
             {
-                path: '/',
-                Component: AuthLayout
+                path: '/register',
+                Component: Register
             }
         ]
     }
