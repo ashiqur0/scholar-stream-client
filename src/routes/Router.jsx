@@ -6,6 +6,7 @@ import AllScholarships from '../pages/Root/All-Scholarships/AllScholarships';
 import ScholarshipDetails from '../pages/Root/Scholaships-Details/ScholarshipDetails';
 import AuthLayout from '../layout/AuthLayout';
 import Register from '../pages/Auth/Register/Register';
+import Login from '../pages/Auth/Login/Login';
 
 const Router = createBrowserRouter([
     {
@@ -33,6 +34,10 @@ const Router = createBrowserRouter([
             {
                 path: '/register',
                 Component: Register
+            },
+            {
+                path: '/login',
+                Component: Login
             }
         ]
     }
