@@ -31,16 +31,18 @@ const Register = () => {
                             type="email"
                             className="input w-full"
                             placeholder="Email"
-                            {...register('photo', {required: true})}
+                            {...register('photo', { required: true })}
                         />
-                        {errors.photo === 'required' && <p className='text-red-500'>Photo is Required</p>}
+                        {errors.photo === 'required' && <p className='text-red-500'>Email is Required</p>}
 
                         <label className="label mt-4">Photo</label>
                         <input
                             type="txt"
                             className="input w-full"
                             placeholder="Photo URL"
+                            {...register('photo', { required: true })}
                         />
+                        {errors.photo === 'required' && <p className='text-red-500'>Photo is required</p>}
 
                         <label className="label mt-4">Password</label>
                         <input
