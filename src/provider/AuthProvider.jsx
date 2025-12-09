@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import AuthContext from '../context/AuthContext';
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import app from '../firebase/firebase.config';
 
-const auth = getAuth(app)
+const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
 
     // Theme related functionalities
@@ -24,13 +25,19 @@ const AuthProvider = ({ children }) => {
     }
 
     const login = (email, password) => {
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
+    }
+
+    const signInWithGoogle = () => {
+        setLoading(true);
+        return signInWithPopup(auth, googleProvider);
     }
 
     const authInfo = {
         toggleTheme, toggle,
         user, loading,
-        register, login,
+        register, login, signInWithGoogle, 
     }
 
     return <AuthContext value={authInfo}>{children}</AuthContext>;
