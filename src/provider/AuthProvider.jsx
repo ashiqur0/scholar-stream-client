@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AuthContext from '../context/AuthContext';
-import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import app from '../firebase/firebase.config';
 
 const auth = getAuth(app);
@@ -16,7 +16,7 @@ const AuthProvider = ({ children }) => {
         document.documentElement.setAttribute("data-theme", theme);
     }
 
-    const [user, serUser] = useState(null);
+    const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
     const register = (email, password) => {
@@ -39,10 +39,21 @@ const AuthProvider = ({ children }) => {
         return signOut(auth);
     }
 
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+            setLoading(false);
+        });
+
+        return () => {
+            unsubscribe();
+        }
+    }, []);
+
     const authInfo = {
         toggleTheme, toggle,
         user, loading,
-        register, login, signInWithGoogle, logOut, 
+        register, login, signInWithGoogle, logOut,
     }
 
     return <AuthContext value={authInfo}>{children}</AuthContext>;
