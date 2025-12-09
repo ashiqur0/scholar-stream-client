@@ -12,12 +12,14 @@ const AuthProvider = ({ children }) => {
     const toggleTheme = () => {
         toggle ? setTheme('dark') : setTheme('light');
         setToggle(!toggle);
-
         document.documentElement.setAttribute("data-theme", theme);
     }
 
+    
+
     const authInfo = {
-        toggleTheme, toggle
+        toggleTheme, toggle,
+
     }
 
     return <AuthContext value={authInfo}>{children}</AuthContext>;
