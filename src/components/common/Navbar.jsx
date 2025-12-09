@@ -34,10 +34,15 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <button onClick={toggleTheme} className="">
-                        <div className={`p-1 flex items-center gap-3 rounded-2xl ${toggle? 'bg-white': 'bg-slate-900'}`}>
-                            <div className={`${!toggle && 'bg-indigo-700 text-white' || 'text-amber-600'} p-1 rounded-full`}><MdLightMode /></div>
-                            <div className={`${toggle && 'bg-indigo-700 text-white' || 'text-white'} p-1 rounded-full`}><MdDarkMode /></div>
+                    <button 
+                    onClick={toggleTheme} 
+                    className="relative w-20 h-10 bg-gray-300 dark:bg-slate-900 rounded-full p-1 transition-colors duration-300">
+                        {/* Sliding Circle */}
+                        <div
+                            className={`absolute top-1 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300
+                            ${toggle ? "left-10 bg-amber-500 text-white" : "left-1 bg-indigo-700 text-white"}`}
+                        >
+                            {toggle ? <MdLightMode /> : <MdDarkMode />}
                         </div>
                     </button>
                 </div>
