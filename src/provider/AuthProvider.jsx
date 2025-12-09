@@ -16,16 +16,17 @@ const AuthProvider = ({ children }) => {
     }
 
     const [user, serUser] = useState(null);
-    const [loading, setLoading] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     const register = (email, password) => {
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
     const authInfo = {
         toggleTheme, toggle,
         user, loading,
-
+        register, 
     }
 
     return <AuthContext value={authInfo}>{children}</AuthContext>;
