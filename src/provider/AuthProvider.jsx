@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import AuthContext from '../context/AuthContext';
-import { getAuth } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import app from '../firebase/firebase.config';
 
 const auth = getAuth(app)
@@ -15,10 +15,11 @@ const AuthProvider = ({ children }) => {
         document.documentElement.setAttribute("data-theme", theme);
     }
 
-    
+    const [user, serUser] = useState(null);
 
     const authInfo = {
         toggleTheme, toggle,
+        user,
 
     }
 
