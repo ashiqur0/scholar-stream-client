@@ -21,6 +21,10 @@ const Router = createBrowserRouter([
             {
                 path: '/scholarships/details',
                 Component: ScholarshipDetails
+            },
+            {
+                path: '/',
+                Component: 
             }
         ]
     }
