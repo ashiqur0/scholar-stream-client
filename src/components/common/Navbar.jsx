@@ -1,8 +1,11 @@
 import React from 'react';
 import Logo from './Logo';
 import { NavLink } from 'react-router';
+import useAuth from '../../hooks/useAuth';
 
 const Navbar = () => {
+
+    const { changeTheme } = useAuth();
 
     const links = <>
         <li><NavLink to={'/'}>Home</NavLink></li>
@@ -30,7 +33,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Button</a>
+                    <a onClick={changeTheme} className="btn">Button</a>
                 </div>
             </div>
         </nav>
