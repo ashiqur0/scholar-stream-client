@@ -1,8 +1,8 @@
 import React from 'react';
 import { createBrowserRouter } from "react-router";
 import RootLayout from '../layout/RootLayout';
-import Home from '../pages/Home/Home/Home';
-import AllScholarships from '../pages/All-Scholarships/AllScholarships';
+import Home from '../pages/Root/Home/Home/Home';
+import AllScholarships from '../pages/Root/All-Scholarships/AllScholarships';
 
 const Router = createBrowserRouter([
     {
