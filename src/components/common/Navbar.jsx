@@ -5,7 +5,7 @@ import useAuth from '../../hooks/useAuth';
 
 const Navbar = () => {
 
-    const { changeTheme } = useAuth();
+    const { toggleTheme } = useAuth();
 
     const links = <>
         <li><NavLink to={'/'}>Home</NavLink></li>
@@ -33,7 +33,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a onClick={changeTheme} className="btn">Button</a>
+                    <a onClick={toggleTheme} className="btn">Button</a>
                 </div>
             </div>
         </nav>

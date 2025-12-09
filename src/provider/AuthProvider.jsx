@@ -6,7 +6,7 @@ const AuthProvider = ({ children }) => {
     // Theme related functionalities
     const [toggle, setToggle] = useState(true);
     const [theme, setTheme] = useState('dark');
-    const changeTheme = () => {
+    const toggleTheme = () => {
         toggle ? setTheme('dark') : setTheme('light');
         setToggle(!toggle);
 
@@ -14,7 +14,7 @@ const AuthProvider = ({ children }) => {
     }
 
     const authInfo = {
-        changeTheme,
+        toggleTheme,
     }
 
     return <AuthContext value={authInfo}>{children}</AuthContext>;
