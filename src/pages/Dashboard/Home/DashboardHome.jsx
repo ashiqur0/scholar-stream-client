@@ -3,6 +3,7 @@ import useRole from '../../../hooks/useRole';
 import Loading from '../../../components/common/Loading';
 import AdminDashboardHome from './AdminDashboardHome';
 import ModeratorDashboardHome from './ModeratorDashboardHome';
+import StudentDashboardHome from './StudentDashboardHome';
 
 const DashboardHome = () => {
 
@@ -12,7 +13,7 @@ const DashboardHome = () => {
     if (role === 'admin') return <AdminDashboardHome />
     else if (role === 'moderator') return <ModeratorDashboardHome />
 
-    return ;
+    return <StudentDashboardHome />
 };
 
 export default DashboardHome;
