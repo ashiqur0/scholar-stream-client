@@ -28,7 +28,7 @@ const DashboardLayout = () => {
                             !expand && <GoSidebarExpand size={20} /> || <GoSidebarCollapse size={20} />
                         }
                     </label>
-                    <div className="px-4 text-[1rem] font-semibold">Zap Shift Dashboard</div>
+                    <div className="px-4 text-[1rem] font-semibold">Scholar Stream Dashboard</div>
                 </nav>
 
                 {/* Page content here */}
