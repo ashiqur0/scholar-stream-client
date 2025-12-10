@@ -38,8 +38,8 @@ const Register = () => {
 
                         <label className="label mt-4">Photo</label>
                         <input
-                            type="txt"
-                            className="input w-full"
+                            type="file"
+                            className="file-input w-full"
                             placeholder="Photo URL"
                             {...register('photo', { required: true })}
                         />
