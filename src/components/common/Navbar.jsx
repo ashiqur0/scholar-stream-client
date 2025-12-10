@@ -61,17 +61,20 @@ const Navbar = () => {
 
                             <div className='w-10 rounded-full ml-3 cursor-pointer'
                             >
-                                <img src={`${user && user?.photoURL}`} alt={user?.displayName} />
+                                <img
+                                    className='rounded-full w-10 h-10'
+                                    src={`${user && user?.photoURL}`}
+                                    alt={user.displayName} />
                             </div>
                         </> : <>
                             <Link to={'/login'}
-                            className='btn btn-primary rounded-sm font-semibold hover:bg-slate-800 bg-slate-900'
+                                className='btn btn-primary rounded-sm font-semibold hover:bg-slate-800 bg-slate-900'
                             >
                                 Login
                             </Link>
 
-                             <Link to={'/register'}
-                            className='btn btn-primary rounded-sm font-semibold hover:bg-slate-800 bg-slate-900'
+                            <Link to={'/register'}
+                                className='btn btn-primary rounded-sm font-semibold hover:bg-slate-800 bg-slate-900'
                             >
                                 SignUp
                             </Link>
