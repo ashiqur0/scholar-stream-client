@@ -7,11 +7,13 @@ import ScholarshipDetails from '../pages/Root/Scholaships-Details/ScholarshipDet
 import AuthLayout from '../layout/AuthLayout';
 import Register from '../pages/Auth/Register/Register';
 import Login from '../pages/Auth/Login/Login';
+import PageNotFound from '../components/common/PageNotFound';
 
 const Router = createBrowserRouter([
     {
         path: '/',
         Component: RootLayout,
+        errorElement: <PageNotFound />,
         children: [
             {
                 index: true,
