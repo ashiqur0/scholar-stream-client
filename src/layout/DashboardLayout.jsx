@@ -8,12 +8,12 @@ import { GoSidebarCollapse } from "react-icons/go";
 import { MdAssignmentTurnedIn } from "react-icons/md";
 import { FaHome, FaTasks } from 'react-icons/fa';
 import logoImg from '../assets/logo.png'
+import useRole from '../hooks/useRole';
 
 const DashboardLayout = () => {
 
     const [expand, setExpand] = useState(true);
-    // const { role } = useRole();
-    const role = 'admin';
+    const { role } = useRole();
 
     return (
         <div className="drawer lg:drawer-open">
