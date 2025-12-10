@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
 import axios from 'axios';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import SocialLogin from '../../../components/common/SocialLogin';
 
 const Register = () => {
 
@@ -122,6 +123,8 @@ const Register = () => {
                         <p>Already have an account? <Link to='/login' state={location?.state} className='text-blue-700'>login</Link> </p>
                     </fieldset>
                 </form>
+
+                <SocialLogin />
             </div>
 
 
