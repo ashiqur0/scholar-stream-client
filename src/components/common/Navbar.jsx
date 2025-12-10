@@ -6,7 +6,10 @@ import { MdDarkMode, MdLightMode } from "react-icons/md";
 
 const Navbar = () => {
 
-    const { toggle, toggleTheme } = useAuth();
+    const {
+        toggle, toggleTheme,
+        user,
+    } = useAuth();
 
     const links = <>
         <li><NavLink to={'/'}>Home</NavLink></li>
@@ -34,10 +37,10 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <div className="navbar-end">
-                    <button 
-                    onClick={toggleTheme} 
-                    className="relative w-20 h-10 bg-gray-300 dark:bg-slate-900 rounded-full p-1 transition-colors duration-300">
+                <div className="md:flex hidden gap-3 navbar-end">
+                    <button
+                        onClick={toggleTheme}
+                        className="relative w-20 h-10 bg-gray-300 dark:bg-slate-900 rounded-full p-1 transition-colors duration-300">
                         {/* Sliding Circle */}
                         <div
                             className={`absolute top-1 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300
@@ -46,6 +49,19 @@ const Navbar = () => {
                             {toggle ? <MdLightMode /> : <MdDarkMode />}
                         </div>
                     </button>
+
+                    {
+                        !user ? <>
+                            <NavLink
+                                to={'/'}
+                                className={'btn btn-primary rounded-sm font-semibold hover:bg-slate-800 bg-slate-900'}
+                            >
+                                Logout
+                            </NavLink>
+                        </> : <>
+                            
+                        </>
+                    }
                 </div>
             </div>
         </nav>
