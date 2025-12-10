@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
 import axios from 'axios';
-import useAxios from '../../../hooks/useAxios';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
 const Register = () => {
 
@@ -11,7 +11,7 @@ const Register = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate();
     const location = useLocation();
-    const axios2 = useAxios();
+    const axiosSecure = useAxiosSecure()
 
     const handleRegistration = (data) => {
 
@@ -42,7 +42,7 @@ const Register = () => {
                             photoURL: photoURL
                         }
 
-                        axios2.post('/users', userInfo)
+                        axiosSecure.post('/users', userInfo)
                         .then(res => {
                             console.log('user is created in the database', res.data);
                         })
