@@ -8,6 +8,7 @@ import AuthLayout from '../layout/AuthLayout';
 import Register from '../pages/Auth/Register/Register';
 import Login from '../pages/Auth/Login/Login';
 import PageNotFound from '../components/common/PageNotFound';
+import PrivateRoute from './PrivateRoute';
 
 const Router = createBrowserRouter([
     {
@@ -25,7 +26,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: '/scholarships/details',
-                Component: ScholarshipDetails
+                element: <PrivateRoute><ScholarshipDetails /></PrivateRoute>
             }
         ]
     },
