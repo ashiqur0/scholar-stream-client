@@ -8,13 +8,23 @@ const Navbar = () => {
 
     const {
         toggle, toggleTheme,
-        user,
+        user, logOut
     } = useAuth();
 
     const links = <>
         <li><NavLink to={'/'}>Home</NavLink></li>
         <li><NavLink to={'/all-scholarships'}>All Scholarships</NavLink></li>
     </>
+
+    const handleLogOut = () => {
+        return logOut()
+            .then(() => {
+                console.log('Success Logout...');
+            })
+            .catch(error => {
+                console.log('Logout Failed with: ', error.code);
+            })
+    }
 
     return (
         <nav className='md:max-w-7xl md:mx-auto pt-4'>
@@ -53,6 +63,7 @@ const Navbar = () => {
                     {
                         user ? <>
                             <NavLink
+                                onClick={handleLogOut}
                                 to={'/'}
                                 className={'btn btn-primary rounded-sm font-semibold hover:bg-slate-800 bg-slate-900'}
                             >
