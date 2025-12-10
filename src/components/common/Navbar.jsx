@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from './Logo';
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 import { MdDarkMode, MdLightMode } from "react-icons/md";
 
@@ -51,7 +51,7 @@ const Navbar = () => {
                     </button>
 
                     {
-                        !user ? <>
+                        user ? <>
                             <NavLink
                                 to={'/'}
                                 className={'btn btn-primary rounded-sm font-semibold hover:bg-slate-800 bg-slate-900'}
@@ -64,7 +64,11 @@ const Navbar = () => {
                                 <img src={`${user && user?.photoURL}`} alt={user?.displayName} />
                             </div>
                         </> : <>
-
+                            <Link to={'/login'}
+                            className='btn btn-primary rounded-sm font-semibold hover:bg-slate-800 bg-slate-900'
+                            >
+                                Login
+                            </Link>
                         </>
                     }
                 </div>
