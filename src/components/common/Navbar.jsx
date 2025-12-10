@@ -58,8 +58,13 @@ const Navbar = () => {
                             >
                                 Logout
                             </NavLink>
+
+                            <div className='w-10 rounded-full ml-3 cursor-pointer'
+                            >
+                                <img src={`${user && user?.photoURL}`} alt={user?.displayName} />
+                            </div>
                         </> : <>
-                            
+
                         </>
                     }
                 </div>
