@@ -1,14 +1,25 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import SocialLogin from '../../../components/common/SocialLogin';
+import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
 
+    const { login } = useAuth();
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const handleLogin = (data) => {
-        console.log(data);
+        login(data.email, data.password)
+            .then(res => {
+                console.log('log in with email success', res);
+                navigate(location.state || '/');
+            })
+            .catch(err => {
+                console.log('error while login', err);
+            })
     }
 
     return (
