@@ -9,6 +9,7 @@ import Register from '../pages/Auth/Register/Register';
 import Login from '../pages/Auth/Login/Login';
 import PageNotFound from '../components/common/PageNotFound';
 import ProtectedRoute from './ProtectedRoute';
+import DashboardLayout from '../layout/DashboardLayout';
 
 const Router = createBrowserRouter([
     {
@@ -43,6 +44,10 @@ const Router = createBrowserRouter([
                 Component: Login
             }
         ]
+    },
+    {
+        path: '/dashboard',
+        element: <ProtectedRoute><DashboardLayout /></ProtectedRoute>
     }
 ])
 
