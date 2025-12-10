@@ -1,13 +1,15 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
 import axios from 'axios';
 
 const Register = () => {
 
-    const { register: createUserWithEmail } = useAuth();
+    const { register: createUserWithEmail, updateUser } = useAuth();
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const handleRegistration = (data) => {
 
@@ -30,7 +32,21 @@ const Register = () => {
 
                         // get direct link
                         const photoURL = res.data.data.url;
-                        
+
+                        // update firebase user profile
+                        const userProfile = {
+                            displayName: data.name,
+                            photoURL: photoURL
+                        }
+
+                        updateUser(userProfile)
+                            .then(res => {
+                                console.log('user profile updated', res);
+                                navigate(location.state || '/')
+                            })
+                            .then(err => {
+                                console.log('error updating profile', err);
+                            })
                     })
             })
             .catch(err => {
