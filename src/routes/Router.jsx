@@ -22,6 +22,7 @@ import MyApplications from '../pages/Dashboard/StudentDashboard/MyApplications/M
 import MyReviews from '../pages/Dashboard/StudentDashboard/MyReviews/MyReviews';
 import AdminRoute from './AdminRoute';
 import StudentRoute from './StudentRoute';
+import ModeratorRoute from './ModeratorRoute';
 
 const Router = createBrowserRouter([
     {
