@@ -20,7 +20,7 @@ const Forbidden = () => {
             <h1 className='text-3xl font-bold text-red-500'>You Are Forbidden To Access This Page</h1>
             <p className='text-lg text-gray-600 mt-2'>Please contact the administrator if you believe this is an error.</p>
 
-            <div>
+            <div className='my-3 space-x-3'>
                 <Link to={'/'} className='btn btn-primary'>Go Home</Link>
                 <Link to={'/dashboard'} className='btn btn-secondary'>Go Dashboard</Link>
             </div>
