@@ -86,7 +86,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: 'analytics',
-                element: <Analytics />
+                element: <AdminRoute><Analytics /></AdminRoute>
             },
 
             // moderator only route
