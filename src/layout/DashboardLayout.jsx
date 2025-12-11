@@ -5,7 +5,7 @@ import { AiOutlineGift } from "react-icons/ai";
 import { IoSettingsOutline } from 'react-icons/io5';
 import { GoSidebarExpand } from "react-icons/go";
 import { GoSidebarCollapse } from "react-icons/go";
-import { FaHome, FaTasks } from 'react-icons/fa';
+import { FaHome, FaTasks, FaUsers } from 'react-icons/fa';
 import logoImg from '../assets/logo.png'
 import useRole from '../hooks/useRole';
 import { CgProfile } from "react-icons/cg";
@@ -49,7 +49,7 @@ const DashboardLayout = () => {
                         <li><Link to={'/'} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Homepage">
                             <img src={logoImg} className='w-8 h-auto' alt="" />
                             <span className="is-drawer-close:hidden text-xl font-bold">Scholar Stream</span>
-                        </Link></li>                       
+                        </Link></li>
 
                         {/* common */}
                         <li><NavLink to={'/dashboard'} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Dashboard Home">
@@ -101,6 +101,13 @@ const DashboardLayout = () => {
                                     className={`is-drawer-close:tooltip is-drawer-close:tooltip-right`}
                                     data-tip="Manage Scholarship"><MdManageHistory size={20} />
                                     <span className='is-drawer-close:hidden'>Manage Scholarship</span>
+                                </NavLink></li>
+
+                                <li><NavLink
+                                    to='/dashboard/manage-users'
+                                    className={`is-drawer-close:tooltip is-drawer-close:tooltip-right`}
+                                    data-tip="Manage Users"><FaUsers size={20} />
+                                    <span className='is-drawer-close:hidden'>Manage Users</span>
                                 </NavLink></li>
                             </>
                         }
