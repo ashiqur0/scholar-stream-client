@@ -21,6 +21,7 @@ import AllReviews from '../pages/Dashboard/ModeratorDashboard/AllReviews/AllRevi
 import MyApplications from '../pages/Dashboard/StudentDashboard/MyApplications/MyApplications';
 import MyReviews from '../pages/Dashboard/StudentDashboard/MyReviews/MyReviews';
 import AdminRoute from './AdminRoute';
+import StudentRoute from './StudentRoute';
 
 const Router = createBrowserRouter([
     {
@@ -102,7 +103,7 @@ const Router = createBrowserRouter([
             // students only route
             {
                 path: 'my-applications',
-                element: <MyApplications />
+                element: <StudentRoute><MyApplications /></StudentRoute>
             },
             {
                 path: 'my-reviews',
