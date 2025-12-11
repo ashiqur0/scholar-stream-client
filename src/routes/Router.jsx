@@ -13,6 +13,7 @@ import DashboardLayout from '../layout/DashboardLayout';
 import DashboardHome from '../pages/Dashboard/Home/DashboardHome';
 import MyProfile from '../pages/Dashboard/Common/MyProfile/MyProfile';
 import AddScholarship from '../pages/Dashboard/AdminDashboard/AddSchorarship/AddScholarship';
+import ManageScholarship from '../pages/Dashboard/AdminDashboard/ManageScholarship/ManageScholarship';
 
 const Router = createBrowserRouter([
     {
@@ -67,7 +68,11 @@ const Router = createBrowserRouter([
             {
                 path: 'add-scholarship',
                 element: <AddScholarship />
-            }
+            },
+            {
+                path: 'manage-scholarship',
+                element: <ManageScholarship />
+            },
         ]
     }
 ])
