@@ -10,6 +10,8 @@ import logoImg from '../assets/logo.png'
 import useRole from '../hooks/useRole';
 import { CgProfile } from "react-icons/cg";
 import { MdLibraryAdd } from "react-icons/md";
+import { MdManageHistory } from "react-icons/md";
+
 
 const DashboardLayout = () => {
 
@@ -92,6 +94,13 @@ const DashboardLayout = () => {
                                     className={`is-drawer-close:tooltip is-drawer-close:tooltip-right`}
                                     data-tip="Add Scholarship"><MdLibraryAdd size={20} />
                                     <span className='is-drawer-close:hidden'>Add Scholarship</span>
+                                </NavLink></li>
+
+                                <li><NavLink
+                                    to='/dashboard/manage-scholarship'
+                                    className={`is-drawer-close:tooltip is-drawer-close:tooltip-right`}
+                                    data-tip="Manage Scholarship"><MdManageHistory size={20} />
+                                    <span className='is-drawer-close:hidden'>Manage Scholarship</span>
                                 </NavLink></li>
                             </>
                         }
