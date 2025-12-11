@@ -9,6 +9,7 @@ import { MdAssignmentTurnedIn } from "react-icons/md";
 import { FaHome, FaTasks } from 'react-icons/fa';
 import logoImg from '../assets/logo.png'
 import useRole from '../hooks/useRole';
+import { CgProfile } from "react-icons/cg";
 
 const DashboardLayout = () => {
 
@@ -52,6 +53,11 @@ const DashboardLayout = () => {
                         <li><NavLink to={'/dashboard'} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Dashboard Home">
                             <FaHome size={20} />
                             <span className="is-drawer-close:hidden">Dashboard Home</span>
+                        </NavLink></li>
+
+                        <li><NavLink to={'/dashboard/my-profile'} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="My Profile">
+                            <CgProfile size={20} />
+                            <span className="is-drawer-close:hidden">My Profile</span>
                         </NavLink></li>
 
                         {/* student only link */}
