@@ -6,7 +6,7 @@ import { IoSettingsOutline } from 'react-icons/io5';
 import { GoSidebarExpand } from "react-icons/go";
 import { GoSidebarCollapse } from "react-icons/go";
 import { FaHome, FaTasks, FaUsers } from 'react-icons/fa';
-import logoImg from '../assets/logo.png'
+import { GiGraduateCap } from "react-icons/gi";
 import useRole from '../hooks/useRole';
 import { CgProfile } from "react-icons/cg";
 import { MdLibraryAdd } from "react-icons/md";
@@ -47,7 +47,7 @@ const DashboardLayout = () => {
 
                         {/* common links*/}
                         <li><Link to={'/'} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Homepage">
-                            <img src={logoImg} className='w-8 h-auto' alt="" />
+                            <GiGraduateCap size={25}/>
                             <span className="is-drawer-close:hidden text-xl font-bold">Scholar Stream</span>
                         </Link></li>
 
