@@ -92,7 +92,7 @@ const Router = createBrowserRouter([
             // moderator only route
             {
                 path: 'manage-applied-applications',
-                element: <ManageAppliedApplications />
+                element: <ModeratorRoute><ManageAppliedApplications /></ModeratorRoute>
             },
             {
                 path: 'all-reviews',
