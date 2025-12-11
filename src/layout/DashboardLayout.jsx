@@ -79,10 +79,10 @@ const DashboardLayout = () => {
                         {
                             role === 'moderator' && <>
                                 <li><NavLink
-                                    to='/dashboard/assigned-deliveries'
+                                    to='/dashboard/manage-applied-applications'
                                     className={`is-drawer-close:tooltip is-drawer-close:tooltip-right`}
-                                    data-tip="Assigned Deliveries"><FaTasks size={20} />
-                                    <span className='is-drawer-close:hidden'>Assigned Deliveries</span>
+                                    data-tip="Manage Applications"><MdManageHistory size={20} />
+                                    <span className='is-drawer-close:hidden'>Manage Applications</span>
                                 </NavLink></li>
                             </>
                         }
