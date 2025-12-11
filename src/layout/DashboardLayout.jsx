@@ -5,11 +5,11 @@ import { AiOutlineGift } from "react-icons/ai";
 import { IoSettingsOutline } from 'react-icons/io5';
 import { GoSidebarExpand } from "react-icons/go";
 import { GoSidebarCollapse } from "react-icons/go";
-import { MdAssignmentTurnedIn } from "react-icons/md";
 import { FaHome, FaTasks } from 'react-icons/fa';
 import logoImg from '../assets/logo.png'
 import useRole from '../hooks/useRole';
 import { CgProfile } from "react-icons/cg";
+import { MdLibraryAdd } from "react-icons/md";
 
 const DashboardLayout = () => {
 
@@ -88,10 +88,10 @@ const DashboardLayout = () => {
                         {
                             role === 'admin' && <>
                                 <li><NavLink
-                                    to='/dashboard/approve-riders'
+                                    to='/dashboard/add-scholarship'
                                     className={`is-drawer-close:tooltip is-drawer-close:tooltip-right`}
-                                    data-tip="Approve Riders"><MdAssignmentTurnedIn size={20} />
-                                    <span className='is-drawer-close:hidden'>Approve Riders</span>
+                                    data-tip="Add Scholarship"><MdLibraryAdd size={20} />
+                                    <span className='is-drawer-close:hidden'>Add Scholarship</span>
                                 </NavLink></li>
                             </>
                         }
