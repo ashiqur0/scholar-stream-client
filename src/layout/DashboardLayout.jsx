@@ -11,6 +11,7 @@ import useRole from '../hooks/useRole';
 import { CgProfile } from "react-icons/cg";
 import { MdLibraryAdd } from "react-icons/md";
 import { MdManageHistory } from "react-icons/md";
+import { IoAnalyticsSharp } from "react-icons/io5";
 
 
 const DashboardLayout = () => {
@@ -108,6 +109,13 @@ const DashboardLayout = () => {
                                     className={`is-drawer-close:tooltip is-drawer-close:tooltip-right`}
                                     data-tip="Manage Users"><FaUsers size={20} />
                                     <span className='is-drawer-close:hidden'>Manage Users</span>
+                                </NavLink></li>
+
+                                <li><NavLink
+                                    to='/dashboard/analytics'
+                                    className={`is-drawer-close:tooltip is-drawer-close:tooltip-right`}
+                                    data-tip="Analytics"><IoAnalyticsSharp size={20} />
+                                    <span className='is-drawer-close:hidden'>Analytics</span>
                                 </NavLink></li>
                             </>
                         }
