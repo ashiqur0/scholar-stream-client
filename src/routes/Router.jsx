@@ -15,6 +15,7 @@ import MyProfile from '../pages/Dashboard/Common/MyProfile/MyProfile';
 import AddScholarship from '../pages/Dashboard/AdminDashboard/AddSchorarship/AddScholarship';
 import ManageScholarship from '../pages/Dashboard/AdminDashboard/ManageScholarship/ManageScholarship';
 import ManageUsers from '../pages/Dashboard/AdminDashboard/ManageUsers/ManageUsers';
+import Analytics from '../pages/Dashboard/AdminDashboard/Analytics/Analytics';
 
 const Router = createBrowserRouter([
     {
@@ -77,6 +78,10 @@ const Router = createBrowserRouter([
             {
                 path: 'manage-users',
                 element: <ManageUsers />
+            },
+            {
+                path: 'analytics',
+                element: <Analytics />
             },
         ]
     }
