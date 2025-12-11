@@ -92,7 +92,7 @@ const Router = createBrowserRouter([
                 element: <ManageAppliedApplications />
             },
             {
-                path: 'all-review',
+                path: 'all-reviews',
                 element: <AllReviews />
             },
         ]

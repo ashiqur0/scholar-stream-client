@@ -12,7 +12,7 @@ import { CgProfile } from "react-icons/cg";
 import { MdLibraryAdd } from "react-icons/md";
 import { MdManageHistory } from "react-icons/md";
 import { IoAnalyticsSharp } from "react-icons/io5";
-
+import { MdRateReview } from "react-icons/md";
 
 const DashboardLayout = () => {
 
@@ -83,6 +83,13 @@ const DashboardLayout = () => {
                                     className={`is-drawer-close:tooltip is-drawer-close:tooltip-right`}
                                     data-tip="Manage Applications"><MdManageHistory size={20} />
                                     <span className='is-drawer-close:hidden'>Manage Applications</span>
+                                </NavLink></li>
+
+                                <li><NavLink
+                                    to='/dashboard/all-reviews'
+                                    className={`is-drawer-close:tooltip is-drawer-close:tooltip-right`}
+                                    data-tip="All Reviews"><MdRateReview size={20} />
+                                    <span className='is-drawer-close:hidden'>All Reviews</span>
                                 </NavLink></li>
                             </>
                         }
