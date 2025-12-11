@@ -13,6 +13,7 @@ import { MdLibraryAdd } from "react-icons/md";
 import { MdManageHistory } from "react-icons/md";
 import { IoAnalyticsSharp } from "react-icons/io5";
 import { MdRateReview } from "react-icons/md";
+import { FaWpforms } from "react-icons/fa";
 
 const DashboardLayout = () => {
 
@@ -67,10 +68,10 @@ const DashboardLayout = () => {
                         {
                             role === 'student' && <>
                                 <li><NavLink
-                                    to='/dashboard/my-parcels'
+                                    to='/dashboard/my-applications'
                                     className={`is-drawer-close:tooltip is-drawer-close:tooltip-right`}
-                                    data-tip="My Parcels"><AiOutlineGift size={20} />
-                                    <span className='is-drawer-close:hidden'>My Parcels</span>
+                                    data-tip="My Applications"><FaWpforms size={20} />
+                                    <span className='is-drawer-close:hidden'>My Applications</span>
                                 </NavLink></li>
                             </>
                         }
