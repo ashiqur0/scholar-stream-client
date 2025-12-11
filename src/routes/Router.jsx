@@ -107,7 +107,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: 'my-reviews',
-                element: <MyReviews />
+                element: <StudentRoute><MyReviews /></StudentRoute>
             }
         ]
     }
