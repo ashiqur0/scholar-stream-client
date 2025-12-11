@@ -82,7 +82,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: 'manage-users',
-                element: <ManageUsers />
+                element: <AdminRoute><ManageUsers /></AdminRoute>
             },
             {
                 path: 'analytics',
