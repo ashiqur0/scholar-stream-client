@@ -96,7 +96,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: 'all-reviews',
-                element: <AllReviews />
+                element: <ModeratorRoute><AllReviews /> </ModeratorRoute>
             },
 
             // students only route
