@@ -16,6 +16,7 @@ import AddScholarship from '../pages/Dashboard/AdminDashboard/AddSchorarship/Add
 import ManageScholarship from '../pages/Dashboard/AdminDashboard/ManageScholarship/ManageScholarship';
 import ManageUsers from '../pages/Dashboard/AdminDashboard/ManageUsers/ManageUsers';
 import Analytics from '../pages/Dashboard/AdminDashboard/Analytics/Analytics';
+import ManageAppliedApplications from '../pages/Dashboard/ModeratorDashboard/ManageAppliedApplications/ManageAppliedApplications';
 
 const Router = createBrowserRouter([
     {
@@ -83,6 +84,12 @@ const Router = createBrowserRouter([
                 path: 'analytics',
                 element: <Analytics />
             },
+
+            // moderator only route
+            {
+                path: 'manage-applied-applications',
+                element: <ManageAppliedApplications />
+            }
         ]
     }
 ])
