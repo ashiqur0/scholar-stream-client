@@ -19,6 +19,7 @@ import Analytics from '../pages/Dashboard/AdminDashboard/Analytics/Analytics';
 import ManageAppliedApplications from '../pages/Dashboard/ModeratorDashboard/ManageAppliedApplications/ManageAppliedApplications';
 import AllReviews from '../pages/Dashboard/ModeratorDashboard/AllReviews/AllReviews';
 import MyApplications from '../pages/Dashboard/StudentDashboard/MyApplications/MyApplications';
+import MyReviews from '../pages/Dashboard/StudentDashboard/MyReviews/MyReviews';
 
 const Router = createBrowserRouter([
     {
@@ -101,6 +102,10 @@ const Router = createBrowserRouter([
             {
                 path: 'my-applications',
                 element: <MyApplications />
+            },
+            {
+                path: 'my-reviews',
+                element: <MyReviews />
             }
         ]
     }
