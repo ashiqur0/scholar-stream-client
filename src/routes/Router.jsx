@@ -18,6 +18,7 @@ import ManageUsers from '../pages/Dashboard/AdminDashboard/ManageUsers/ManageUse
 import Analytics from '../pages/Dashboard/AdminDashboard/Analytics/Analytics';
 import ManageAppliedApplications from '../pages/Dashboard/ModeratorDashboard/ManageAppliedApplications/ManageAppliedApplications';
 import AllReviews from '../pages/Dashboard/ModeratorDashboard/AllReviews/AllReviews';
+import MyApplications from '../pages/Dashboard/StudentDashboard/MyApplications/MyApplications';
 
 const Router = createBrowserRouter([
     {
@@ -95,6 +96,12 @@ const Router = createBrowserRouter([
                 path: 'all-reviews',
                 element: <AllReviews />
             },
+
+            // students only route
+            {
+                path: 'my-applications',
+                element: <MyApplications />
+            }
         ]
     }
 ])
