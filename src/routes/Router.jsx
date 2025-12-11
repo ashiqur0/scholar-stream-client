@@ -11,6 +11,7 @@ import PageNotFound from '../components/common/PageNotFound';
 import ProtectedRoute from './ProtectedRoute';
 import DashboardLayout from '../layout/DashboardLayout';
 import DashboardHome from '../pages/Dashboard/Home/DashboardHome';
+import MyProfile from '../pages/Dashboard/Common/MyProfile/MyProfile';
 
 const Router = createBrowserRouter([
     {
@@ -50,9 +51,15 @@ const Router = createBrowserRouter([
         path: '/dashboard',
         element: <ProtectedRoute><DashboardLayout /></ProtectedRoute>,
         children: [
+            
+            // common dashboard route
             {
                 index: true,
                 Component: DashboardHome
+            },
+            {
+                path: 'my-profile',
+                Component: MyProfile
             }
         ]
     }
