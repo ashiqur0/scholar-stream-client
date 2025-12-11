@@ -73,6 +73,13 @@ const DashboardLayout = () => {
                                     data-tip="My Applications"><FaWpforms size={20} />
                                     <span className='is-drawer-close:hidden'>My Applications</span>
                                 </NavLink></li>
+
+                                <li><NavLink
+                                    to='/dashboard/my-reviews'
+                                    className={`is-drawer-close:tooltip is-drawer-close:tooltip-right`}
+                                    data-tip="My Reviews"><MdRateReview size={20} />
+                                    <span className='is-drawer-close:hidden'>My Reviews</span>
+                                </NavLink></li>
                             </>
                         }
 
