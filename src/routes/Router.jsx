@@ -78,7 +78,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: 'manage-scholarship',
-                element: <ManageScholarship />
+                element: <AdminRoute><ManageScholarship /></AdminRoute>
             },
             {
                 path: 'manage-users',
