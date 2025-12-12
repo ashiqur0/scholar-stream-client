@@ -1,33 +1,57 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../../../hooks/useAuth';
+import axios from 'axios';
+import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 
 const AddScholarship = () => {
 
     const { user } = useAuth();
-
+    const axiosSecure = useAxiosSecure();
     const { register, handleSubmit } = useForm();
 
     const handleAddScholarship = (data) => {
 
-        const scholarshipInfo = {
-            scholarshipName: data.scholarshipName,
-            universityName: data.universityName,
-            universityImage: data.universityImage,
-            universityCountry: data.universityCountry,
-            universityCity: data.universityCity,
-            universityWorldRank: data.universityWorldRank,
-            subjectCategory: data.subjectCategory,
-            scholarshipCategory: data.scholarshipCategory,
-            degree: data.degree,
-            tuitionFees: data.tuitionFees,
-            applicationFees: data.applicationFees,
-            serviceCharge: data.serviceCharge,
-            applicationDeadline: new Date(data.applicationDeadline).toISOString().replace("Z", "+00:00"),
-            scholarshipPostDate: new Date().toISOString().replace("Z", "+00:00"),
-            postedUserEmail: data.postedUserEmail,
-        }
-        console.log(scholarshipInfo);
+        const universityImage = data.universityImage[0];
+
+        // store the image in form data
+        const formData = new FormData();
+        formData.append('image', universityImage);
+
+        // image bb photo upload api url
+        const image_API_URL = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_image_host}`
+
+        axios.post(image_API_URL, formData)
+            .then(res => {
+
+                // get direct link
+                const universityImage = res.data.data.url;
+
+                // store user to database
+                const scholarshipInfo = {
+                    scholarshipName: data.scholarshipName,
+                    universityName: data.universityName,
+                    universityImage: universityImage,
+                    universityCountry: data.universityCountry,
+                    universityCity: data.universityCity,
+                    universityWorldRank: data.universityWorldRank,
+                    subjectCategory: data.subjectCategory,
+                    scholarshipCategory: data.scholarshipCategory,
+                    degree: data.degree,
+                    tuitionFees: data.tuitionFees,
+                    applicationFees: data.applicationFees,
+                    serviceCharge: data.serviceCharge,
+                    applicationDeadline: new Date(data.applicationDeadline).toISOString().replace("Z", "+00:00"),
+                    scholarshipPostDate: new Date().toISOString().replace("Z", "+00:00"),
+                    postedUserEmail: data.postedUserEmail,
+                }
+
+                axiosSecure.post('/scholarship', scholarshipInfo)
+                    .then(res => {
+                        console.log('user is created in the database', res.data);
+                    })
+
+            });
     }
 
     return (
