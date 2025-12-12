@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
 import axios from 'axios';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
-import SocialLogin from '../../../components/common/SocialLogin';
+import SocialLogin from '../../../components/SocialLogin';
 
 const Register = () => {
 

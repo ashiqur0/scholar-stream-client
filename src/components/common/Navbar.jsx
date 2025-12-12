@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from './Logo';
+import Logo from '../Logo';
 import { Link, NavLink } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 import { MdDarkMode, MdLightMode } from "react-icons/md";

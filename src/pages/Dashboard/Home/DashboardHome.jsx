@@ -1,6 +1,6 @@
 import React from 'react';
 import useRole from '../../../hooks/useRole';
-import Loading from '../../../components/common/Loading';
+import Loading from '../../../components/Loading';
 import AdminDashboardHome from './AdminDashboardHome';
 import ModeratorDashboardHome from './ModeratorDashboardHome';
 import StudentDashboardHome from './StudentDashboardHome';

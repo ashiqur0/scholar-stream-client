@@ -46,9 +46,9 @@ const AddScholarship = () => {
                     postedUserEmail: data.postedUserEmail,
                 }
 
-                axiosSecure.post('/scholarship', scholarshipInfo)
+                axiosSecure.post(`/scholarship?email=${user.email}`, scholarshipInfo)
                     .then(res => {
-                        console.log('user is created in the database', res.data);
+                        console.log('scholarship is created in the database', res.data);
                     })
 
             });

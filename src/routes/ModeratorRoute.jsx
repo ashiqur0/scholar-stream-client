@@ -1,7 +1,7 @@
 import React, { Children } from 'react';
 import useAuth from '../hooks/useAuth';
 import useRole from '../hooks/useRole';
-import Loading from '../components/common/Loading';
+import Loading from '../components/Loading';
 import Forbidden from '../pages/Forbidden/Forbidden';
 
 const ModeratorRoute = ({ children }) => {

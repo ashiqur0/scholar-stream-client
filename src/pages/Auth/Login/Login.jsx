@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router';
-import SocialLogin from '../../../components/common/SocialLogin';
+import SocialLogin from '../../../components/SocialLogin';
 import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
