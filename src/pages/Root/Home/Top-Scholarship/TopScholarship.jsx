@@ -1,6 +1,7 @@
 import React from 'react';
 import useAxios from '../../../../hooks/useAxios';
 import { useQuery } from '@tanstack/react-query';
+import Scholarship from '../../../../components/Scholarship';
 
 const TopScholarship = () => {
 
@@ -14,7 +15,7 @@ const TopScholarship = () => {
         }
     })
 
-    console.log(scholarship);
+    // console.log(scholarship);
 
     return (
         <div className='my-10'>
@@ -22,7 +23,7 @@ const TopScholarship = () => {
 
             <div className='grid grid-cols-1 md:grid-cols-3 gap-5'>
                 {
-                    // latestProducts.map(product => <Products key={product._id} product={product}></Products>)
+                    scholarship.map(product => <Scholarship key={product._id} scholarship={scholarship}></Scholarship>)
                 }
             </div>
         </div>
