@@ -8,14 +8,12 @@ const TopScholarship = () => {
     const axios = useAxios();
 
     const { data: scholarships = [] } = useQuery({
-        queryKey: ['riders', 'pending'],
+        queryKey: ['scholarship'],
         queryFn: async () => {
             const res = await axios.get('/latest-scholarship');
             return res.data;
         }
-    })
-
-    console.log(scholarships);
+    });
 
     return (
         <div className='my-6 md:max-w-7xl md:mx-auto p-4'>

@@ -21,7 +21,7 @@ const Scholarship = ({ scholarship }) => {
                 <p>University City: {universityCity}</p>
                 <p>University World Rank: {universityWorldRank}</p>
 
-                <Link to={`/scholarships/details/${_id}`} className="card-actions ">
+                <Link to={`/scholarship/details/${_id}`} className="card-actions ">
                     <button className='btn btn-primary w-full'>See Details</button>
                 </Link>
             </div>

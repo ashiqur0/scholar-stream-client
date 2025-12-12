@@ -8,7 +8,7 @@ const AllScholarships = () => {
     const axios = useAxios();
 
     const { data: scholarships = [] } = useQuery({
-        queryKey: ['riders', 'pending'],
+        queryKey: ['scholarship'],
         queryFn: async () => {
             const res = await axios.get('/scholarship');
             return res.data;

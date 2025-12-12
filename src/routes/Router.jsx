@@ -39,8 +39,8 @@ const Router = createBrowserRouter([
                 Component: AllScholarships
             },
             {
-                path: '/scholarships/details/:id',
-                element: <ProtectedRoute><ScholarshipDetails /></ProtectedRoute>
+                path: '/scholarship/details/:id',
+                element: <ProtectedRoute><ScholarshipDetails /></ProtectedRoute>,
             }
         ]
     },
