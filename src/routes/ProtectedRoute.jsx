@@ -9,9 +9,9 @@ const ProtectedRoute = ({ children }) => {
     const location = useLocation();
 
     if (loading) return <Loading />
-    if (!user) <Navigate to={"/login"} state={location.pathname}></Navigate>
+    if (user)  children;
 
-    return children;
+    return <Navigate to={"/login"} state={location.pathname}></Navigate>;
 };
 
 export default ProtectedRoute;
