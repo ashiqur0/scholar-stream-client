@@ -7,7 +7,7 @@ const TopScholarship = () => {
 
     const axios = useAxios();
 
-    const { data: scholarship = [] } = useQuery({
+    const { data: scholarships = [] } = useQuery({
         queryKey: ['riders', 'pending'],
         queryFn: async () => {
             const res = await axios.get('/latest-scholarship');
@@ -15,15 +15,15 @@ const TopScholarship = () => {
         }
     })
 
-    // console.log(scholarship);
+    console.log(scholarships);
 
     return (
-        <div className='my-10'>
-            <h1 className='md:text-3xl text-2xl font-semibold mb-5'>Latest products({scholarship.length})</h1>
+        <div className='my-6 md:max-w-7xl md:mx-auto p-4'>
+            <h1 className='md:text-3xl text-2xl font-semibold mb-5'>Top Scholarship({scholarships.length})</h1>
 
             <div className='grid grid-cols-1 md:grid-cols-3 gap-5'>
                 {
-                    scholarship.map(product => <Scholarship key={product._id} scholarship={scholarship}></Scholarship>)
+                    scholarships.map(scholarship => <Scholarship key={scholarship._id} scholarship={scholarship}></Scholarship>)
                 }
             </div>
         </div>
