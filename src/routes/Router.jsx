@@ -23,6 +23,7 @@ import MyReviews from '../pages/Dashboard/StudentDashboard/MyReviews/MyReviews';
 import AdminRoute from './AdminRoute';
 import StudentRoute from './StudentRoute';
 import ModeratorRoute from './ModeratorRoute';
+import Loading from '../components/Loading';
 
 const Router = createBrowserRouter([
     {
@@ -40,6 +41,8 @@ const Router = createBrowserRouter([
             },
             {
                 path: '/scholarship/details/:id',
+                // loader: ({ params }) => fetch(`http:/localhost:3000/scholarship/${params.id}`),
+                // hydrateFallbackElement: <Loading></Loading>,
                 element: <ProtectedRoute><ScholarshipDetails /></ProtectedRoute>,
             }
         ]

@@ -1,28 +1,109 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router';
-import { useQuery } from '@tanstack/react-query';
-import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import { FaLocationDot } from "react-icons/fa6";
+import useAxios from '../../../hooks/useAxios';
+import { useForm } from 'react-hook-form';
 import useAuth from '../../../hooks/useAuth';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
 const ScholarshipDetails = () => {
 
+    const [scholarship, setScholarship] = useState({});
+    const axios = useAxios();
     const { id } = useParams();
-    const { user } = useAuth();
+    const applyModalRef = useRef(null);
+    const { register, handleSubmit } = useForm();
+    const {user} = useAuth();
     const axiosSecure = useAxiosSecure();
 
-    const { data: scholarship } = useQuery({
-        queryKey: ['scholarship'],
-        queryFn: async () => {
-            const res = await axiosSecure.get(`/scholarship/${id}?email=${user.email}`);
-            return res.data;
-        }
-    });
+    useEffect(() => {
+        axios.get(`/scholarship/${id}`)
+            .then(res => {
+                setScholarship(res.data);
+            })
+    }, [axios, id])
 
-    console.log(scholarship);
+    const { _id, universityImage, universityName, scholarshipName, universityCountry, universityCity, universityWorldRank, subjectCategory, scholarshipCategory, degree, scholarshipPostDate, applicationDeadline, applicationFees, postedUserEmail } = scholarship;
+
+    const handleApplyModalOpen = () => {
+        applyModalRef.current.showModal();
+    }
+
+    const handleApply = (data) => {
+        const applicationInfo = {
+            scholarshipId: _id,
+            userId:,
+            userName:,
+            userEmail:,
+            universityName:,
+            scholarshipCategory:,
+            degree:,
+            applicationFees:,
+            serviceCharge:,
+            applicationStatus: 'pending',
+            paymentStatus: 'unpaid',
+            applicationDate: new Date().toISOString().replace("Z", "+00:00"),
+            feedback: ''
+        }
+        axiosSecure.post(`/scholarship?email=${user.email}`, applicationInfo)
+            .then(res => {
+                console.log('scholarship is created in the database', res.data);
+            })
+        console.log(data);
+    }
 
     return (
-        <div>
-            <h1>Scholarship Details Page</h1>
+        <div className='max-w-7xl md:mx-auto mx-3 my-10'>
+            <div className='grid grid-cols-1 md:grid-cols-2 justify-center items-start md:gap-10 gap-5 bg-slate-800 md:p-10 p-3 rounded-xl h-full'>
+                <div>
+                    <img src={universityImage} alt={universityName} className='rounded-xl md:w-full md:h-100 overflow-hidden' />
+                </div>
+
+                <div className='h-full flex flex-col justify-between space-y-5'>
+                    <div className='space-y-2'>
+                        <h1 className='text-2xl font-semibold'>{scholarshipName}</h1>
+                        <p className='font-semibold text-xl'>{universityName} <span className='text-xs'>(World Rank: {universityWorldRank})</span></p>
+                        <div className='font-semibold flex items-center gap-1'>
+                            <span><FaLocationDot /></span> <span>{universityCountry}, {universityCity}</span></div>
+
+                        <p className='font-semibold'>Subject: {subjectCategory}</p>
+                        <p className='font-semibold'>Category: {scholarshipCategory}</p>
+                        <p className='font-semibold'>Degree: {degree}</p>
+                        <p className='font-semibold'>Scholarship Published: {scholarshipPostDate?.slice(0, 10)}</p>
+                        <p className='font-semibold'>Application Deadline: {applicationDeadline?.slice(0, 10)}</p>
+                        <p className='font-semibold'>Application Fee: ${applicationFees}</p>
+                        <p className='font-semibold'>Contact: {postedUserEmail}</p>
+                    </div>
+                    <button onClick={handleApplyModalOpen} className='btn btn-primary'>Apply Now</button>
+                </div>
+            </div>
+
+            {/* modal */}
+            <dialog ref={applyModalRef} className="modal modal-bottom sm:modal-middle">
+                <div className="modal-box">
+
+                    <form onSubmit={handleSubmit(handleApply)}>
+
+                        {/* Scholarship Name */}
+                        <label className="label mt-4 text-[14px]">Scholarship Name</label>
+                        <input
+                            type="text"
+                            {...register('scholarshipName')}
+                            className="input w-full"
+                            placeholder='Scholarship Name'
+                        />
+
+                        <button type='submit' className='btn btn-primary'>Submit</button>
+                    </form>
+
+                    <div className="modal-action">
+                        <form method="dialog">
+                            {/* if there is a button in form, it will close the modal */}
+                            <button className="btn">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
         </div>
     );
 };
