@@ -41,8 +41,6 @@ const Router = createBrowserRouter([
             },
             {
                 path: '/scholarship/details/:id',
-                // loader: ({ params }) => fetch(`http:/localhost:3000/scholarship/${params.id}`),
-                // hydrateFallbackElement: <Loading></Loading>,
                 element: <ProtectedRoute><ScholarshipDetails /></ProtectedRoute>,
             }
         ]
