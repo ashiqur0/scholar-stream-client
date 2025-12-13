@@ -22,10 +22,10 @@ const ManageAppliedApplications = () => {
         }
 
         axios.patch(`/applications/${application._id}`, updatedStatus)
-        .then(res => {
-            refetch();
-            console.log('after status updating', res.data);
-        })
+            .then(res => {
+                refetch();
+                console.log('after status updating', res.data);
+            })
     }
 
     return (
@@ -57,20 +57,26 @@ const ManageAppliedApplications = () => {
                                 <td className=''>
                                     {
                                         application.applicationStatus === 'pending' && <>
-                                            <button onClick={()=>updateApplicationStatus(application, 'processing')} className='btn font-bold'>processing</button>
+                                            <button onClick={() => updateApplicationStatus(application, 'processing')} className='btn font-bold'>processing</button>
                                         </>
                                     }
                                     {
                                         application.applicationStatus === 'processing' && <>
                                             <div className='flex items-center justify-start gap-2'>
-                                                <button onClick={()=>updateApplicationStatus(application, 'approved')} className='btn btn-outline btn-success'><TiTick size={20} /></button>
-                                                <button className='btn btn-outline btn-error font-bold'>X</button>
+                                                <button onClick={() => updateApplicationStatus(application, 'approved')} className='btn btn-outline btn-success'><TiTick size={20} /></button>
+
+                                                <button onClick={() => updateApplicationStatus(application, 'canceled')} className='btn btn-outline btn-error font-bold'>X</button>
                                             </div>
                                         </>
                                     }
                                     {
                                         application.applicationStatus === 'approved' && <>
-                                            <button className='text-green-500'>Approved</button>
+                                            <p className='text-green-500'>Approved</p>
+                                        </>
+                                    }
+                                    {
+                                        application.applicationStatus === 'canceled' && <>
+                                            <p className='text-red-500'>Approved</p>
                                         </>
                                     }
                                 </td>
