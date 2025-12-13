@@ -17,7 +17,7 @@ const TopScholarship = () => {
 
     return (
         <div className='my-6 md:max-w-7xl md:mx-auto p-4'>
-            <h1 className='md:text-3xl text-2xl font-semibold mb-5'>Top Scholarship({scholarships.length})</h1>
+            <h1 className='md:text-2xl text-xl font-semibold mb-5'>Top Scholarship({scholarships.length})</h1>
 
             <div className='grid grid-cols-1 md:grid-cols-3 gap-5'>
                 {
