@@ -54,7 +54,7 @@ const ManageScholarship = () => {
                                 <td>{scholarship.scholarshipCategory}</td>
                                 <td>{scholarship.degree}</td>
                                 <td>
-                                    <button onClick={() => manageScholarship(scholarship)} className='btn btn-outline btn-error w-25'>Delete</button>
+                                    <button onClick={() => manageScholarship(scholarship)} className='btn btn-sm btn-soft btn-secondary w-25'>Delete</button>
                                 </td>
                             </tr>)
                         }
