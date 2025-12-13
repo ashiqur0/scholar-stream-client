@@ -10,7 +10,6 @@ import Login from '../pages/Auth/Login/Login';
 import PageNotFound from '../pages/Error/PageNotFound';
 import ProtectedRoute from './ProtectedRoute';
 import DashboardLayout from '../layout/DashboardLayout';
-import DashboardHome from '../pages/Dashboard/Home/DashboardHome';
 import MyProfile from '../pages/Dashboard/Common/MyProfile/MyProfile';
 import AddScholarship from '../pages/Dashboard/AdminDashboard/AddSchorarship/AddScholarship';
 import ManageScholarship from '../pages/Dashboard/AdminDashboard/ManageScholarship/ManageScholarship';

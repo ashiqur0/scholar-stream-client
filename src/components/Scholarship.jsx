@@ -22,7 +22,7 @@ const Scholarship = ({ scholarship }) => {
                 <p>University World Rank: {universityWorldRank}</p>
 
                 <Link to={`/scholarship/details/${_id}`} className="card-actions ">
-                    <button className='btn btn-primary w-full'>See Details</button>
+                    <button className='btn btn-primary w-full'>View Details</button>
                 </Link>
             </div>
         </div>
