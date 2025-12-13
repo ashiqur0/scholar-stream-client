@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const Scholarship = ({ scholarship }) => {
-    const { _id, universityImage, scholarshipName, universityName, universityCountry, universityCity, universityWorldRank, } = scholarship;
+    const { _id, universityImage, universityName, universityCountry, universityCity, scholarshipCategory, applicationFees } = scholarship;
 
 
     return (
@@ -15,11 +15,10 @@ const Scholarship = ({ scholarship }) => {
             </figure>
 
             <div className="space-y-3 mt-5">
-                <h2 className="card-title">{scholarshipName}</h2>
-                <p>University Name: {universityName}</p>
-                <p>Country: {universityCountry}</p>
-                <p>University City: {universityCity}</p>
-                <p>University World Rank: {universityWorldRank}</p>
+                <h2 className="card-title">University Name: {universityName}</h2>
+                <p>Scholarship Category: {scholarshipCategory}</p>
+                <p>Location: {universityCity}, {universityCountry}</p>
+                <p>Application Fee: ${applicationFees}</p>
 
                 <Link to={`/scholarship/details/${_id}`} className="card-actions ">
                     <button className='btn btn-primary w-full'>View Details</button>
