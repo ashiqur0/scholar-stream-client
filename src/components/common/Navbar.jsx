@@ -65,20 +65,34 @@ const Navbar = () => {
 
                     {
                         user ? <>
-                            <NavLink
-                                onClick={handleLogOut}
-                                to={'/'}
-                                className={'btn btn-primary rounded-sm font-semibold hover:bg-slate-800 bg-slate-900'}
+                            <div className='w-10 rounded-full ml-3 cursor-pointer dropdown'
                             >
-                                Logout
-                            </NavLink>
-
-                            <div className='w-10 rounded-full ml-3 cursor-pointer'
-                            >
-                                <img
+                                <img tabIndex={0}
                                     className='rounded-full w-10 h-10'
                                     src={`${user && user?.photoURL}`}
                                     alt={user.displayName} />
+
+                                {/* DROPDOWN */}
+                                <ul
+                                    tabIndex={0}
+                                    className="dropdown-content menu p-2 bg-gray-800 rounded-md w-30 -ml-18 mt-2"
+                                >
+                                    <li>
+                                        <Link to="/dashboard/my-profile">Profile</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/dashboard">Dashboard</Link>
+                                    </li>
+                                    <li>
+                                        <NavLink
+                                            onClick={handleLogOut}
+                                            to={'/'}
+                                            className={'btn btn-primary rounded-sm font-semibold hover:bg-slate-800 bg-slate-900'}
+                                        >
+                                            Logout
+                                        </NavLink>
+                                    </li>
+                                </ul>
                             </div>
                         </> : <>
                             <Link to={'/login'}

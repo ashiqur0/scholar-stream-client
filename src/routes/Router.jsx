@@ -24,6 +24,7 @@ import AdminRoute from './AdminRoute';
 import StudentRoute from './StudentRoute';
 import ModeratorRoute from './ModeratorRoute';
 import Loading from '../components/Loading';
+import Test from '../test/Test';
 
 const Router = createBrowserRouter([
     {

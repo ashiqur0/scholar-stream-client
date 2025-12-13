@@ -6,7 +6,7 @@ const Scholarship = ({ scholarship }) => {
 
 
     return (
-        <div className="card w-full shadow-md p-4 flex flex-col justify-between bg-slate-800 border border-slate-700 hover:-mt-1 hover:mb-1 hover:shadow-slate-700 hover:border-slate-500">
+        <div className={`card w-full shadow-md p-4 flex flex-col justify-between bg-zink-950 border border-slate-600 hover:-mt-1 hover:mb-1 hover:shadow-slate-700 hover:border-slate-500`}>
             <figure className="">
                 <img
                     src={universityImage}

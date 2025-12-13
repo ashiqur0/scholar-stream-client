@@ -114,7 +114,7 @@ const ScholarshipDetails = () => {
                                 {...register('userName')}
                                 className="input w-full"
                                 placeholder='Applicant Name'
-                                defaultValue={user.displayName}
+                                defaultValue={user?.displayName}
                             />
 
                             {/* Applicant Email */}
@@ -124,7 +124,7 @@ const ScholarshipDetails = () => {
                                 {...register('userEmail')}
                                 className="input w-full"
                                 placeholder="Applicant Email"
-                                defaultValue={user.email}
+                                defaultValue={user?.email}
                             />
 
                             {/* Scholarship Category */}
