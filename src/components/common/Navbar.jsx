@@ -12,9 +12,6 @@ const Navbar = () => {
     const links = <>
         <li><NavLink to={'/'}>Home</NavLink></li>
         <li><NavLink to={'/all-scholarships'}>All Scholarships</NavLink></li>
-        {
-            user && <li><NavLink to={'/dashboard'}>Dashboard</NavLink></li>
-        }
     </>
 
     const handleLogOut = () => {
@@ -62,23 +59,17 @@ const Navbar = () => {
                                 {/* DROPDOWN */}
                                 <ul
                                     tabIndex={0}
-                                    className="dropdown-content menu p-2 rounded-md w-30 -ml-18 mt-2 border border-gray-400"
+                                    className="dropdown-content menu p-2 rounded-md w-30 -ml-18 mt-2 border border-gray-400 space-y-1"
                                 >
-                                    <li>
-                                        <Link to="/dashboard/my-profile">Profile</Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/dashboard">Dashboard</Link>
-                                    </li>
-                                    <li>
-                                        <NavLink
-                                            onClick={handleLogOut}
-                                            to={'/'}
-                                            className={'btn btn-primary rounded-sm font-semibold hover:bg-slate-800 bg-slate-900'}
-                                        >
-                                            Logout
-                                        </NavLink>
-                                    </li>
+                                    <li><Link to="/dashboard/my-profile">Profile</Link></li>
+                                    <li><Link to="/dashboard">Dashboard</Link></li>
+                                    <li><NavLink
+                                        onClick={handleLogOut}
+                                        to={'/'}
+                                        className={'btn btn-primary rounded-sm font-semibold hover:bg-slate-800 bg-slate-900'}
+                                    >
+                                        Logout
+                                    </NavLink></li>
                                 </ul>
                             </div>
                         </> : <>
