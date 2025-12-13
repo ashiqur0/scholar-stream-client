@@ -3,13 +3,11 @@ import Logo from '../Logo';
 import { Link, NavLink } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 import { MdDarkMode, MdLightMode } from "react-icons/md";
+import DarkLightThemeToggle from '../DarkLightThemeToggle';
 
 const Navbar = () => {
 
-    const {
-        toggle, toggleTheme,
-        user, logOut
-    } = useAuth();
+    const { user, logOut } = useAuth();
 
     const links = <>
         <li><NavLink to={'/'}>Home</NavLink></li>
@@ -51,18 +49,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="md:flex hidden gap-3 navbar-end">
-                    <button
-                        onClick={toggleTheme}
-                        className="relative w-20 h-10 bg-gray-300 dark:bg-slate-900 rounded-full p-1 transition-colors duration-300">
-                        {/* Sliding Circle */}
-                        <div
-                            className={`absolute top-1 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300
-                            ${toggle ? "left-10 bg-amber-500 text-white" : "left-1 bg-indigo-700 text-white"}`}
-                        >
-                            {toggle ? <MdLightMode /> : <MdDarkMode />}
-                        </div>
-                    </button>
-
+                    <DarkLightThemeToggle />
                     {
                         user ? <>
                             <div className='w-10 rounded-full ml-3 cursor-pointer dropdown'
@@ -75,7 +62,7 @@ const Navbar = () => {
                                 {/* DROPDOWN */}
                                 <ul
                                     tabIndex={0}
-                                    className="dropdown-content menu p-2 bg-gray-800 rounded-md w-30 -ml-18 mt-2"
+                                    className="dropdown-content menu p-2 rounded-md w-30 -ml-18 mt-2 border border-gray-400"
                                 >
                                     <li>
                                         <Link to="/dashboard/my-profile">Profile</Link>
