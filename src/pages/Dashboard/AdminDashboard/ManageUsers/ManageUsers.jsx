@@ -59,7 +59,7 @@ const ManageUsers = () => {
                         {
                             users.map((user, index) => <tr key={user._id} className=''>
                                 <td>{index + 1}</td>
-                                <td><img src={user?.photoURL} alt={user.displayName} className='w-8 h-auto' /></td>
+                                <td><img src={user?.photoURL} alt={user.displayName} className='w-8 h-auto rounded-full' /></td>
                                 <td>{user.displayName}</td>
                                 <td>{user.email}</td>
                                 <td>{user.role}</td>
