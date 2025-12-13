@@ -3,6 +3,7 @@ import useAxios from '../../../../hooks/useAxios';
 import { useQuery } from '@tanstack/react-query';
 import { MdAddModerator, MdAdminPanelSettings } from "react-icons/md";
 import { PiStudentFill } from "react-icons/pi";
+import { FaRegTrashCan } from 'react-icons/fa6';
 
 const ManageUsers = () => {
 
@@ -68,7 +69,7 @@ const ManageUsers = () => {
                                     <button onClick={() => handleSetRole(user, 'moderator')} className={`btn btn-sm btn-soft ${user.role === 'moderator' && 'btn-info'}`}><MdAddModerator size={19} /></button>
                                     <button onClick={() => handleSetRole(user, 'student')} className={`btn btn-sm btn-soft ${user.role === 'student' && 'btn-success'}`}><PiStudentFill size={20} /></button>
                                 </td>
-                                <td><button onClick={() => deleteUser(user, 'student')} className={`btn btn-sm btn-soft btn-secondary`}><PiStudentFill size={20} /></button></td>
+                                <td><button onClick={() => deleteUser(user, 'student')} className={`btn btn-sm btn-soft btn-secondary`}><FaRegTrashCan size={20} /></button></td>
                             </tr>)
                         }
                     </tbody>
