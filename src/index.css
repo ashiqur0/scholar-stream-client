@@ -26,3 +26,7 @@ body p {
 
 /* for dark and light theme */
 @tailwind utilities;
+
+.active {
+  background-color: orange;
+}
