@@ -24,7 +24,15 @@ const ManageUsers = () => {
         axios.patch(`/users/${user._id}`, updatedRole)
             .then(res => {
                 refetch();
-                console.log('after status updating', res.data);
+                console.log('after role updating', res.data);
+            })
+    }
+
+    const deleteUser = user => {
+        axios.delete(`/users/${user._id}`)
+            .then(res => {
+                refetch();
+                console.log('after delete user', res.data);
             })
     }
 
@@ -44,11 +52,12 @@ const ManageUsers = () => {
                             <th>Email</th>
                             <th>Role</th>
                             <th>Set Role</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            users.map((user, index) => <tr key={user._id}>
+                            users.map((user, index) => <tr key={user._id} className=''>
                                 <td>{index + 1}</td>
                                 <td><img src={user?.photoURL} alt={user.displayName} className='w-8 h-auto' /></td>
                                 <td>{user.displayName}</td>
@@ -59,6 +68,7 @@ const ManageUsers = () => {
                                     <button onClick={() => handleSetRole(user, 'moderator')} className={`btn btn-sm btn-soft ${user.role === 'moderator' && 'btn-info'}`}><MdAddModerator size={19} /></button>
                                     <button onClick={() => handleSetRole(user, 'student')} className={`btn btn-sm btn-soft ${user.role === 'student' && 'btn-success'}`}><PiStudentFill size={20} /></button>
                                 </td>
+                                <td><button onClick={() => deleteUser(user, 'student')} className={`btn btn-sm btn-soft btn-secondary`}><PiStudentFill size={20} /></button></td>
                             </tr>)
                         }
                     </tbody>
