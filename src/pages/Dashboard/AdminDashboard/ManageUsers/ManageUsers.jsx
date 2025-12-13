@@ -10,7 +10,7 @@ const ManageUsers = () => {
     const axios = useAxios();
 
     const { data: users = [], refetch } = useQuery({
-        queryKey: ['applications'],
+        queryKey: ['users'],
         queryFn: async () => {
             const res = await axios.get('/users');
             return res.data;
