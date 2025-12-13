@@ -65,10 +65,6 @@ const Router = createBrowserRouter([
 
             // common dashboard route
             {
-                index: true,
-                Component: DashboardHome
-            },
-            {
                 path: 'my-profile',
                 Component: MyProfile
             },

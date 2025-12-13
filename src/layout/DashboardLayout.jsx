@@ -53,12 +53,6 @@ const DashboardLayout = () => {
                             <span className="is-drawer-close:hidden text-xl font-bold">Scholar Stream</span>
                         </Link></li>
 
-                        {/* common */}
-                        <li><NavLink to={'/dashboard'} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Dashboard Home">
-                            <FaHome size={20} />
-                            <span className="is-drawer-close:hidden">Dashboard Home</span>
-                        </NavLink></li>
-
                         <li><NavLink to={'/dashboard/my-profile'} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="My Profile">
                             <CgProfile size={20} />
                             <span className="is-drawer-close:hidden">My Profile</span>
@@ -134,12 +128,6 @@ const DashboardLayout = () => {
                                 </NavLink></li>
                             </>
                         }
-
-                        {/* common links */}
-                        <li><button className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Settings">
-                            <IoSettingsOutline size={20} />
-                            <span className="is-drawer-close:hidden">Settings</span>
-                        </button></li>
 
                     </ul>
                 </div>
