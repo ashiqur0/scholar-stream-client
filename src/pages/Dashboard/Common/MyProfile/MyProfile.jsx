@@ -9,7 +9,7 @@ const MyProfile = () => {
 
     return (
         <div className='md:max-w-7xl md:mx-auto p-4'>
-            <h1 className='text-2xl font-bold mb-10'>My Profile Page for {role}</h1>
+            <h1 className='text-2xl font-bold mb-10'>My Profile</h1>
 
             <div className='flex justify-center items-center gap-5'>
                 <img className='w-20 h-auto' src={user.photoURL} alt={user.displayName} />
