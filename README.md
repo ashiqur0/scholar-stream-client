@@ -1,16 +1,126 @@
-# React + Vite
+<div align="center">
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🎓 ScholarStream – Client Side  
+### Scholarship Management Platform (Frontend)
 
-Currently, two official plugins are available:
+🌐 **Live Website:** https://scholar-stream-by-ashiqur.web.app/ 
+📁 **Repository Type:** Client / Frontend  
+🧑‍💻 **Tech Stack:** MERN (Frontend)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+</div>
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🧠 Project Purpose
 
-## Expanding the ESLint configuration
+**ScholarStream** is a modern, user-friendly scholarship discovery and management platform designed to help students easily find and apply for scholarships, while enabling administrators and moderators to manage applications efficiently.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The client-side focuses on:
+- Clean UI/UX
+- Role-based dashboards
+- Secure authentication
+- Smooth navigation
+- Responsive and recruiter-attractive design
+
+---
+
+## 🚀 Live Preview
+
+🔗 **Live Site:** https://scholar-stream-by-ashiqur.web.app/
+⚠️ Fully reload-safe on all routes  
+⚠️ No CORS / 404 / 504 issues  
+
+---
+
+## 🎯 Key Features
+
+### 🌍 Public Features
+- Home page with animated hero section (Framer Motion)
+- Dynamic **Top Scholarships**
+- Advanced **Search, Filter, Sort & Pagination**
+- Scholarship details with reviews & recommendations
+- Secure authentication (Email/Password + Google)
+
+### 👤 Student Features
+- Apply for scholarships via Stripe payment
+- Track application status
+- Pay later if payment fails
+- Add, edit & delete reviews
+- Wishlist scholarships
+
+### 🧑‍💼 Moderator Features
+- Review applications
+- Provide feedback
+- Update application status
+- Moderate student reviews
+
+### 🛠️ Admin Features
+- Add / Update / Delete scholarships
+- Manage users & roles
+- Platform analytics with charts
+- Full dashboard control
+
+---
+
+## 🧩 Pages & Routes
+
+| Page | Access |
+|----|----|
+| Home | Public |
+| All Scholarships | Public |
+| Scholarship Details | Public |
+| Login / Register | Public |
+| Checkout / Payment | Private |
+| Dashboard | Role-Based |
+| 404 Error Page | Public |
+
+---
+
+## 🔐 Authentication & Security
+
+- Firebase Authentication
+- JWT-based protected routes
+- Role-based authorization
+- Environment variable protected keys
+- Reload-safe private routing
+
+---
+
+## 🎨 UI & Design Highlights
+
+✔ DaisyUI only (No external UI frameworks)  
+✔ Consistent color theme  
+✔ Equal card sizes & grid layout  
+✔ Fully responsive (Mobile / Tablet / Desktop)  
+✔ Skeleton loaders on all data-fetching pages  
+✔ Custom 404 error page  
+
+---
+
+## ⚙️ Technologies Used
+
+### Frontend
+- React
+- React Router DOM
+- Firebase Authentication
+- Axios
+- Stripe JS
+- Framer Motion
+- DaisyUI + Tailwind CSS
+- Recharts (Analytics)
+- SweetAlert2
+
+---
+
+## 📦 NPM Packages
+
+```bash
+react
+react-router-dom
+firebase
+axios
+@stripe/react-stripe-js
+@stripe/stripe-js
+framer-motion
+sweetalert2
+recharts
