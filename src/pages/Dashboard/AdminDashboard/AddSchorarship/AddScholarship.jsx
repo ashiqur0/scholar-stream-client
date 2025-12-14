@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import useAuth from '../../../../hooks/useAuth';
 import axios from 'axios';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
+import Swal from 'sweetalert2';
 
 const AddScholarship = () => {
 
@@ -47,8 +48,14 @@ const AddScholarship = () => {
                 }
 
                 axiosSecure.post(`/scholarship?email=${user.email}`, scholarshipInfo)
-                    .then(res => {
-                        console.log('scholarship is created in the database', res.data);
+                    .then(() => {
+                        Swal.fire({
+                            position: "top-end",
+                            icon: "success",
+                            title: "Scholarship posted successfully",
+                            showConfirmButton: false,
+                            timer: 2500
+                        });
                     })
 
             });
