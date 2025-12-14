@@ -5,6 +5,7 @@ import useAuth from '../../../hooks/useAuth';
 import axios from 'axios';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import SocialLogin from '../../../components/SocialLogin';
+import Swal from 'sweetalert2';
 
 const Register = () => {
 
@@ -44,9 +45,9 @@ const Register = () => {
                         }
 
                         axiosSecure.post('/users', userInfo)
-                        .then(res => {
-                            console.log('user is created in the database', res.data);
-                        })
+                            .then(res => {
+                                console.log('user is created in the database', res.data);
+                            })
 
                         // update firebase user profile
                         const userProfile = {
@@ -55,8 +56,14 @@ const Register = () => {
                         }
 
                         updateUser(userProfile)
-                            .then(res => {
-                                console.log('user profile updated', res);
+                            .then(() => {
+                                Swal.fire({
+                                    position: "top-end",
+                                    icon: "success",
+                                    title: "User registration successful",
+                                    showConfirmButton: false,
+                                    timer: 2500
+                                });
                                 navigate(location.state || '/')
                             })
                             .then(err => {
