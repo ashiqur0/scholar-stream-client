@@ -18,7 +18,7 @@ const Login = () => {
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
-                    title: "User registration successful",
+                    title: "User Logged in successful",
                     showConfirmButton: false,
                     timer: 2500
                 });
