@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form';
 import useAuth from '../../../hooks/useAuth';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import useId from '../../../hooks/useId';
+import Review from '../../../components/common/Review';
 
 const ScholarshipDetails = () => {
 
@@ -53,7 +54,7 @@ const ScholarshipDetails = () => {
                 console.log('application successfully store to database', res.data);
             })
 
-        console.log(applicationInfo);
+        // console.log(applicationInfo);
     }
 
     return (
@@ -174,6 +175,8 @@ const ScholarshipDetails = () => {
                     </div>
                 </div>
             </dialog>
+
+            <Review scholarship={scholarship} />
         </div>
     );
 };
