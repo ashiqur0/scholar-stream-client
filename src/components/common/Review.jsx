@@ -26,6 +26,7 @@ const Review = ({ scholarship }) => {
         const reviewInfo = {
             reviewerImage: user.photoURL,
             reviewerName: user.displayName,
+            reviewerEmail: user.email,
             review: review.review,
             createdAt: new Date(),
             scholarshipId: scholarship._id
@@ -64,7 +65,7 @@ const Review = ({ scholarship }) => {
             {
                 reviews.map(review => <div key={review._id} className={`space-y-1 p-2 ${toggle? 'bg-gray-800' : '' }  mb-3 md:w-1/4 w-full rounded-xl`}>
                     <div className='flex items-center gap-2'>
-                        <img src={review.reviewerImage} className='w-8 h-auto' alt={review.reviewerName} />
+                        <img src={review.reviewerImage} className='w-8 h-auto rounded-full' alt={review.reviewerName} />
                         <h1 className='font-bold text-xl'>{review.reviewerName}</h1>
                     </div>
                     <p className='ml-10 text-secondary'>{review.review}</p>
