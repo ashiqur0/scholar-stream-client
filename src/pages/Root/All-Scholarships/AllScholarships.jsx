@@ -32,7 +32,7 @@ const AllScholarships = () => {
 
     return (
         <div className='my-6 md:max-w-7xl md:mx-auto p-4'>
-            <div className="w-11/12 mx-auto flex flex-col-reverse lg:flex-row gap-5 items-start justify-between lg:items-end mt-10 mb-5">
+            <div className="flex flex-col-reverse lg:flex-row gap-5 items-start justify-between lg:items-end mt-10 mb-5">
                 <h1 className='md:text-2xl text-xl font-semibold'>All Scholarship({totalScholarships})</h1>
 
                 <form>
@@ -58,16 +58,18 @@ const AllScholarships = () => {
                 </form>
 
                 <div className="">
-                    <select onChange={handleSelect} className="select">
+                    <select onChange={handleSelect} className="select w-70">
                         <option selected disabled={true}>
                             Sort by <span className="text-xs">R / S / D</span>
                         </option>
-                        <option value={"rating-desc"}>Ratings : High - Low</option>
-                        <option value={"rating-asc"}>Ratings : Low - High</option>
-                        <option value={"size-desc"}>Size : High - Low</option>
-                        <option value={"size-asc"}>Size : Low - High</option>
-                        <option value={"downloads-desc"}>Downloads : High - Low</option>
-                        <option value={"downloads-asc"}>Downloads : Low - High</option>
+                        <option value={"applicationFees-desc"}>Application-Fee : High - Low</option>
+                        <option value={"applicationFees-asc"}>Application-Fee : Low - High</option>
+                        <option value={"applicationDeadline-desc"}>Application Deadline : High - Low</option>
+                        <option value={"applicationDeadline-asc"}>Application Deadline : Low - High</option>
+                        <option value={"scholarshipPostDate-desc"}>Scholarship PostDate : High - Low</option>
+                        <option value={"scholarshipPostDate-asc"}>Scholarship PostDate : Low - High</option>
+                        <option value={"universityWorldRank-desc"}>University World Rank : Low - High</option>
+                        <option value={"universityWorldRank-asc"}>University World Rank  : Low - High</option>
                     </select>
                 </div>
             </div>
