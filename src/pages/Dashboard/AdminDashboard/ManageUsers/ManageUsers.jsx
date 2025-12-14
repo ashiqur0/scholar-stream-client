@@ -29,7 +29,7 @@ const ManageUsers = () => {
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
-                    title: `User marked as ${role}`,
+                    title: `${user.displayName} marked as ${role}`,
                     showConfirmButton: false,
                     timer: 2500
                 });
