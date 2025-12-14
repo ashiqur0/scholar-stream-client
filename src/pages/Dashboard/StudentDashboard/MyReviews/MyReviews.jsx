@@ -35,13 +35,8 @@ const MyReviews = () => {
                     <thead>
                         <tr>
                             <th>#</th>
-                            {/* 
-                            // need to display info like this:
-
                             <th>Scholarship Name</th>
-                            <th>University Name</th> */}
-                            <th>Name</th>
-                            <th>Email</th>
+                            <th>University Name</th>
                             <th>Review</th>
                             <th>Data</th>
                             <th>Delete</th>
@@ -51,10 +46,10 @@ const MyReviews = () => {
                         {
                             my_reviews.map((review, index) => <tr key={review._id}>
                                 <td>{index + 1}</td>
-                                <td>{review.reviewerName}</td>
-                                <td>{review.reviewerEmail}</td>
+                                <td>{review.scholarshipName}</td>
+                                <td>{review.universityName}</td>
                                 <td>{review.review}</td>
-                                <td>{review.createdAt}</td>
+                                <td>{review.createdAt?.slice(0,10)}</td>
                                 <td>
                                      <button onClick={() => deleteReview(review)} className='btn btn-sm btn-soft btn-secondary w-25'>Delete</button>
                                 </td>
