@@ -2,7 +2,7 @@ import React from 'react';
 import useAxios from '../../../../hooks/useAxios';
 import { useQuery } from '@tanstack/react-query';
 import { TiTick } from "react-icons/ti";
-
+import Swal from 'sweetalert2';
 
 const ManageAppliedApplications = () => {
 
@@ -22,9 +22,16 @@ const ManageAppliedApplications = () => {
         }
 
         axios.patch(`/applications/${application._id}`, updatedStatus)
-            .then(res => {
+            .then(() => {
                 refetch();
-                console.log('after status updating', res.data);
+                
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: `Application is ${status}`,
+                    showConfirmButton: false,
+                    timer: 2500
+                });
             })
     }
 
@@ -76,7 +83,7 @@ const ManageAppliedApplications = () => {
                                     }
                                     {
                                         application.applicationStatus === 'canceled' && <>
-                                            <p className='text-red-500'>Approved</p>
+                                            <p className='text-red-500'>Canceled</p>
                                         </>
                                     }
                                 </td>
