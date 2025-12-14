@@ -49,7 +49,7 @@ const AuthProvider = ({ children }) => {
                 const loggedUser = { email: currentUser.email };
                 axios.post('/getToken', loggedUser)
                     .then(res => {
-                        localStorage.setItem(`token${user._id}`, res.data.token)
+                        localStorage.setItem(`token`, res.data.token)
                     })
             } else {
                 localStorage.removeItem('token');

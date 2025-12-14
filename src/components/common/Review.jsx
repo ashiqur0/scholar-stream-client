@@ -8,9 +8,9 @@ import useAxios from '../../hooks/useAxios';
 const Review = ({ scholarship }) => {
 
     const { register, handleSubmit } = useForm();
-    const { user } = useAuth();
+    const { user, toggle } = useAuth();
     const axios = useAxios();
-    // const axiosSecure = useAxiosSecure();
+    
 
     const { data: reviews = [], refetch } = useQuery({
         queryKey: ['reviews'],
@@ -37,7 +37,7 @@ const Review = ({ scholarship }) => {
     }
 
     return (
-        <div>
+        <div className='md:max-w-7xl md:mx-auto'>
             {/* Create Review Section */}
             <form onSubmit={handleSubmit(handleCreateReview)} className={'flex flex-col justify-between'}>
                 <fieldset className="fieldset">
@@ -57,7 +57,19 @@ const Review = ({ scholarship }) => {
             </form>
 
             {/* Display Review Section */}
-            <h1 className='mt-5'>Total review({reviews.length})</h1>
+            <h1 className='mt-5 mb-2'>Total review({reviews.length})</h1>
+
+            {
+                reviews.map(review => <div key={review._id} className={`space-y-1 p-2 ${toggle? 'bg-gray-800' : '' }  mb-3 md:w-1/4 rounded-xl`}>
+                    <div className='flex items-center gap-2'>
+                        <img src={review.reviewerImage} className='w-8 h-auto' alt={review.reviewerName} />
+                        <h1 className='font-bold text-xl'>{review.reviewerName}</h1>
+                    </div>
+                    <p className='ml-10 text-secondary'>{review.review}</p>
+                </div>
+
+                )
+            }
         </div>
     );
 };

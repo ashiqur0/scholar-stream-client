@@ -36,6 +36,7 @@ const ScholarshipDetails = () => {
     const handleApply = (data) => {
         const applicationInfo = {
             scholarshipId: _id,
+            scholarshipName: data.scholarshipName2,
             userId: userId,
             userName: data.userName,
             userEmail: data.userEmail,
@@ -94,9 +95,9 @@ const ScholarshipDetails = () => {
                             <label className="label mt-4 text-[14px]">Scholarship Name</label>
                             <input
                                 type="text"
-                                {...register('scholarshipName')}
+                                {...register('scholarshipName2')}
                                 className="input w-full"
-                                value={scholarshipName}
+                                defaultValue={scholarshipName}
                             />
 
                             {/* University Name */}
@@ -105,7 +106,7 @@ const ScholarshipDetails = () => {
                                 type="text"
                                 {...register('universityName')}
                                 className="input w-full"
-                                value={universityName}
+                                defaultValue={universityName}
                             />
 
                             {/* Applicant Name */}
@@ -134,7 +135,7 @@ const ScholarshipDetails = () => {
                                 type="text"
                                 {...register('scholarshipCategory')}
                                 className="input w-full"
-                                value={scholarshipCategory}
+                                defaultValue={scholarshipCategory}
                             />
 
                             {/* degree */}
@@ -143,7 +144,7 @@ const ScholarshipDetails = () => {
                                 type="text"
                                 {...register('degree')}
                                 className="input w-full"
-                                value={degree}
+                                defaultValue={degree}
                             />
 
                             {/* Application Fees */}
@@ -152,7 +153,7 @@ const ScholarshipDetails = () => {
                                 type="text"
                                 {...register('applicationFees')}
                                 className="input w-full"
-                                value={applicationFees}
+                                defaultValue={applicationFees}
                             />
 
                             {/* Service Charge */}
@@ -161,7 +162,7 @@ const ScholarshipDetails = () => {
                                 type="text"
                                 {...register('serviceCharge')}
                                 className="input w-full"
-                                value={serviceCharge}
+                                defaultValue={serviceCharge}
                             />
                         </fieldset>
                         <button type='submit' className='btn btn-primary mt-5'>Submit</button>
