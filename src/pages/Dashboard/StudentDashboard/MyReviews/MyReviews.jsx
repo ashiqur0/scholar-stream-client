@@ -2,6 +2,7 @@ import React from 'react';
 import useAxios from '../../../../hooks/useAxios';
 import { useQuery } from '@tanstack/react-query';
 import useAuth from '../../../../hooks/useAuth';
+import Swal from 'sweetalert2';
 
 const MyReviews = () => {
 
@@ -18,11 +19,29 @@ const MyReviews = () => {
     refetch();
 
     const deleteReview = review => {
-        axios.delete(`/review/${review._id}`)
-            .then(res => {
-                refetch();
-                console.log('delete scholarship success', res.data);
-            })
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.delete(`/review/${review._id}`)
+                    .then(res => {
+                        if (res.data.deletedCount) {
+                            refetch();
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your parcel request has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    })
+            }
+        });
     }
 
     return (
@@ -49,9 +68,9 @@ const MyReviews = () => {
                                 <td>{review.scholarshipName}</td>
                                 <td>{review.universityName}</td>
                                 <td>{review.review}</td>
-                                <td>{review.createdAt?.slice(0,10)}</td>
+                                <td>{review.createdAt?.slice(0, 10)}</td>
                                 <td>
-                                     <button onClick={() => deleteReview(review)} className='btn btn-sm btn-soft btn-secondary w-25'>Delete</button>
+                                    <button onClick={() => deleteReview(review)} className='btn btn-sm btn-soft btn-secondary w-25'>Delete</button>
                                 </td>
                             </tr>)
                         }
