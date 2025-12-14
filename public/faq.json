@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "question": "What is Scholar Stream and how does it work?",
+    "answer": "Scholar Stream is a web-based scholarship management platform that helps students discover, compare, and apply for local and international scholarships. Users can browse scholarships by category, degree level, country, and university, then submit applications directly through the platform.",
+    "open": false
+  },
+  {
+    "id": 2,
+    "question": "Is Scholar Stream free to use for students?",
+    "answer": "Browsing and searching scholarships on Scholar Stream is completely free. However, some scholarship applications may include application fees or service charges depending on the university or scholarship provider.",
+    "open": false
+  },
+  {
+    "id": 3,
+    "question": "Who can use the Scholar Stream platform?",
+    "answer": "Scholar Stream is designed for students seeking scholarships, universities offering scholarship programs, and administrators who manage scholarship postings and applications. Both undergraduate and postgraduate students can benefit from the platform.",
+    "open": false
+  },
+  {
+    "id": 4,
+    "question": "How can I apply for a scholarship through Scholar Stream?",
+    "answer": "To apply, users must create an account, complete their profile, select a scholarship, and submit the required information and documents before the application deadline. Application status can be tracked from the user dashboard.",
+    "open": false
+  },
+  {
+    "id": 5,
+    "question": "What types of scholarships are available on Scholar Stream?",
+    "answer": "Scholar Stream offers a wide range of scholarships including fully funded, partially funded, and self-funded programs for diploma, bachelor’s, and master’s degree levels across multiple subject categories.",
+    "open": false
+  },
+  {
+    "id": 6,
+    "question": "How often are new scholarships added to the platform?",
+    "answer": "New scholarships are added regularly by verified administrators and partner institutions. Users are encouraged to check the platform frequently or enable notifications for the latest opportunities.",
+    "open": false
+  },
+  {
+    "id": 7,
+    "question": "Can I edit or update my scholarship application after submission?",
+    "answer": "Once an application is submitted, editing is usually restricted. However, in some cases administrators may allow updates before the application deadline. Users will be notified if changes are permitted.",
+    "open": false
+  },
+  {
+    "id": 8,
+    "question": "How does Scholar Stream ensure the authenticity of scholarships?",
+    "answer": "All scholarship postings on Scholar Stream are reviewed and verified by platform administrators before publication to ensure accuracy, legitimacy, and relevance for students.",
+    "open": false
+  },
+  {
+    "id": 9,
+    "question": "What technologies are used to build Scholar Stream?",
+    "answer": "Scholar Stream is built using a modern full-stack architecture including React for the frontend, Node.js and Express for the backend, MongoDB for database management, and secure authentication mechanisms.",
+    "open": false
+  },
+  {
+    "id": 10,
+    "question": "How can I contact support if I face issues on Scholar Stream?",
+    "answer": "Users can contact Scholar Stream support through the contact page, email support system, or in-app messaging. The support team is dedicated to resolving technical issues and application-related queries promptly.",
+    "open": false
+  }
+]
