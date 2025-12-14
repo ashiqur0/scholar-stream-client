@@ -24,9 +24,15 @@ const ManageUsers = () => {
         }
 
         axios.patch(`/users/${user._id}`, updatedRole)
-            .then(res => {
+            .then(() => {
                 refetch();
-                console.log('after role updating', res.data);
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: `User marked as ${role}`,
+                    showConfirmButton: false,
+                    timer: 2500
+                });
             })
     }
 
