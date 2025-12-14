@@ -7,6 +7,7 @@ import useAuth from '../../../hooks/useAuth';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import useId from '../../../hooks/useId';
 import Review from '../../../components/common/Review';
+import Swal from 'sweetalert2';
 
 const ScholarshipDetails = () => {
 
@@ -51,11 +52,15 @@ const ScholarshipDetails = () => {
             feedback: ''
         }
         axiosSecure.post(`/application?email=${user.email}`, applicationInfo)
-            .then(res => {
-                console.log('application successfully store to database', res.data);
-            })
-
-        // console.log(applicationInfo);
+            .then(() => {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Application successful",
+                    showConfirmButton: false,
+                    timer: 2500
+                });
+            });
     }
 
     return (
