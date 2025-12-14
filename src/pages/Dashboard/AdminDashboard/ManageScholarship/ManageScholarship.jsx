@@ -10,7 +10,8 @@ const ManageScholarship = () => {
         queryKey: ['scholarships'],
         queryFn: async () => {
             const res = await axios.get('/scholarship');
-            return res.data;
+            const { scholarships: data } = res.data
+            return data;
         }
     });
 
@@ -45,7 +46,7 @@ const ManageScholarship = () => {
                     </thead>
                     <tbody>
                         {
-                            scholarships.map((scholarship, index) => <tr key={scholarship._id}>
+                            scholarships.map((scholarship, index) => <tr key={scholarship._id} className=''>
                                 <td>{index + 1}</td>
                                 <td>{scholarship.scholarshipName}</td>
                                 <td>{scholarship.universityName}</td>
