@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import useAuth from '../../hooks/useAuth';
 import { useQuery } from '@tanstack/react-query';
 import useAxios from '../../hooks/useAxios';
+import Swal from 'sweetalert2';
 // import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const Review = ({ scholarship }) => {
@@ -10,7 +11,7 @@ const Review = ({ scholarship }) => {
     const { register, handleSubmit } = useForm();
     const { user, toggle } = useAuth();
     const axios = useAxios();
-    
+
 
     const { data: reviews = [], refetch } = useQuery({
         queryKey: ['reviews'],
@@ -33,9 +34,15 @@ const Review = ({ scholarship }) => {
         }
 
         axios.post(`/review`, reviewInfo)
-            .then(res => {
+            .then(() => {
                 refetch();
-                console.log('review post success', res.data);
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Review posted",
+                    showConfirmButton: false,
+                    timer: 2500
+                });
             })
     }
 
@@ -63,7 +70,7 @@ const Review = ({ scholarship }) => {
             <h1 className='mt-5 mb-2'>Total review({reviews.length})</h1>
 
             {
-                reviews.map(review => <div key={review._id} className={`space-y-1 p-2 ${toggle? 'bg-gray-800' : '' }  mb-3 md:w-1/4 w-full rounded-xl`}>
+                reviews.map(review => <div key={review._id} className={`space-y-1 p-2 ${toggle ? 'bg-gray-800' : ''}  mb-3 md:w-1/4 w-full rounded-xl`}>
                     <div className='flex items-center gap-2'>
                         <img src={review.reviewerImage} className='w-8 h-auto rounded-full' alt={review.reviewerName} />
                         <h1 className='font-bold text-xl'>{review.reviewerName}</h1>
