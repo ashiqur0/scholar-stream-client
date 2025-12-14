@@ -6,7 +6,7 @@ const Footer = () => {
         <footer className="footer sm:footer-horizontal bg-base-300 text-base-content p-10">
             <nav>
                 <Logo />
-                <p className='w-100'>ScholarStream" is a full-stack MERN application designed to connect students with scholarship opportunities. It allows universities or organizations to post scholarships and students to search and apply for them</p>
+                <p className='md:w-100'>ScholarStream" is a full-stack MERN application designed to connect students with scholarship opportunities. It allows universities or organizations to post scholarships and students to search and apply for them</p>
             </nav>
             <nav>
                 <h6 className="footer-title">Services</h6>
