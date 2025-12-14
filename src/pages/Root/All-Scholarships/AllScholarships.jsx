@@ -60,7 +60,7 @@ const AllScholarships = () => {
                 <div className="">
                     <select onChange={handleSelect} className="select w-70">
                         <option selected disabled={true}>
-                            Sort by <span className="text-xs">R / S / D</span>
+                            Sort Scholarship
                         </option>
                         <option value={"applicationFees-desc"}>Application-Fee : High - Low</option>
                         <option value={"applicationFees-asc"}>Application-Fee : Low - High</option>
