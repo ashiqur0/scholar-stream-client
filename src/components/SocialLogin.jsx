@@ -2,6 +2,7 @@ import React from 'react';
 import useAuth from '../hooks/useAuth';
 import { useLocation, useNavigate } from 'react-router';
 import useAxiosSecure from '../hooks/useAxiosSecure';
+import Swal from 'sweetalert2';
 
 const SocialLogin = () => {
 
@@ -22,8 +23,14 @@ const SocialLogin = () => {
                 }
 
                 axiosSecure.post('/users', userInfo)
-                    .then(response => {
-                        console.log('after storing user to database', response.data);
+                    .then(() => {
+                        Swal.fire({
+                            position: "top-end",
+                            icon: "success",
+                            title: "User registration successful",
+                            showConfirmButton: false,
+                            timer: 2500
+                        });
                         navigate(location.state || '/');
                     })
             })
