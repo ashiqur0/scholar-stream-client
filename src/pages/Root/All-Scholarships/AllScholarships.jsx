@@ -13,7 +13,7 @@ const AllScholarships = () => {
     const limit = 6
 
     useEffect(() => {
-        fetch(`http://localhost:3000/scholarship/?limit=${limit}&skip=${currentPage * limit}&sort=${sort}&order=${order}&search=${searchText}`)
+        fetch(`https://scholar-strem-server-by-ashiqur.vercel.app/scholarship/?limit=${limit}&skip=${currentPage * limit}&sort=${sort}&order=${order}&search=${searchText}`)
             .then(res => res.json())
             .then(data => {
                 setScholarships(data.scholarships);
