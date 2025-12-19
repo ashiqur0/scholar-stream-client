@@ -17,7 +17,6 @@ const MyApplications = () => {
             return res.data;
         }
     });
-
     
     const handleDeleteApplication = application => {
             Swal.fire({

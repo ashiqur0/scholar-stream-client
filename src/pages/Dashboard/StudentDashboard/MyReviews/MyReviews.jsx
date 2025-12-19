@@ -3,9 +3,10 @@ import { useQuery } from '@tanstack/react-query';
 import useAuth from '../../../../hooks/useAuth';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
+import { Link } from 'react-router';
 
 const MyReviews = () => {
-    
+
     const axiosSecure = useAxiosSecure();
     const { user } = useAuth();
 
@@ -19,6 +20,7 @@ const MyReviews = () => {
     refetch();
 
     const deleteReview = review => {
+        console.log(review);
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -35,7 +37,7 @@ const MyReviews = () => {
                             refetch();
                             Swal.fire({
                                 title: "Deleted!",
-                                text: "Your parcel request has been deleted.",
+                                text: "Your review has been deleted.",
                                 icon: "success"
                             });
                         }
@@ -58,6 +60,7 @@ const MyReviews = () => {
                             <th>University Name</th>
                             <th>Review</th>
                             <th>Data</th>
+                            <th>View</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
@@ -69,6 +72,10 @@ const MyReviews = () => {
                                 <td>{review.universityName}</td>
                                 <td>{review.review}</td>
                                 <td>{review.createdAt?.slice(0, 10)}</td>
+                                <td>
+                                    <Link to={`/scholarship/details/${review.scholarshipId}`} className="btn btn-outline btn-success">view
+                                    </Link>
+                                </td>
                                 <td>
                                     <button onClick={() => deleteReview(review)} className='btn btn-sm btn-soft btn-secondary w-25'>Delete</button>
                                 </td>
