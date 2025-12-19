@@ -1,30 +1,35 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
-import { CiSearch } from "react-icons/ci";
+import useAuth from '../../../../hooks/useAuth';
 
 const Banner = () => {
 
-    const { register, handleSubmit } = useForm();
-
-    const handleSearch = (data) => {
-        console.log(data);
-    }
+    const { setSearchText } = useAuth();
 
     return (
         <div className='md:max-w-7xl md:mx-auto mt-20 p-20'>
             <h1 className='text-center text-xl md:text-5xl text-orange-400 font-extrabold'>Your Gateway to Global Scholarships</h1>
             <p className='text-center mt-5 '>Search and apply for scholarships from leading universities with ease, transparency, and confidence.</p>
-            <form onSubmit={handleSubmit(handleSearch)} className='mt-5 flex justify-center items-center'>
-                <div className='flex justify-center items-center bg-gray-400 rounded-xl pl-2'>
-                    <CiSearch size={24} />
-                    <input
-                        type="txt"
-                        className="input w-60 md:w-100 border-0  outline-0 ml-3 bg-gray-400 z-0 text-xl"
-                        placeholder="Search Scholarship"
-                        {...register('scholarship', { required: true })}
-                    />
-                </div>
-                <button type="submit" className='btn btn-primary -ml-2 z-10 rounded-0'>Search Scholarship</button>
+
+            <form className='md:w-1/4 mx-auto mt-5'>
+                <label className="input max-w-[300px] w-[300px] input-secondary">
+                    <svg
+                        className="h-[1em] opacity-50"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                    >
+                        <g
+                            strokeLinejoin="round"
+                            strokeLinecap="round"
+                            strokeWidth="2.5"
+                            fill="none"
+                            stroke="currentColor"
+                        >
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.3-4.3"></path>
+                        </g>
+                    </svg>
+                    <input onChange={(e) => setSearchText(e.target.value)} type="search" className="" placeholder="Search Scholarship" />
+                </label>
             </form>
         </div>
     );

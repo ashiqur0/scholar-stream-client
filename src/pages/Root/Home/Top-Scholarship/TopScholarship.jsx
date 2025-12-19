@@ -1,19 +1,19 @@
-import React from 'react';
-import useAxios from '../../../../hooks/useAxios';
-import { useQuery } from '@tanstack/react-query';
+import React, { useEffect, useState } from 'react';
 import Scholarship from '../../../../components/Scholarship';
+import useAuth from '../../../../hooks/useAuth';
 
 const TopScholarship = () => {
 
-    const axios = useAxios();
+    const { searchText } = useAuth();
 
-    const { data: scholarships = [] } = useQuery({
-        queryKey: ['scholarship'],
-        queryFn: async () => {
-            const res = await axios.get('/latest-scholarship');
-            return res.data;
-        }
-    });
+    const [scholarships, setScholarships] = useState([]);
+    useEffect(() => {
+        fetch(`http://localhost:3000/latest-scholarship?search=${searchText}`)
+            .then(res => res.json())
+            .then(data => {
+                setScholarships(data);
+            });
+    }, [searchText]);
 
     return (
         <div className='my-6 md:max-w-7xl md:mx-auto p-4'>

@@ -17,13 +17,13 @@ import ManageUsers from '../pages/Dashboard/AdminDashboard/ManageUsers/ManageUse
 import Analytics from '../pages/Dashboard/AdminDashboard/Analytics/Analytics';
 import ManageAppliedApplications from '../pages/Dashboard/ModeratorDashboard/ManageAppliedApplications/ManageAppliedApplications';
 import AllReviews from '../pages/Dashboard/ModeratorDashboard/AllReviews/AllReviews';
-import MyApplications from '../pages/Dashboard/StudentDashboard/MyApplications/MyApplications';
 import MyReviews from '../pages/Dashboard/StudentDashboard/MyReviews/MyReviews';
 import AdminRoute from './AdminRoute';
 import StudentRoute from './StudentRoute';
 import ModeratorRoute from './ModeratorRoute';
 import ApplicationSuccess from '../pages/Dashboard/StudentDashboard/Application/ApplicationSuccess';
 import ApplicationCancelled from '../pages/Dashboard/StudentDashboard/Application/ApplicationCancelled';
+import MyApplications from '../pages/Dashboard/StudentDashboard/Application/MyApplications/MyApplications';
 
 const Router = createBrowserRouter([
     {

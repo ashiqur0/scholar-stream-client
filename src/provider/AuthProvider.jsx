@@ -17,6 +17,9 @@ const AuthProvider = ({ children }) => {
         document.documentElement.setAttribute("data-theme", theme);
     }
 
+    // search in banner component
+    const [searchText, setSearchText] = useState('');
+
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const axios = useAxios();
@@ -70,7 +73,8 @@ const AuthProvider = ({ children }) => {
     const authInfo = {
         toggleTheme, toggle,
         user, loading,
-        register, login, signInWithGoogle, logOut, updateUser
+        register, login, signInWithGoogle, logOut, updateUser,
+        searchText, setSearchText
     }
 
     return <AuthContext value={authInfo}>{children}</AuthContext>;
