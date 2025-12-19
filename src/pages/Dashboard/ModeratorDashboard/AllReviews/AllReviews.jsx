@@ -2,9 +2,10 @@ import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
+import { Link } from 'react-router';
 
 const AllReviews = () => {
-    
+
     const axiosSecure = useAxiosSecure();
 
     const { data: all_review = [], refetch } = useQuery({
@@ -58,6 +59,7 @@ const AllReviews = () => {
                             <th>Student Email</th>
                             <th>Review</th>
                             <th>Data</th>
+                            <th>View</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
@@ -71,6 +73,10 @@ const AllReviews = () => {
                                 <td>{review.reviewerEmail}</td>
                                 <td>{review.review}</td>
                                 <td>{review.createdAt?.slice(0, 10)}</td>
+                                <td>
+                                    <Link to={`/scholarship/details/${review.scholarshipId}`} className="btn btn-sm btn-outline btn-success">view
+                                    </Link>
+                                </td>
                                 <td>
                                     <button onClick={() => deleteReview(review)} className='btn btn-sm btn-soft btn-secondary w-25'>Delete</button>
                                 </td>
