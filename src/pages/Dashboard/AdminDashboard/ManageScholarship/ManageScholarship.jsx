@@ -35,7 +35,7 @@ const ManageScholarship = () => {
                             refetch();
                             Swal.fire({
                                 title: "Deleted!",
-                                text: "Your parcel request has been deleted.",
+                                text: "Application Deleted Successfully.",
                                 icon: "success"
                             });
                         }
