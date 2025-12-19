@@ -9,7 +9,7 @@ const AddScholarship = () => {
 
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
 
     const handleAddScholarship = (data) => {
 
@@ -49,6 +49,7 @@ const AddScholarship = () => {
 
                 axiosSecure.post(`/scholarship?email=${user.email}`, scholarshipInfo)
                     .then(() => {
+                        reset();
                         Swal.fire({
                             position: "top-end",
                             icon: "success",
