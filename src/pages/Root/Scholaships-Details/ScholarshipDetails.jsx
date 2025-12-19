@@ -72,7 +72,7 @@ const ScholarshipDetails = () => {
                         <p className='font-semibold'>Application Fee: ${applicationFees}</p>
                         <p className='font-semibold'>Contact: {postedUserEmail}</p>
                     </div>
-                    <button onClick={handleApplyModalOpen} className='btn btn-primary'>Apply Now</button>
+                    <button onClick={handleApplyModalOpen} className='btn btn-soft btn-warning border border-orange-400'>Apply Now</button>
                 </div>
             </div>
 
