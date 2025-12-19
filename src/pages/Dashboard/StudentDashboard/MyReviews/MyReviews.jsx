@@ -73,7 +73,7 @@ const MyReviews = () => {
                                 <td>{review.review}</td>
                                 <td>{review.createdAt?.slice(0, 10)}</td>
                                 <td>
-                                    <Link to={`/scholarship/details/${review.scholarshipId}`} className="btn btn-outline btn-success">view
+                                    <Link to={`/scholarship/details/${review.scholarshipId}`} className="btn btn-sm btn-outline btn-success">view
                                     </Link>
                                 </td>
                                 <td>

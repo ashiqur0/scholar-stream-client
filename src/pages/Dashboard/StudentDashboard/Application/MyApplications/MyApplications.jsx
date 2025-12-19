@@ -74,11 +74,11 @@ const MyApplications = () => {
                                 <td>{application.applicationDate?.slice(0, 10)}</td>
                                 <td>{application.applicationStatus}</td>
                                 <td>
-                                    <Link to={`/scholarship/details/${application.scholarshipId}`} className="btn btn-outline btn-success">view
+                                    <Link to={`/scholarship/details/${application.scholarshipId}`} className="btn btn-sm btn-outline btn-success">view
                                     </Link>
                                 </td>
                                 <td>
-                                    <button onClick={() => handleDeleteApplication(application)} className='btn btn-soft btn-secondary'>Delete</button>
+                                    <button onClick={() => handleDeleteApplication(application)} className='btn btn-sm btn-soft btn-secondary'>Delete</button>
                                 </td>
                             </tr>)
                         }
