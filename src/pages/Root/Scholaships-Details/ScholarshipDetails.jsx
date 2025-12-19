@@ -20,11 +20,11 @@ const ScholarshipDetails = () => {
     const { id: userId } = useId();
 
     useEffect(() => {
-        axios.get(`/scholarship/${id}`)
+        axiosSecure.get(`/scholarship/${id}`)
             .then(res => {
                 setScholarship(res.data);
             })
-    }, [axios, id])
+    }, [axios, id, axiosSecure])
 
     const { _id, universityImage, universityName, scholarshipName, universityCountry, universityCity, universityWorldRank, subjectCategory, scholarshipCategory, degree, scholarshipPostDate, applicationDeadline, applicationFees, serviceCharge, postedUserEmail, } = scholarship;
 
@@ -160,7 +160,7 @@ const ScholarshipDetails = () => {
                         <button type='submit' className='btn btn-primary mt-5'>Submit</button>
                     </form>
                 </div>
-                
+
                 <form method="dialog" className="modal-backdrop">
                     <button>close</button>
                 </form>
