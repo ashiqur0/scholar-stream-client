@@ -3,13 +3,14 @@ import { useQuery } from '@tanstack/react-query';
 import useAuth from '../../../../../hooks/useAuth';
 import useAxiosSecure from '../../../../../hooks/useAxiosSecure';
 import { Link } from 'react-router';
+import Swal from 'sweetalert2';
 
 const MyApplications = () => {
 
     const axiosSecure = useAxiosSecure();
     const { user } = useAuth();
 
-    const { data: applications = [] } = useQuery({
+    const { data: applications = [], refetch } = useQuery({
         queryKey: ['applications'],
         queryFn: async () => {
             const res = await axiosSecure.get(`/applications?email=${user.email}`);
@@ -17,7 +18,32 @@ const MyApplications = () => {
         }
     });
 
-    console.log('application array', applications);
+    
+    const handleDeleteApplication = application => {
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    axiosSecure.delete(`/applications/${application._id}?email=${user.email}`)
+                        .then(res => {
+                            if (res.data.deletedCount) {
+                                refetch();
+                                Swal.fire({
+                                    title: "Deleted!",
+                                    text: "Your application has been deleted.",
+                                    icon: "success"
+                                });
+                            }
+                        })
+                }
+            });
+        }
 
     return (
         <div className='md:max-w-7xl md:mx-auto p-4'>
@@ -53,7 +79,7 @@ const MyApplications = () => {
                                     </Link>
                                 </td>
                                 <td>
-                                    <button className='btn btn-soft btn-secondary'>Delete</button>
+                                    <button onClick={() => handleDeleteApplication(application)} className='btn btn-soft btn-secondary'>Delete</button>
                                 </td>
                             </tr>)
                         }
