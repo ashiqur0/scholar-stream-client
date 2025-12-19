@@ -53,7 +53,7 @@ const AddScholarship = () => {
                         Swal.fire({
                             position: "top-end",
                             icon: "success",
-                            title: "Scholarship posted successfully",
+                            title: "Scholarship Added Successfully",
                             showConfirmButton: false,
                             timer: 2500
                         });
