@@ -25,7 +25,7 @@ const FAQ = () => {
 
     return (
         <div className='my-20 md:max-w-275 md:mx-auto mx-4'>
-            <h1 className='md:text-3xl text-2xl font-extrabold text-secondary text-center'>Frequently Asked Question (FAQ)</h1>
+            <h1 className='md:text-3xl text-2xl font-extrabold text-orange-400 text-center'>Frequently Asked Question (FAQ)</h1>
             <p className='text-txt text-center max-w-200 mt-3 mx-auto'>Enhance posture, mobility, and well-being effortlessly with Posture Pro. Achieve proper alignment, reduce pain, and strengthen your body with ease!</p>
 
             <div className='mt-5'>
@@ -39,8 +39,8 @@ const FAQ = () => {
 
                             <div className='flex items-center justify-between'>
                                 <div>
-                                    <h1 className='text-xl font-bold'>{faq.question}</h1>
-                                    <p className={`mt-2 ${!faq.open && "hidden" || "flex"}`}>{faq.answer}</p>
+                                    <h1 className='text-xl font-bold stone-gray-500'>{faq.question}</h1>
+                                    <p className={`mt-2 text-stone-500 ${!faq.open && "hidden" || "flex"}`}>{faq.answer}</p>
                                 </div>
                                 <div>
                                     {
@@ -53,7 +53,7 @@ const FAQ = () => {
             </div>
 
             <button onClick={() => setSeeMore(!seeMore)}
-                className='btn bg-primary text-[1rem] font-bold rounded-xl'>{seeMore ? "See Less FAQ's" : "See More FAQ's"}</button>
+                className='btn btn-soft btn-warning border border-amber-400 text-[1rem] font-bold rounded'>{seeMore ? "See Less FAQ's" : "See More FAQ's"}</button>
         </div>
     );
 };
