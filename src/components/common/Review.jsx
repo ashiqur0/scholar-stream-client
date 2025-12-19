@@ -64,7 +64,7 @@ const Review = ({ scholarship }) => {
                         className="textarea textarea-bordered w-full md:w-2/3 resize-y"
                     />
                 </fieldset>
-                <button type='submit' className='btn btn-soft btn-secondary w-full md:w-2/3 mt-2'>Post</button>
+                <button type='submit' className='btn btn-soft btn-secondary border border-secondary w-full md:w-2/3 mt-2'>Post</button>
             </form>
 
             {/* Display Review Section */}
