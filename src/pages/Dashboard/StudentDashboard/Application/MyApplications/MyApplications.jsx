@@ -2,6 +2,7 @@ import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import useAuth from '../../../../../hooks/useAuth';
 import useAxiosSecure from '../../../../../hooks/useAxiosSecure';
+import { Link } from 'react-router';
 
 const MyApplications = () => {
 
@@ -15,6 +16,8 @@ const MyApplications = () => {
             return res.data;
         }
     });
+
+    console.log('application array', applications);
 
     return (
         <div className='md:max-w-7xl md:mx-auto p-4'>
@@ -32,6 +35,8 @@ const MyApplications = () => {
                             <th>Degree</th>
                             <th>Applied</th>
                             <th>Status</th>
+                            <th>View</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -43,12 +48,19 @@ const MyApplications = () => {
                                 <td>{application.degree}</td>
                                 <td>{application.applicationDate?.slice(0, 10)}</td>
                                 <td>{application.applicationStatus}</td>
+                                <td>
+                                    <Link to={`/scholarship/details/${application.scholarshipId}`} className="btn btn-outline btn-success">view
+                                    </Link>
+                                </td>
+                                <td>
+                                    <button className='btn btn-soft btn-secondary'>Delete</button>
+                                </td>
                             </tr>)
                         }
                     </tbody>
                 </table>
             </div>
-        </div>
+        </div >
     );
 };
 
