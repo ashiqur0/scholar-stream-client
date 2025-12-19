@@ -4,13 +4,14 @@ import useAuth from '../../hooks/useAuth';
 import { useQuery } from '@tanstack/react-query';
 import useAxios from '../../hooks/useAxios';
 import Swal from 'sweetalert2';
-// import useAxiosSecure from '../../hooks/useAxiosSecure';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const Review = ({ scholarship }) => {
 
     const { register, handleSubmit } = useForm();
     const { user, toggle } = useAuth();
     const axios = useAxios();
+    const axiosSecure = useAxiosSecure();
 
 
     const { data: reviews = [], refetch } = useQuery({
@@ -33,7 +34,7 @@ const Review = ({ scholarship }) => {
             scholarshipId: scholarship._id
         }
 
-        axios.post(`/review`, reviewInfo)
+        axiosSecure.post(`/review`, reviewInfo)
             .then(() => {
                 refetch();
                 Swal.fire({
