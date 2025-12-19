@@ -104,7 +104,7 @@ const AllScholarships = () => {
                     [...Array(totalPage).keys()].map(i => <button
                         key={i}
                         onClick={() => setCurrentPage(i)}
-                        className={`btn btn-soft ${i === currentPage && 'btn-warning'}`}
+                        className={`btn btn-soft ${i === currentPage && 'btn-warning border border-orange-400'}`}
                     >{i + 1}</button>)
                 }
 
