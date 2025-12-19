@@ -24,6 +24,7 @@ import ModeratorRoute from './ModeratorRoute';
 import ApplicationSuccess from '../pages/Dashboard/StudentDashboard/Application/ApplicationSuccess';
 import ApplicationCancelled from '../pages/Dashboard/StudentDashboard/Application/ApplicationCancelled';
 import MyApplications from '../pages/Dashboard/StudentDashboard/Application/MyApplications/MyApplications';
+import DashboardHome from '../pages/Dashboard/Home/DashboardHome';
 
 const Router = createBrowserRouter([
     {
@@ -65,6 +66,10 @@ const Router = createBrowserRouter([
         children: [
 
             // common dashboard route
+            {
+                index: true,
+                Component: DashboardHome
+            },
             {
                 path: 'my-profile',
                 Component: MyProfile
