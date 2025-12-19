@@ -42,7 +42,7 @@ const FAQ = () => {
                             <div className='flex items-center justify-between'>
                                 <div>
                                     <h1 className={`text-xl font-bold ${toggle? 'text-stone-400': 'text-stone-600'}`}>{faq.question}</h1>
-                                    <p className={`mt-2 text-stone-500 ${!faq.open && "hidden" || "flex"}`}>{faq.answer}</p>
+                                    <p className={`mt-2 ${!faq.open && "hidden" || "flex"}`}>{faq.answer}</p>
                                 </div>
                                 <div>
                                     {
