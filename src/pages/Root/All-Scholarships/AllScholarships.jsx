@@ -94,7 +94,7 @@ const AllScholarships = () => {
                 {
                     currentPage > 0 && <button
                         onClick={() => setCurrentPage(currentPage - 1)}
-                        className="btn"
+                        className="btn  btn-soft"
                     >Prev
                     </button>
                 }
@@ -104,14 +104,14 @@ const AllScholarships = () => {
                     [...Array(totalPage).keys()].map(i => <button
                         key={i}
                         onClick={() => setCurrentPage(i)}
-                        className={`btn ${i === currentPage && 'btn-primary'}`}
+                        className={`btn btn-soft ${i === currentPage && 'btn-success'}`}
                     >{i + 1}</button>)
                 }
 
                 {
                     currentPage < totalPage - 1 && <button
                         onClick={() => setCurrentPage(currentPage + 1)}
-                        className="btn"
+                        className="btn  btn-soft"
                     >Next
                     </button>
                 }
