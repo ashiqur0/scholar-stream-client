@@ -14,7 +14,7 @@ const Stories = () => {
     return (
         <div className="md:max-w-7xl md:mx-auto p-4">
 
-            <h1 className="md:text-3xl text-2xl font-bold text text-center mt-15 mb-7 text-orange-400">Our Stories</h1>
+            <h1 className="text-3xl font-bold text text-center mt-15 md:mb-7 mb-2 text-orange-400">Our Stories</h1>
 
             <div className="overflow-hidden w-full rounded-lg grid md:grid-cols-2 grid-cols-1 ">
             {stories.map((story, index) => (
