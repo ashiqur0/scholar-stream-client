@@ -56,7 +56,7 @@ const ManageUsers = () => {
                             refetch();
                             Swal.fire({
                                 title: "Deleted!",
-                                text: "Your parcel request has been deleted.",
+                                text: "User Deleted Successfully",
                                 icon: "success"
                             });
                         }
