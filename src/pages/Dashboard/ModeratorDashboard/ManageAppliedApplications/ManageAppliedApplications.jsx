@@ -1,17 +1,19 @@
 import React from 'react';
-import useAxios from '../../../../hooks/useAxios';
+// import useAxios from '../../../../hooks/useAxios';
 import { useQuery } from '@tanstack/react-query';
 import { TiTick } from "react-icons/ti";
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 
 const ManageAppliedApplications = () => {
 
-    const axios = useAxios();
+    // const axios = useAxios();
+    const axiosSecure = useAxiosSecure();
 
     const { data: applications = [], refetch } = useQuery({
         queryKey: ['applications'],
         queryFn: async () => {
-            const res = await axios.get('/applications');
+            const res = await axiosSecure.get('/applications');
             return res.data;
         }
     });
@@ -21,7 +23,7 @@ const ManageAppliedApplications = () => {
             applicationStatus: status
         }
 
-        axios.patch(`/applications/${application._id}`, updatedStatus)
+        axiosSecure.patch(`/applications/${application._id}`, updatedStatus)
             .then(() => {
                 refetch();
                 

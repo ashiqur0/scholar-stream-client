@@ -22,6 +22,8 @@ import MyReviews from '../pages/Dashboard/StudentDashboard/MyReviews/MyReviews';
 import AdminRoute from './AdminRoute';
 import StudentRoute from './StudentRoute';
 import ModeratorRoute from './ModeratorRoute';
+import ApplicationSuccess from '../pages/Dashboard/StudentDashboard/Application/ApplicationSuccess';
+import ApplicationCancelled from '../pages/Dashboard/StudentDashboard/Application/ApplicationCancelled';
 
 const Router = createBrowserRouter([
     {
@@ -104,7 +106,16 @@ const Router = createBrowserRouter([
             {
                 path: 'my-reviews',
                 element: <StudentRoute><MyReviews /></StudentRoute>
-            }
+            },
+            {
+                path: 'application-success',
+                element: <StudentRoute><ApplicationSuccess /></StudentRoute>
+            },
+            {
+                path: 'application-cancelled',
+                element: <StudentRoute><ApplicationCancelled /></StudentRoute>
+            },
+
         ]
     }
 ])

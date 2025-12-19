@@ -1,19 +1,21 @@
 import React from 'react';
-import useAxios from '../../../../hooks/useAxios';
+// import useAxios from '../../../../hooks/useAxios';
 import { useQuery } from '@tanstack/react-query';
 import { MdAddModerator, MdAdminPanelSettings } from "react-icons/md";
 import { PiStudentFill } from "react-icons/pi";
 import { FaRegTrashCan } from 'react-icons/fa6';
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 
 const ManageUsers = () => {
 
-    const axios = useAxios();
+    // const axios = useAxios();
+    const axiosSecure = useAxiosSecure();
 
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await axios.get('/users');
+            const res = await axiosSecure.get('/users');
             return res.data;
         }
     });
@@ -23,7 +25,7 @@ const ManageUsers = () => {
             role: role
         }
 
-        axios.patch(`/users/${user._id}`, updatedRole)
+        axiosSecure.patch(`/users/${user._id}`, updatedRole)
             .then(() => {
                 refetch();
                 Swal.fire({
@@ -48,7 +50,7 @@ const ManageUsers = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                axios.delete(`/users/${user._id}`)
+                axiosSecure.delete(`/users/${user._id}`)
                     .then(res => {
                         if (res.data.deletedCount) {
                             refetch();

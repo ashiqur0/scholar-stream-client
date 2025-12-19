@@ -7,7 +7,6 @@ import useAuth from '../../../hooks/useAuth';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import useId from '../../../hooks/useId';
 import Review from '../../../components/common/Review';
-import Swal from 'sweetalert2';
 
 const ScholarshipDetails = () => {
 
@@ -19,7 +18,6 @@ const ScholarshipDetails = () => {
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
     const { id: userId } = useId();
-    // console.log(userId);
 
     useEffect(() => {
         axios.get(`/scholarship/${id}`)
@@ -34,10 +32,10 @@ const ScholarshipDetails = () => {
         applyModalRef.current.showModal();
     }
 
-    const handleApply = (data) => {
+    const handleApply = async (data) => {
         const applicationInfo = {
             scholarshipId: _id,
-            scholarshipName: data.scholarshipName2,
+            scholarshipName: scholarshipName,
             userId: userId,
             userName: data.userName,
             userEmail: data.userEmail,
@@ -45,22 +43,11 @@ const ScholarshipDetails = () => {
             scholarshipCategory: scholarshipCategory,
             degree: degree,
             applicationFees: applicationFees,
-            serviceCharge: serviceCharge,
-            applicationStatus: 'pending',
-            paymentStatus: 'unpaid',
-            applicationDate: new Date().toISOString().replace("Z", "+00:00"),
-            feedback: ''
+            serviceCharge: serviceCharge
         }
-        axiosSecure.post(`/application?email=${user.email}`, applicationInfo)
-            .then(() => {
-                Swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: "Application successful",
-                    showConfirmButton: false,
-                    timer: 2500
-                });
-            });
+        
+        const res = await axiosSecure.post(`/application`, applicationInfo);
+        window.location.assign(res.data.url);
     }
 
     return (
@@ -100,7 +87,7 @@ const ScholarshipDetails = () => {
                             <label className="label mt-4 text-[14px]">Scholarship Name</label>
                             <input
                                 type="text"
-                                {...register('scholarshipName2')}
+                                {...register('scholarshipName')}
                                 className="input w-full"
                                 defaultValue={scholarshipName}
                             />

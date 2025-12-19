@@ -1,7 +1,7 @@
 import React from 'react';
-import useAxios from '../../../../hooks/useAxios';
+import useAxios from '../../../../../hooks/useAxios';
 import { useQuery } from '@tanstack/react-query';
-import useAuth from '../../../../hooks/useAuth';
+import useAuth from '../../../../../hooks/useAuth';
 
 const MyApplications = () => {
 
