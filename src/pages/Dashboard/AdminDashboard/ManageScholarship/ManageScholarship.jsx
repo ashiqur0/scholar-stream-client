@@ -2,10 +2,12 @@ import React from 'react';
 import useAxios from '../../../../hooks/useAxios';
 import { useQuery } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 
 const ManageScholarship = () => {
 
     const axios = useAxios();
+    const axiosSecure = useAxiosSecure();
 
     const { data: scholarships = [], refetch } = useQuery({
         queryKey: ['scholarships'],
@@ -27,8 +29,7 @@ const ManageScholarship = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-
-                axios.delete(`/scholarship/${scholarship._id}`)
+                axiosSecure.delete(`/scholarship/${scholarship._id}`)
                     .then(res => {
                         if (res.data.deletedCount) {
                             refetch();
