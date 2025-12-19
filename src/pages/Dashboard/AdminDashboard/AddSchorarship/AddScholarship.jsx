@@ -205,7 +205,7 @@ const AddScholarship = () => {
                     </fieldset>
                 </div>
 
-                <button type="submit" className='btn btn-primary w-full md:w-80'>Add Scholarship</button>
+                <button type="submit" className='btn btn-soft btn-warning border border-orange-400 w-full md:w-80'>Add Scholarship</button>
             </form >
         </div>
     );
