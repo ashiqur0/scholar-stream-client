@@ -6,8 +6,8 @@ const Banner = () => {
     const { setSearchText } = useAuth();
 
     return (
-        <div className='md:max-w-7xl md:mx-auto mt-20 p-20'>
-            <h1 className='text-center text-xl md:text-5xl text-orange-400 font-extrabold'>Your Gateway to Global Scholarships</h1>
+        <div className='md:max-w-7xl md:mx-auto md:mt-20 p-4 mt-10 md:p-20'>
+            <h1 className='text-center text-3xl md:text-5xl text-orange-400 font-extrabold'>Your Gateway to Global Scholarships</h1>
             <p className='text-center mt-5 text-gray-500'>Search and apply for scholarships from leading universities with ease, transparency, and confidence.</p>
 
             <form className='md:w-1/4 mx-auto mt-10'>
@@ -28,7 +28,7 @@ const Banner = () => {
                             <path d="m21 21-4.3-4.3"></path>
                         </g>
                     </svg>
-                    <input onChange={(e) => setSearchText(e.target.value)} type="search" className="" placeholder="Search Scholarship" />
+                    <input onChange={(e) => setSearchText(e.target.value)} type="search" className=" w-full" placeholder="Search Scholarship" />
                 </label>
             </form>
         </div>
