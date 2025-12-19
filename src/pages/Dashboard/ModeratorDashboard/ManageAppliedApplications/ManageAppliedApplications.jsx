@@ -3,9 +3,10 @@ import { useQuery } from '@tanstack/react-query';
 import { TiTick } from "react-icons/ti";
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
+import { Link } from 'react-router';
 
 const ManageAppliedApplications = () => {
-    
+
     const axiosSecure = useAxiosSecure();
 
     const { data: applications = [], refetch } = useQuery({
@@ -24,7 +25,7 @@ const ManageAppliedApplications = () => {
         axiosSecure.patch(`/applications/${application._id}`, updatedStatus)
             .then(() => {
                 refetch();
-                
+
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
@@ -50,6 +51,7 @@ const ManageAppliedApplications = () => {
                             <th>Degree</th>
                             <th>Student</th>
                             <th>Email</th>
+                            <th>View</th>
                             <th>Status</th>
                         </tr>
                     </thead>
@@ -61,6 +63,10 @@ const ManageAppliedApplications = () => {
                                 <td>{application.degree}</td>
                                 <td>{application.userName}</td>
                                 <td>{application.userEmail}</td>
+                                <td>
+                                    <Link to={`/scholarship/details/${application.scholarshipId}`} className="btn btn-sm btn-outline btn-success">view
+                                    </Link>
+                                </td>
                                 <td className=''>
                                     {
                                         application.applicationStatus === 'pending' && <>
