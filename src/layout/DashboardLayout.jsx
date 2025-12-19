@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { Link, NavLink, Outlet } from 'react-router';
 import { AiOutlineGift } from "react-icons/ai";
-import { IoSettingsOutline } from 'react-icons/io5';
+import { IoHomeOutline, IoSettingsOutline } from 'react-icons/io5';
 import { GoSidebarExpand } from "react-icons/go";
 import { GoSidebarCollapse } from "react-icons/go";
 import { FaHome, FaTasks, FaUsers } from 'react-icons/fa';
@@ -51,6 +51,11 @@ const DashboardLayout = () => {
                         <li><Link to={'/'} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Homepage">
                             <GiGraduateCap size={25}/>
                             <span className="is-drawer-close:hidden text-xl font-bold">Scholar Stream</span>
+                        </Link></li>
+
+                        <li><Link to={'/dashboard'} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Dashboard Home">
+                            <IoHomeOutline size={20} />
+                            <span className="is-drawer-close:hidden">Dashboard Home</span>
                         </Link></li>
 
                         <li><NavLink to={'/dashboard/my-profile'} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="My Profile">
