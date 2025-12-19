@@ -27,13 +27,13 @@ const AllReviews = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`/review/${review._id}`)
+                axiosSecure.delete(`/review/${review._id}/moderator`)
                     .then(res => {
                         if (res.data.deletedCount) {
                             refetch();
                             Swal.fire({
                                 title: "Deleted!",
-                                text: "Your parcel request has been deleted.",
+                                text: "Review has been deleted.",
                                 icon: "success"
                             });
                         }
