@@ -3,10 +3,12 @@ import useAxios from '../../../../hooks/useAxios';
 import { useQuery } from '@tanstack/react-query';
 import useAuth from '../../../../hooks/useAuth';
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 
 const MyReviews = () => {
 
     const axios = useAxios();
+    const axiosSecure = useAxiosSecure();
     const { user } = useAuth();
 
     const { data: my_reviews = [], refetch } = useQuery({
@@ -29,7 +31,7 @@ const MyReviews = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`/review/${review._id}`)
+                axiosSecure.delete(`/review/${review._id}?email=${user.email}`)
                     .then(res => {
                         if (res.data.deletedCount) {
                             refetch();
