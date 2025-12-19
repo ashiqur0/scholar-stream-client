@@ -1,17 +1,17 @@
 import React from 'react';
-import useAxios from '../../../../../hooks/useAxios';
 import { useQuery } from '@tanstack/react-query';
 import useAuth from '../../../../../hooks/useAuth';
+import useAxiosSecure from '../../../../../hooks/useAxiosSecure';
 
 const MyApplications = () => {
 
-    const axios = useAxios();
+    const axiosSecure = useAxiosSecure();
     const { user } = useAuth();
 
     const { data: applications = [] } = useQuery({
         queryKey: ['applications'],
         queryFn: async () => {
-            const res = await axios.get(`/applications?email=${user.email}`);
+            const res = await axiosSecure.get(`/applications?email=${user.email}`);
             return res.data;
         }
     });
