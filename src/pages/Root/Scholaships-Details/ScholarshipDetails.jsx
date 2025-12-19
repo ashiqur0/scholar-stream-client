@@ -45,7 +45,7 @@ const ScholarshipDetails = () => {
             applicationFees: applicationFees,
             serviceCharge: serviceCharge
         }
-        
+
         const res = await axiosSecure.post(`/application`, applicationInfo);
         window.location.assign(res.data.url);
     }
@@ -159,14 +159,11 @@ const ScholarshipDetails = () => {
                         </fieldset>
                         <button type='submit' className='btn btn-primary mt-5'>Submit</button>
                     </form>
-
-                    <div className="modal-action">
-                        <form method="dialog">
-                            {/* if there is a button in form, it will close the modal */}
-                            <button className="btn">Close</button>
-                        </form>
-                    </div>
                 </div>
+                
+                <form method="dialog" className="modal-backdrop">
+                    <button>close</button>
+                </form>
             </dialog>
 
             <Review scholarship={scholarship} />

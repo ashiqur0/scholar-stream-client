@@ -8,7 +8,7 @@ const TopScholarship = () => {
 
     const [scholarships, setScholarships] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:3000/latest-scholarship?search=${searchText}`)
+        fetch(`https://scholar-strem-server-by-ashiqur.vercel.app/latest-scholarship?search=${searchText}`)
             .then(res => res.json())
             .then(data => {
                 setScholarships(data);

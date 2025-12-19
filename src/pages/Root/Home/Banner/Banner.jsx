@@ -10,7 +10,7 @@ const Banner = () => {
             <h1 className='text-center text-xl md:text-5xl text-orange-400 font-extrabold'>Your Gateway to Global Scholarships</h1>
             <p className='text-center mt-5 '>Search and apply for scholarships from leading universities with ease, transparency, and confidence.</p>
 
-            <form className='md:w-1/4 mx-auto mt-5'>
+            <form className='md:w-1/4 mx-auto mt-10'>
                 <label className="input max-w-[300px] w-[300px] input-secondary">
                     <svg
                         className="h-[1em] opacity-50"
