@@ -27,7 +27,7 @@ const SocialLogin = () => {
                         Swal.fire({
                             position: "top-end",
                             icon: "success",
-                            title: "User registration successful",
+                            title: "successfully Logged In With Google",
                             showConfirmButton: false,
                             timer: 2500
                         });
