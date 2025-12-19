@@ -33,7 +33,7 @@ const DashboardLayout = () => {
                             !expand && <GoSidebarExpand size={20} /> || <GoSidebarCollapse size={20} />
                         }
                     </label>
-                    <div className="px-4 text-[1rem] font-semibold">Scholar Stream Dashboard</div>
+                    <Link to={'/dashboard'} className="px-4 text-[1rem] font-semibold">Scholar Stream Dashboard</Link>
                 </nav>
 
                 {/* Page content here */}
