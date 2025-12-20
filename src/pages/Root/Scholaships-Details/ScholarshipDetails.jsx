@@ -52,6 +52,7 @@ const ScholarshipDetails = () => {
 
     return (
         <div className='max-w-7xl md:mx-auto mx-3 my-10'>
+            <title>Scholarship Details</title>
             <div className='grid grid-cols-1 md:grid-cols-2 justify-center items-start md:gap-10 gap-5 md:p-10 p-3 rounded-xl h-full'>
                 <div>
                     <img src={universityImage} alt={universityName} className='rounded-xl md:w-full md:h-100 overflow-hidden' />
