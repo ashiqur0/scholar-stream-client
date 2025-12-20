@@ -55,7 +55,7 @@ const FAQ = () => {
             </div>
 
             <button onClick={() => setSeeMore(!seeMore)}
-                className='btn btn-soft btn-warning border border-amber-400 text-[1rem] font-bold rounded'>{seeMore ? "See Less FAQ's" : "See More FAQ's"}</button>
+                className='btn btn-sm btn-soft btn-warning border border-orange-400 text-[14px] font-bold rounded'>{seeMore ? "See Less FAQ's" : "See More FAQ's"}</button>
         </div>
     );
 };
