@@ -46,6 +46,7 @@ const MyApplications = () => {
 
     return (
         <div className='md:max-w-7xl md:mx-auto p-4'>
+            <title>My Application</title>
             <h1 className='text-2xl font-bold'>My Applications</h1>
 
             <h2 className='font-xl font-semibold mt-10'>Total Applied ({applications.length})</h2>
