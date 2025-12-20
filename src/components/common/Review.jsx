@@ -52,7 +52,7 @@ const Review = ({ scholarship }) => {
     }
 
     return (
-        <div className='md:max-w-7xl md:mx-auto p-4'>
+        <div className='md:max-w-7xl md:mx-auto md:p-10 p-3'>
 
             {/* Rating */}
             <div className='flex items-center gap-4 mb-2'>
