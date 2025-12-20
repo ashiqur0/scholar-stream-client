@@ -46,7 +46,7 @@ const Footer = () => {
             </div>
 
             <nav className='border-t border-gray-400 text-center pt-2 mt-10'>
-                © 2025 Import Export Hub. All rights reserved.
+                © 2025 Scholar Stream. All rights reserved.
             </nav>
         </footer>
     );
