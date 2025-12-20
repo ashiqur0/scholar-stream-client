@@ -74,36 +74,10 @@ const ManageAppliedApplications = () => {
 
                                     <button title={'Feedback'} className='btn btn-sm btn-soft btn-accent border border-sky-500'><RiFeedbackFill /></button>
 
-                                    <button title={'Status Update'} className='btn btn-sm btn-soft btn-warning border border-orange-400'><RiFeedbackFill /></button>
+                                    <button onClick={() => updateApplicationStatus(application, application.applicationStatus !== 'processing' ? 'processing' : 'completed')} title={'Status Update'} className='btn btn-sm btn-soft btn-warning border border-orange-400'><RiFeedbackFill /></button>
 
-                                    <button title={'Cancel'} className='btn btn-sm btn-soft btn-error border border-rose-400'><RiFeedbackFill /></button>
+                                    <button onClick={() => updateApplicationStatus(application, 'rejected')} title={'Cancel'} className='btn btn-sm btn-soft btn-error border border-rose-400'><RiFeedbackFill /></button>
                                 </td>
-                                {/* <td className=''>
-                                    {
-                                        application.applicationStatus === 'pending' && <>
-                                            <button onClick={() => updateApplicationStatus(application, 'processing')} className='btn font-bold'>processing</button>
-                                        </>
-                                    }
-                                    {
-                                        application.applicationStatus === 'processing' && <>
-                                            <div className='flex items-center justify-start gap-2'>
-                                                <button onClick={() => updateApplicationStatus(application, 'approved')} className='btn btn-outline btn-success'><TiTick size={20} /></button>
-
-                                                <button onClick={() => updateApplicationStatus(application, 'canceled')} className='btn btn-outline btn-error font-bold'>X</button>
-                                            </div>
-                                        </>
-                                    }
-                                    {
-                                        application.applicationStatus === 'approved' && <>
-                                            <p className='text-green-500'>Approved</p>
-                                        </>
-                                    }
-                                    {
-                                        application.applicationStatus === 'canceled' && <>
-                                            <p className='text-red-500'>Canceled</p>
-                                        </>
-                                    }
-                                </td> */}
                             </tr>)
                         }
                     </tbody>
