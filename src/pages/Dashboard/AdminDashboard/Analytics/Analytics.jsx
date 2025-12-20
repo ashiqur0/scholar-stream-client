@@ -7,10 +7,18 @@ const Analytics = () => {
 
     const axiosSecure = useAxiosSecure()
 
-    const { data: applicationStats = [] } = useQuery({
-        queryKey: ['application-status-stats'],
+    const { data: applicationStatsByScholarshipCategory = [] } = useQuery({
+        queryKey: ['application-status-scholarshipCategory'],
         queryFn: async () => {
-            const res = await axiosSecure.get('/applications/application-status/stats');
+            const res = await axiosSecure.get('/applications/application-status/scholarshipCategory');
+            return res.data;
+        }
+    });
+
+    const { data: applicationStatsByUniversityName = [] } = useQuery({
+        queryKey: ['application-status-universityName'],
+        queryFn: async () => {
+            const res = await axiosSecure.get('/applications/application-status/universityName');
             return res.data;
         }
     });
@@ -43,17 +51,34 @@ const Analytics = () => {
                 </div>
             </div>
 
-            <div className='mt-10'>
-                <div>
-                </div>
+            <div className='mt-10 flex items-center gap-10'>
                 <div className='w-full h-[400px]'>
-                    <h1 className='w-1/2 text-2xl font-bold'>Pie Chart Displaying Number Application Per Scholarship Category</h1>
+                    <h1 className=' text-2xl font-bold'>Application Per University</h1>
                     <PieChart style={{ width: '100%', maxWidth: '500px', maxHeight: '80vh', aspectRatio: 2 }} responsive>
                         <Pie
                             dataKey="value"
                             startAngle={180}
                             endAngle={0}
-                            data={getPieChartData(applicationStats)}
+                            data={getPieChartData(applicationStatsByUniversityName)}
+                            cx="50%"
+                            cy="100%"
+                            outerRadius="120%"
+                            fill="#8884d8"
+                            label
+                            isAnimationActive={true}
+                        />
+                        <Legend></Legend>
+                        <Tooltip></Tooltip>
+                    </PieChart>
+                </div>
+                <div className='w-full h-[400px]'>
+                    <h1 className=' text-2xl font-bold'>Application Per Scholarship Category</h1>
+                    <PieChart style={{ width: '100%', maxWidth: '500px', maxHeight: '80vh', aspectRatio: 2 }} responsive>
+                        <Pie
+                            dataKey="value"
+                            startAngle={180}
+                            endAngle={0}
+                            data={getPieChartData(applicationStatsByScholarshipCategory)}
                             cx="50%"
                             cy="100%"
                             outerRadius="120%"
