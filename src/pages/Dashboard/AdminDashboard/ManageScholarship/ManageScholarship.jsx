@@ -100,7 +100,7 @@ const ManageScholarship = () => {
             serviceCharge: data.serviceCharge,
             applicationDeadline: new Date(data.applicationDeadline).toISOString().replace("Z", "+00:00"),
             scholarshipPostDate: new Date().toISOString().replace("Z", "+00:00"),
-            postedUserEmail: data.postedUserEmail,
+            postedUserEmail: user.email,
         };
 
         console.log(scholarshipInfo);
@@ -190,6 +190,7 @@ const ManageScholarship = () => {
                                                         {...register('scholarshipDescription')}
                                                         className="input w-full"
                                                         placeholder='Scholarship Description'
+                                                        defaultValue={scholarship.scholarshipDescription}
                                                     />
 
                                                     {/* University Name */}
@@ -314,19 +315,9 @@ const ManageScholarship = () => {
                                                         placeholder='Application Deadline'
                                                         defaultValue={scholarship.applicationDeadline}
                                                     />
-
-                                                    {/* Posted User Email */}
-                                                    <label className="label mt-4 text-[14px] ">Posted User Email</label>
-                                                    <input
-                                                        type="txt"
-                                                        {...register('postedUserEmail')}
-                                                        className="input w-full"
-                                                        placeholder='Posted User Email'
-                                                        defaultValue={user.email}
-                                                    />
                                                 </fieldset>
                                             </div>
-                                            <button type='submit' className='btn btn-primary mt-5'>Submit</button>
+                                            <button type='submit' className='btn btn-soft btn-warning border border-orange-400 mt-0'>Update</button>
                                         </form>
                                     </div>
 
