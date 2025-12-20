@@ -7,6 +7,14 @@ const Analytics = () => {
 
     const axiosSecure = useAxiosSecure()
 
+    const { data: summary = {} } = useQuery({
+        queryKey: ['application-status-summary'],
+        queryFn: async () => {
+            const res = await axiosSecure.get('/applications/stats/summary');
+            return res.data;
+        }
+    });
+
     const { data: applicationStatsByScholarshipCategory = [] } = useQuery({
         queryKey: ['application-status-scholarshipCategory'],
         queryFn: async () => {
@@ -37,17 +45,17 @@ const Analytics = () => {
             <div className="stats shadow">
                 <div className="stat mt-10">
                     <div className="stat-title text-2xl">Total Fees Collected</div>
-                    <div className="stat-value">$10000</div>
+                    <div className="stat-value">${summary.totalFees}</div>
                 </div>
 
                 <div className="stat mt-10">
                     <div className="stat-title text-2xl">Total Users</div>
-                    <div className="stat-value">5</div>
+                    <div className="stat-value">{summary.totalUser}</div>
                 </div>
 
                 <div className="stat mt-10">
                     <div className="stat-title text-2xl">Total Scholarships</div>
-                    <div className="stat-value">22</div>
+                    <div className="stat-value">{summary.totalScholarship}</div>
                 </div>
             </div>
 
