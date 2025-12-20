@@ -82,7 +82,7 @@ const ManageScholarship = () => {
                                     </Link>
                                 </td>
                                 <td>
-                                    <button onClick={() => manageScholarship(scholarship)} className='btn btn-sm btn-soft btn-secondary w-25'>Delete</button>
+                                    <button onClick={() => manageScholarship(scholarship)} className='btn btn-sm btn-soft btn-secondary border border-secondary w-25'>Delete</button>
                                 </td>
                             </tr>)
                         }
