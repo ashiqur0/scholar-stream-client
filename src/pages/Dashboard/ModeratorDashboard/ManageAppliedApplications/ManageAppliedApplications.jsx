@@ -38,6 +38,7 @@ const ManageAppliedApplications = () => {
 
     return (
         <div className='md:max-w-7xl md:mx-auto p-4'>
+            <title>Manage Application</title>
             <h1 className='text-2xl font-bold'>Manage Applied Applications</h1>
 
             <h2 className='font-xl font-semibold mt-10'>Total Application ({applications.length})</h2>
