@@ -46,7 +46,7 @@ const Navbar = () => {
                                     <li><Link
                                         onClick={handleLogOut}
                                         to={'/'}
-                                        className={'btn btn-primary rounded-sm font-semibold hover:bg-slate-800 bg-slate-900'}
+                                        className={'btn btn-sm btn-soft btn-warning border border-orange-400 rounded-sm font-semibold'}
                                     >
                                         Logout
                                     </Link></li>
@@ -91,24 +91,24 @@ const Navbar = () => {
                                 >
                                     <li><Link to="/dashboard/my-profile">Profile</Link></li>
                                     <li><Link to="/dashboard">Dashboard</Link></li>
-                                    <li><NavLink
+                                    <li><Link
                                         onClick={handleLogOut}
                                         to={'/'}
-                                        className={'btn btn-primary rounded-sm font-semibold hover:bg-slate-800 bg-slate-900'}
+                                        className={'btn btn-sm btn-soft btn-warning border border-orange-400 text-xl rounded-sm font-semibold'}
                                     >
                                         Logout
-                                    </NavLink></li>
+                                    </Link></li>
                                 </ul>
                             </div>
                         </> : <>
                             <Link to={'/login'}
-                                className='btn btn-primary rounded-sm font-semibold hover:bg-slate-800 bg-slate-900'
+                                className='btn btn-sm btn-soft btn-warning border border-orange-400 text-xl rounded-sm font-semibold'
                             >
                                 Login
                             </Link>
 
                             <Link to={'/register'}
-                                className='btn btn-primary rounded-sm font-semibold hover:bg-slate-800 bg-slate-900'
+                                className='btn btn-sm btn-soft btn-warning border border-orange-400 text-xl rounded-sm font-semibold'
                             >
                                 SignUp
                             </Link>
