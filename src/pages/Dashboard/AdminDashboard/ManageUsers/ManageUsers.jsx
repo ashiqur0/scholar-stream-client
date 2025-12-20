@@ -26,7 +26,6 @@ const ManageUsers = () => {
 
         axiosSecure.patch(`/users/${user._id}`, updatedRole)
             .then(() => {
-                refetch();
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
@@ -52,7 +51,6 @@ const ManageUsers = () => {
                 axiosSecure.delete(`/users/${user._id}`)
                     .then(res => {
                         if (res.data.deletedCount) {
-                            refetch();
                             Swal.fire({
                                 title: "Deleted!",
                                 text: "User Deleted Successfully",

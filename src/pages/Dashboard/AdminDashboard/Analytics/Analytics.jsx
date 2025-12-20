@@ -8,7 +8,7 @@ const Analytics = () => {
     const axiosSecure = useAxiosSecure()
 
     const { data: applicationStats = [] } = useQuery({
-        queryKey: ['delivery-status-stats'],
+        queryKey: ['application-status-stats'],
         queryFn: async () => {
             const res = await axiosSecure.get('/applications/application-status/stats');
             return res.data;
@@ -27,46 +27,44 @@ const Analytics = () => {
             <h1 className='text-2xl font-bold'>Analytics of Application Status</h1>
 
             <div className="stats shadow">
-                {
-                    applicationStats.map(stat => <div className="stat mt-10" key={stat.status}>
-                        <div className="stat-figure text-secondary">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                className="inline-block h-8 w-8 stroke-current"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                                ></path>
-                            </svg>
-                        </div>
-                        <div className="stat-title text-2xl">{stat.status}</div>
-                        <div className="stat-value">{stat.count}</div>
-                    </div>)
-                }
+                <div className="stat mt-10">
+                    <div className="stat-title text-2xl">Total Fees Collected</div>
+                    <div className="stat-value">$10000</div>
+                </div>
+
+                <div className="stat mt-10">
+                    <div className="stat-title text-2xl">Total Users</div>
+                    <div className="stat-value">5</div>
+                </div>
+
+                <div className="stat mt-10">
+                    <div className="stat-title text-2xl">Total Scholarships</div>
+                    <div className="stat-value">22</div>
+                </div>
             </div>
 
-            <div className='w-full h-[400px]'>
-                <PieChart style={{ width: '100%', maxWidth: '500px', maxHeight: '80vh', aspectRatio: 2 }} responsive>
-                    <Pie
-                        dataKey="value"
-                        startAngle={180}
-                        endAngle={0}
-                        data={getPieChartData(applicationStats)}
-                        cx="50%"
-                        cy="100%"
-                        outerRadius="120%"
-                        fill="#8884d8"
-                        label
-                        isAnimationActive={true}
-                    />
-                    <Legend></Legend>
-                    <Tooltip></Tooltip>
-                </PieChart>
+            <div className='mt-10'>
+                <div>
+                </div>
+                <div className='w-full h-[400px]'>
+                    <h1 className='w-1/2 text-2xl font-bold'>Pie Chart Displaying Number Application Per Scholarship Category</h1>
+                    <PieChart style={{ width: '100%', maxWidth: '500px', maxHeight: '80vh', aspectRatio: 2 }} responsive>
+                        <Pie
+                            dataKey="value"
+                            startAngle={180}
+                            endAngle={0}
+                            data={getPieChartData(applicationStats)}
+                            cx="50%"
+                            cy="100%"
+                            outerRadius="120%"
+                            fill="#8884d8"
+                            label
+                            isAnimationActive={true}
+                        />
+                        <Legend></Legend>
+                        <Tooltip></Tooltip>
+                    </PieChart>
+                </div>
             </div>
         </div>
     );
