@@ -1,24 +1,23 @@
 import React from 'react';
-// import useAxios from '../../../../hooks/useAxios';
-import { useQuery } from '@tanstack/react-query';
 import { MdAddModerator, MdAdminPanelSettings } from "react-icons/md";
 import { PiStudentFill } from "react-icons/pi";
 import { FaRegTrashCan } from 'react-icons/fa6';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 const ManageUsers = () => {
-
-    // const axios = useAxios();
     const axiosSecure = useAxiosSecure();
+    const [sort, setSort] = useState('size');
+    const [users, setUsers] = useState([]);
 
-    const { data: users = [], refetch } = useQuery({
-        queryKey: ['users'],
-        queryFn: async () => {
-            const res = await axiosSecure.get('/users');
-            return res.data;
-        }
-    });
+    useEffect(() => {
+        axiosSecure.get(`/users?sort=${sort}`)
+            .then(res => {
+                setUsers(res.data);
+            });
+    }, [sort, axiosSecure]);
 
     const handleSetRole = (user, role) => {
         const updatedRole = {
@@ -69,7 +68,20 @@ const ManageUsers = () => {
         <div className='md:max-w-7xl md:mx-auto p-4'>
             <title>Manage Users</title>
             <h1 className='text-2xl font-bold'>Manage Users</h1>
-            <h2 className='font-xl font-semibold mt-10'>Total Users ({users.length})</h2>
+            <div className='flex justify-between items-center mb-2'>
+                <h2 className='text-xl font-bold mt-10'>Total Users ({users.length})</h2>
+                <div className="font-xl font-semibold mt-10">
+                    <select onChange={(e)=> setSort(e.target.value)} className="select w-60">
+                        <option selected disabled={true}>
+                            Sort User By Role
+                        </option>
+                        <option value={"all-user"}>All User</option>
+                        <option value={"admin"}>Admin</option>
+                        <option value={"moderator"}>Moderator</option>
+                        <option value={"student"}>Student</option>
+                    </select>
+                </div>
+            </div>
 
             <div className="overflow-x-auto ">
                 <table className="table table-zebra">
