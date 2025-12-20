@@ -30,8 +30,8 @@ const Login = () => {
     }
 
     return (
-        <div className='md:max-w-7xl min-h-screen flex flex-col justify-center items-center'>
-            <div className='md:w-2/6 mx-auto bg-slate-950 p-10 rounded-2xl'>
+        <div className='md:max-w-7xl md:mx-auto mx-4 min-h-screen flex flex-col justify-center items-center'>
+            <div className='md:w-2/6 p-10 rounded-2xl'>
                 <h1 className='text-center md:text-2xl text-xl font-semibold mb-5'>Login Your Account</h1>
 
                 <form onSubmit={handleSubmit(handleLogin)} className=''>
@@ -57,8 +57,8 @@ const Login = () => {
 
                         <div><a className="link link-hover">Forgot password?</a></div>
 
-                        <button type='submit' className=" btn btn-neutral mt-4 bg-primary">Login</button>
-                        <p>Already have an account? <Link to='/register' state={location?.state} className='text-blue-700'>register</Link> </p>
+                        <button type='submit' className="btn btn-soft btn-warning border border-orange-400 mt-4">Login</button>
+                        <p>Already have an account? <Link to='/register' state={location?.state} className='text-purple-500'>register</Link> </p>
                     </fieldset>
                 </form>
 
