@@ -47,6 +47,7 @@ const ManageScholarship = () => {
 
     return (
         <div className='md:max-w-7xl md:mx-auto p-4'>
+            <title>Manage Scholarship</title>
             <h1 className='text-2xl font-bold'>Manage Scholarship</h1>
 
             <h2 className='font-xl font-semibold mt-10'>Total Application ({scholarships.length})</h2>
