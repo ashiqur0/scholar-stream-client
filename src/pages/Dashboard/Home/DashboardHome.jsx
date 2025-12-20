@@ -10,10 +10,28 @@ const DashboardHome = () => {
     const { role, roleLoading } = useRole();
 
     if (roleLoading) return <Loading />
-    if (role === 'admin') return <AdminDashboardHome />
-    else if (role === 'moderator') return <ModeratorDashboardHome />
+    if (role === 'admin') {
+        return (
+            <div>
+                <title>Admin Home</title>
+                <AdminDashboardHome />
+            </div>
+        )
+    } else if (role === 'moderator') {
+        return (
+            <div>
+                <title>Moderator Home</title>
+                <ModeratorDashboardHome />
+            </div>
+        )
+    }
 
-    return <StudentDashboardHome />
+    return (
+            <div>
+                <title>Student Home</title>
+                <StudentDashboardHome />
+            </div>
+        )
 };
 
 export default DashboardHome;
