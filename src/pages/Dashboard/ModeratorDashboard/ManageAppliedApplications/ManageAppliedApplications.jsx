@@ -4,6 +4,8 @@ import { TiTick } from "react-icons/ti";
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import { Link } from 'react-router';
+import { TbListDetails } from "react-icons/tb";
+import { RiFeedbackFill } from "react-icons/ri";
 
 const ManageAppliedApplications = () => {
 
@@ -48,27 +50,35 @@ const ManageAppliedApplications = () => {
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>University</th>
-                            <th>Degree</th>
-                            <th>Student</th>
-                            <th>Email</th>
-                            <th>View</th>
-                            <th>Status</th>
+                            <th>Applicant Name</th>
+                            <th>Applicant Email</th>
+                            <th>University Name</th>
+                            <th>Application Feedback</th>
+                            <th>Application Status</th>
+                            <th>Payment Status</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
                             applications.map((application, index) => <tr key={application._id}>
                                 <th>{index + 1}</th>
-                                <td>{application.universityName}</td>
-                                <td>{application.degree}</td>
                                 <td>{application.userName}</td>
                                 <td>{application.userEmail}</td>
-                                <td>
-                                    <Link to={`/scholarship/details/${application.scholarshipId}`} className="btn btn-sm btn-outline btn-success">view
-                                    </Link>
+                                <td>{application.universityName}</td>
+                                <td>{application.feedback}</td>
+                                <td>{application.applicationStatus}</td>
+                                <td>{application.paymentStatus}</td>
+                                <td className='flex items-center gap-1'>
+                                    <button title={'Details'} className='btn btn-sm btn-soft btn-success border border-green-400'><TbListDetails /></button>
+
+                                    <button title={'Feedback'} className='btn btn-sm btn-soft btn-accent border border-sky-500'><RiFeedbackFill /></button>
+
+                                    <button title={'Status Update'} className='btn btn-sm btn-soft btn-warning border border-orange-400'><RiFeedbackFill /></button>
+
+                                    <button title={'Cancel'} className='btn btn-sm btn-soft btn-error border border-rose-400'><RiFeedbackFill /></button>
                                 </td>
-                                <td className=''>
+                                {/* <td className=''>
                                     {
                                         application.applicationStatus === 'pending' && <>
                                             <button onClick={() => updateApplicationStatus(application, 'processing')} className='btn font-bold'>processing</button>
@@ -93,7 +103,7 @@ const ManageAppliedApplications = () => {
                                             <p className='text-red-500'>Canceled</p>
                                         </>
                                     }
-                                </td>
+                                </td> */}
                             </tr>)
                         }
                     </tbody>
