@@ -48,6 +48,7 @@ const MyReviews = () => {
 
     return (
         <div className='md:max-w-7xl md:mx-auto p-4'>
+            <title>My Reviews</title>
             <h1 className='text-2xl font-bold'>Total Reviews ({my_reviews.length})</h1>
 
             <div className="overflow-x-auto ">
