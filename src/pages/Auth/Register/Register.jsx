@@ -78,7 +78,7 @@ const Register = () => {
 
     return (
         <div className='md:max-w-7xl min-h-screen flex flex-col justify-center items-center'>
-            <div className='md:w-2/6 mx-auto bg-slate-950 p-10 rounded-2xl'>
+            <div className='md:w-2/6 mx-auto p-10 rounded-2xl'>
                 <h1 className='text-center md:text-2xl text-xl font-semibold mb-5'>Register Your Account</h1>
 
                 <form onSubmit={handleSubmit(handleRegistration)} className=''>
@@ -126,8 +126,8 @@ const Register = () => {
                         {errors.password?.type === 'minLength' && <p className='text-red-500'>Password should be at least 6 character</p>}
                         {errors.password?.type === 'pattern' && <p className='text-red-500'>Password combination: uppercase, lowercase, digit, and special character</p>}
 
-                        <button type='submit' className=" btn btn-neutral mt-4 bg-primary">Register</button>
-                        <p>Already have an account? <Link to='/login' state={location?.state} className='text-blue-700'>login</Link> </p>
+                        <button type='submit' className=" btn btn-soft btn-warning border border-orange-400 mt-4">Register</button>
+                        <p>Already have an account? <Link to='/login' state={location?.state} className='text-purple-500'>login</Link> </p>
                     </fieldset>
                 </form>
 
