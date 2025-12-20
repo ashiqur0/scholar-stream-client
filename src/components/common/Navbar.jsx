@@ -36,6 +36,33 @@ const Navbar = () => {
                             tabIndex="-1"
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                             {links}
+                            {
+                                user ? <>
+                                    <ul>
+                                        <li><Link to="/dashboard/my-profile">Profile</Link></li>
+                                        <li><Link to="/dashboard">Dashboard</Link></li>
+                                        <li><Link
+                                            onClick={handleLogOut}
+                                            to={'/'}
+                                            className={'btn btn-primary rounded-sm font-semibold hover:bg-slate-800 bg-slate-900'}
+                                        >
+                                            Logout
+                                        </Link></li>
+                                    </ul>
+                                </> : <>
+                                    <Link to={'/login'}
+                                        className='btn btn-primary rounded-sm font-semibold hover:bg-slate-800 bg-slate-900'
+                                    >
+                                        Login
+                                    </Link>
+
+                                    <Link to={'/register'}
+                                        className='btn btn-primary rounded-sm font-semibold hover:bg-slate-800 bg-slate-900'
+                                    >
+                                        SignUp
+                                    </Link>
+                                </>
+                            }
                         </ul>
                     </div>
                     <Logo />
