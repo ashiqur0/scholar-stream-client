@@ -3,8 +3,8 @@
 # 🎓 ScholarStream – Client Side  
 ### Scholarship Management Platform (Frontend)
 
-🌐 **Live Website:** https://scholar-stream-by-ashiqur.web.app/ 
-📁 **Repository Type:** Client / Frontend  
+🌐 **Live Website:** https://scholar-stream-by-ashiqur.web.app/ <br>
+📁 **Repository Type:** Client / Frontend  <br>
 🧑‍💻 **Tech Stack:** MERN (Frontend)
 
 </div>
