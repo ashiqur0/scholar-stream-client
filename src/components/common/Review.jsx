@@ -10,7 +10,7 @@ import { FaRegStar, FaStar } from "react-icons/fa6";
 
 const Review = ({ scholarship }) => {
 
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const { user } = useAuth();
     const axios = useAxios();
     const axiosSecure = useAxiosSecure();
@@ -41,6 +41,7 @@ const Review = ({ scholarship }) => {
         axiosSecure.post(`/review`, reviewInfo)
             .then(() => {
                 refetch();
+                reset();
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
