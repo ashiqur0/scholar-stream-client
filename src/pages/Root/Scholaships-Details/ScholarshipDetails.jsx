@@ -26,7 +26,7 @@ const ScholarshipDetails = () => {
             })
     }, [axios, id, axiosSecure])
 
-    const { _id, universityImage, universityName, scholarshipName, universityCountry, universityCity, universityWorldRank, subjectCategory, scholarshipCategory, degree, scholarshipPostDate, applicationDeadline, applicationFees, serviceCharge, postedUserEmail, } = scholarship;
+    const { _id, universityImage, universityName, scholarshipName, universityCountry, universityCity, universityWorldRank, subjectCategory, scholarshipCategory, degree, scholarshipPostDate, applicationDeadline, applicationFees, serviceCharge, postedUserEmail, scholarshipDescription } = scholarship;
 
     const handleApplyModalOpen = () => {
         applyModalRef.current.showModal();
@@ -51,30 +51,39 @@ const ScholarshipDetails = () => {
     }
 
     return (
-        <div className='max-w-7xl md:mx-auto mx-3 my-10'>
+        <div className='max-w-7xl md:mx-auto mx-3 my-5'>
             <title>Scholarship Details</title>
-            <div className='grid grid-cols-1 md:grid-cols-2 justify-center items-start md:gap-10 gap-5 md:p-10 p-3 rounded-xl h-full'>
-                <div>
-                    <img src={universityImage} alt={universityName} className='rounded-xl md:w-full md:h-100 overflow-hidden' />
-                </div>
+            <div className='grid grid-cols-1 md:grid-cols-2 justify-center items-start md:gap-10 gap-5 md:px-10 md:pt-10 p-3 rounded-xl h-full'>
 
                 <div className='h-full flex flex-col justify-between space-y-5'>
                     <div className='space-y-2'>
                         <h1 className='text-2xl font-semibold'>{scholarshipName}</h1>
-                        <p className='font-semibold text-xl'>{universityName} <span className='text-xs'>(World Rank: {universityWorldRank})</span></p>
-                        <div className='font-semibold flex items-center gap-1'>
-                            <span><FaLocationDot /></span> <span>{universityCountry}, {universityCity}</span></div>
-
-                        <p className='font-semibold'>Subject: {subjectCategory}</p>
-                        <p className='font-semibold'>Category: {scholarshipCategory}</p>
-                        <p className='font-semibold'>Degree: {degree}</p>
-                        <p className='font-semibold'>Scholarship Published: {scholarshipPostDate?.slice(0, 10)}</p>
-                        <p className='font-semibold'>Application Deadline: {applicationDeadline?.slice(0, 10)}</p>
-                        <p className='font-semibold'>Application Fee: ${applicationFees}</p>
-                        <p className='font-semibold'>Contact: {postedUserEmail}</p>
+                        <p className='font-semibold'>{scholarshipDescription}</p>
                     </div>
-                    <button onClick={handleApplyModalOpen} className='btn btn-soft btn-warning border border-orange-400'>Apply Now</button>
                 </div>
+
+                <div>
+                    <img src={universityImage} alt={universityName} className='rounded-xl md:w-full md:h-100 overflow-hidden' />
+                </div>
+            </div>
+
+            <div className='h-full flex flex-col justify-between space-y-5 md:px-10 md:pb-10 p-3 mb-10'>
+                <div className='space-y-2'>
+                    <p className='font-semibold text-xl'>{universityName} <span className='text-xs'>(World Rank: {universityWorldRank})</span></p>
+                    <div className='font-semibold flex items-center gap-1'>
+                        <span><FaLocationDot /></span>
+                        <span>{universityCountry}, {universityCity}</span>
+                    </div>
+
+                    <p className='font-semibold'>Subject: {subjectCategory}</p>
+                    <p className='font-semibold'>Category: {scholarshipCategory}</p>
+                    <p className='font-semibold'>Degree: {degree}</p>
+                    <p className='font-semibold'>Scholarship Published: {scholarshipPostDate?.slice(0, 10)}</p>
+                    <p className='font-semibold'>Application Deadline: {applicationDeadline?.slice(0, 10)}</p>
+                    <p className='font-semibold'>Application Fee: ${applicationFees}</p>
+                    <p className='font-semibold'>Contact: {postedUserEmail}</p>
+                </div>
+                <button onClick={handleApplyModalOpen} className='btn btn-soft btn-warning border border-orange-400 md:w-48/100'>Apply Now</button>
             </div>
 
             {/* modal */}
