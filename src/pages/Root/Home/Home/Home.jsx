@@ -7,7 +7,7 @@ import Stories from '../Stories/Stories';
 const Home = () => {
     return (
         <div>
-            <title>Scholar Stream-Home</title>
+            <title>Home</title>
             <Banner />
             <TopScholarship />
             <Stories />
