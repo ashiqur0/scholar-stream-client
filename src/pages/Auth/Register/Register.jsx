@@ -78,6 +78,7 @@ const Register = () => {
 
     return (
         <div className='md:max-w-7xl min-h-screen flex flex-col justify-center items-center'>
+            <title>Register</title>
             <div className='md:w-2/6 mx-auto md:p-10 px-4 rounded-2xl w-full'>
                 <h1 className='text-center md:text-2xl text-xl font-semibold mb-5'>Register Your Account</h1>
 
