@@ -94,7 +94,7 @@ const Navbar = () => {
                                     <li><Link
                                         onClick={handleLogOut}
                                         to={'/'}
-                                        className={'btn btn-sm btn-soft btn-warning border border-orange-400 text-xl rounded-sm font-semibold'}
+                                        className={'btn btn-sm btn-soft btn-warning border border-orange-400 text-[14px] rounded-sm font-semibold'}
                                     >
                                         Logout
                                     </Link></li>
@@ -102,13 +102,13 @@ const Navbar = () => {
                             </div>
                         </> : <>
                             <Link to={'/login'}
-                                className='btn btn-sm btn-soft btn-warning border border-orange-400 text-xl rounded-sm font-semibold'
+                                className='btn btn-sm btn-soft btn-warning border border-orange-400 text-[14px] rounded-sm font-semibold'
                             >
                                 Login
                             </Link>
 
                             <Link to={'/register'}
-                                className='btn btn-sm btn-soft btn-warning border border-orange-400 text-xl rounded-sm font-semibold'
+                                className='btn btn-sm btn-soft btn-warning border border-orange-400 text-[14px] rounded-sm font-semibold'
                             >
                                 SignUp
                             </Link>
