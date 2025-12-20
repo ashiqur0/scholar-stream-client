@@ -9,6 +9,7 @@ const MyProfile = () => {
 
     return (
         <div className='md:max-w-7xl md:mx-auto p-4'>
+            <title>My Profile</title>
             <h1 className='text-2xl font-bold mb-10'>My Profile</h1>
 
             <div className='flex justify-center items-center gap-5'>
