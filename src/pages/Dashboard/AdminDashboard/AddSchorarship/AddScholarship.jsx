@@ -64,6 +64,7 @@ const AddScholarship = () => {
 
     return (
         <div className='md:max-w-7xl md:mx-auto p-4'>
+            <title>Add Scholarship</title>
             <h1 className='md:text-2xl text-xl font-semibold'>Add Scholarship</h1>
 
             <form onSubmit={handleSubmit(handleAddScholarship)} className='p-4'>
