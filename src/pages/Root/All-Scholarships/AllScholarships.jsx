@@ -32,8 +32,8 @@ const AllScholarships = () => {
 
     return (
         <div className='my-6 md:max-w-7xl md:mx-auto p-4'>
-            <title>All Scholarship</title>
             <div className="flex flex-col-reverse lg:flex-row gap-5 items-start justify-between lg:items-end mt-10 mb-5">
+                <title>All Scholarship</title>
                 <h1 className='md:text-2xl text-xl font-semibold'>All Scholarship({totalScholarships})</h1>
 
                 <form>
