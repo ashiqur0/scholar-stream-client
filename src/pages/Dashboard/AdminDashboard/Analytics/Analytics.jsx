@@ -23,6 +23,7 @@ const Analytics = () => {
 
     return (
         <div className='md:max-w-7xl md:mx-auto p-4'>
+            <title>Analytics</title>
             <h1 className='text-2xl font-bold'>Analytics of Application Status</h1>
 
             <div className="stats shadow">
