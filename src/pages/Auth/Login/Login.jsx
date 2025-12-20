@@ -30,11 +30,11 @@ const Login = () => {
     }
 
     return (
-        <div className='md:max-w-7xl md:mx-auto mx-4 min-h-screen flex flex-col justify-center items-center'>
-            <div className='md:w-2/6 p-10 rounded-2xl'>
+        <div className='md:max-w-7xl md:mx-auto min-h-screen flex flex-col justify-center items-center'>
+            <div className='md:w-2/6 md:p-10 px-4 rounded-2xl w-full'>
                 <h1 className='text-center md:text-2xl text-xl font-semibold mb-5'>Login Your Account</h1>
 
-                <form onSubmit={handleSubmit(handleLogin)} className=''>
+                <form onSubmit={handleSubmit(handleLogin)} className='w-full'>
                     <fieldset className="fieldset">
 
                         <label className="label mt-4">Email</label>
