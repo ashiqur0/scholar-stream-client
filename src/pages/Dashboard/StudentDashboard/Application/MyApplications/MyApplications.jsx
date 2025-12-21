@@ -15,7 +15,7 @@ const MyApplications = () => {
     const axiosSecure = useAxiosSecure();
     const { user } = useAuth();
     const detailsModalRef = useRef(null);
-    const editApplicationModalRef = useRef(null);
+    const updateApplicationModalRef = useRef(null);
     const addReviewModalRef = useRef(null);
     const [application, setApplication] = useState({});
     const [scholarship, setScholarship] = useState({});
@@ -41,7 +41,7 @@ const MyApplications = () => {
     }
 
     const handleEditApplicationModalOpen = (scholarshipId, applicationId) => {
-        editApplicationModalRef.current.showModal();
+        updateApplicationModalRef.current.showModal();
         setApplicationId(applicationId);
         axiosSecure.get(`/scholarship/${scholarshipId}`)
             .then(res => {
@@ -261,8 +261,8 @@ const MyApplications = () => {
                 </div>
             </dialog>
 
-            {/* edit application modal */}
-            <dialog ref={editApplicationModalRef} className="modal modal-bottom sm:modal-middle">
+            {/* update application modal */}
+            <dialog ref={updateApplicationModalRef} className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box">
 
                     <form onSubmit={handleSubmit(handleSubmitUpdatedApplication)} className={'flex flex-col justify-between'}>
@@ -342,7 +342,7 @@ const MyApplications = () => {
                                 defaultValue={scholarship.serviceCharge}
                             />
                         </fieldset>
-                        <button type='submit' className='btn btn-soft btn-warning border border-orange-400 mt-5'>Update Application</button>
+                        <button type='submit' className='btn btn-soft btn-success border border-green-400 mt-5'>Update Application</button>
                     </form>
                 </div>
 
