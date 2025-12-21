@@ -23,10 +23,10 @@ const ApplicationSuccess = () => {
 
     return (
         <div className='md:max-w-7xl md:mx-auto p-4'>
-            <h1>Application Success Page</h1>
-            <p>Your transaction id = {paymentInfo.transactionId}</p>
+            <h1 className='text-2xl font-bold mb-5'>Application Success</h1>
+            <p>Your transaction id: <span className='text-green-500'>{paymentInfo.transactionId}</span></p>
 
-            <Link to={'/dashboard/my-applications'} className='btn btn-primary text-black'>My Application</Link>
+            <Link to={'/dashboard/my-applications'} className='btn btn-soft btn-success border border-green-400 mt-5 text-black'>My Application</Link>
         </div>
     );
 };
