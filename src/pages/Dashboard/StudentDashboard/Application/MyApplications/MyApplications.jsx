@@ -381,16 +381,14 @@ const MyApplications = () => {
                         </fieldset>
                         <button type='submit' className='btn btn-soft btn-warning border border-orange-400 w-full mt-2'>Post Review</button>
                     </form>
-
-
-                    {/* modal close */}
-                    <div className="modal-action">
-                        <form method="dialog">
-                            {/* if there is a button in form, it will close the modal */}
-                            <button className="btn btn-soft">Close</button>
-                        </form>
-                    </div>
                 </div>
+
+                {/* modal close */}
+                <form method="dialog" className="modal-backdrop">
+                    {/* if there is a button in form, it will close the modal */}
+                    <button>Close</button>
+                </form>
+
             </dialog>
 
         </div >
