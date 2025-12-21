@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import useAuth from '../../../../../hooks/useAuth';
 import useAxiosSecure from '../../../../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
-import { FaAmazonPay, FaEdit, FaTrashAlt } from "react-icons/fa";
+import { FaAmazonPay, FaEdit, FaRegStar, FaStar, FaTrashAlt } from "react-icons/fa";
 import { TbListDetails } from 'react-icons/tb';
 import { MdOutlineRateReview } from "react-icons/md";
 import { useRef } from 'react';
@@ -16,10 +16,13 @@ const MyApplications = () => {
     const { user } = useAuth();
     const detailsModalRef = useRef(null);
     const editApplicationModalRef = useRef(null);
+    const addReviewModalRef = useRef(null);
     const [application, setApplication] = useState({});
     const [scholarship, setScholarship] = useState({});
     const { register, handleSubmit } = useForm();
     const [applicationId, setApplicationId] = useState('');
+    const [rating, setRating] = useState(0);
+    const [scholarshipId, setScholarshipId] = useState('');
 
     const { userImage, userName, userEmail, applicationFees: paid, paymentStatus, currency, applicationDate, universityName: appliedUniversity, scholarshipName: appliedScholarship, transactionId } = application;
 
@@ -46,10 +49,7 @@ const MyApplications = () => {
             });
     }
 
-
     const { _id, universityName, scholarshipName, scholarshipCategory, degree, applicationFees, serviceCharge } = scholarship;
-
-    // patch
     const handleSubmitUpdatedApplication = async (data) => {
         const updatedApplicationInfo = {
             scholarshipId: _id,
@@ -76,6 +76,33 @@ const MyApplications = () => {
                         timer: 2500
                     });
                 }
+            })
+    }
+
+    const handleAddReviewModalOpen = (scholarshipId) => {
+        addReviewModalRef.current.showModal();
+        setScholarshipId(scholarshipId);
+    }
+
+    const handleCreateReview = review => {
+        const reviewInfo = {
+            reviewerImage: user.photoURL,
+            reviewerName: user.displayName,
+            reviewerEmail: user.email,
+            review: review.review,
+            createdAt: new Date(),
+            scholarshipId: scholarshipId,
+            rating: rating
+        }
+        axiosSecure.post(`/review`, reviewInfo)
+            .then(() => {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Review posted",
+                    showConfirmButton: false,
+                    timer: 2500
+                });
             })
     }
 
@@ -166,6 +193,7 @@ const MyApplications = () => {
 
                                     {/* review button  */}
                                     <button
+                                        onClick={() => handleAddReviewModalOpen(application.scholarshipId)}
                                         title={'Add review'}
                                         className='btn btn-sm btn-soft btn-success border border-green-400'
                                     >
@@ -313,6 +341,48 @@ const MyApplications = () => {
                 <form method="dialog" className="modal-backdrop">
                     <button>close</button>
                 </form>
+            </dialog>
+
+            {/* add review modal */}
+            <dialog ref={addReviewModalRef} className="modal modal-bottom sm:modal-middle">
+                <div className="modal-box">
+                    {/* Rating */}
+                    <div className='flex items-center gap-4 mb-2'>
+                        <p>Your rating for this scholarship: ({rating})</p>
+                        <div className='flex items-center gap-1'>
+                            <button onClick={() => setRating(1)} className={`${rating >= 1 && 'text-orange-400'}`}>{rating >= 1 ? <FaStar /> : <FaRegStar />}</button>
+                            <button onClick={() => setRating(2)} className={`${rating >= 2 && 'text-orange-400'}`}>{rating >= 2 ? <FaStar /> : <FaRegStar />}</button>
+                            <button onClick={() => setRating(3)} className={`${rating >= 3 && 'text-orange-400'}`}>{rating >= 3 ? <FaStar /> : <FaRegStar />}</button>
+                            <button onClick={() => setRating(4)} className={`${rating >= 4 && 'text-orange-400'}`}>{rating >= 4 ? <FaStar /> : <FaRegStar />}</button>
+                            <button onClick={() => setRating(5)} className={`${rating >= 5 && 'text-orange-400'}`}>{rating >= 5 ? <FaStar /> : <FaRegStar />}</button>
+                        </div>
+                    </div>
+
+                    {/* Create Review Section */}
+                    <form
+                        onSubmit={handleSubmit(handleCreateReview)}
+                        className={'flex flex-col justify-between'}>
+                        <fieldset className="fieldset">
+                            <textarea
+                                {...register('review')}
+                                rows={3}
+                                maxLength={400}
+                                placeholder="Write your experience or opinion about this scholarship..."
+                                className="textarea textarea-bordered w-full resize-y"
+                            />
+                        </fieldset>
+                        <button type='submit' className='btn btn-soft btn-warning border border-orange-400 w-full mt-2'>Post Review</button>
+                    </form>
+
+
+                    {/* modal close */}
+                    <div className="modal-action">
+                        <form method="dialog">
+                            {/* if there is a button in form, it will close the modal */}
+                            <button className="btn btn-soft">Close</button>
+                        </form>
+                    </div>
+                </div>
             </dialog>
 
         </div >
