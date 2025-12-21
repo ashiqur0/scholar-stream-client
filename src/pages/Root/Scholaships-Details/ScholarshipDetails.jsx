@@ -68,7 +68,7 @@ const ScholarshipDetails = () => {
                 </div>
             </div>
 
-            <div className='h-full flex flex-col justify-between space-y-5 md:px-10 md:pb-10 p-3 mb-10'>
+            <div className='h-full flex flex-col justify-between space-y-5 md:px-10 md:pb-10 p-3'>
                 <div className='space-y-2'>
                     <p className='font-semibold text-xl'>{universityName} <span className='text-xs'>(World Rank: {universityWorldRank})</span></p>
                     <div className='font-semibold flex items-center gap-1'>
