@@ -249,7 +249,7 @@ const ManageAppliedApplications = () => {
                         <fieldset className='fieldset'>
 
                             {/* Scholarship Name */}
-                            <label className="label mt-4 text-[14px]">Moderator Feedback</label>
+                            <label className="label mt-4 text-[14px]">Write Feedback</label>
                             <input
                                 type="text"
                                 className="input w-full"
@@ -257,7 +257,7 @@ const ManageAppliedApplications = () => {
                             />
 
                         </fieldset>
-                        <button type='submit' className='btn btn-primary mt-5'>Submit</button>
+                        <button type='submit' className='btn btn-soft btn-accent border border-sky-400 mt-5'>Post Feedback</button>
                     </form>
                 </div>
 
