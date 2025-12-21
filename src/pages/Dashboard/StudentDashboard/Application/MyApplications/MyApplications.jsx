@@ -186,12 +186,14 @@ const MyApplications = () => {
                                     }
 
                                     {/* pay button  */}
-                                    <button
-                                        title={'Pay now'}
-                                        className='btn btn-sm btn-soft btn-success border border-green-400'
-                                    >
-                                        <FaAmazonPay />
-                                    </button>
+                                    {
+                                        application.applicationStatus === 'pending' && application.paymentStatus === 'unpaid' && <button
+                                            title={'Pay now'}
+                                            className='btn btn-sm btn-soft btn-success border border-green-400'
+                                        >
+                                            <FaAmazonPay />
+                                        </button>
+                                    }
 
                                     {/* review button  */}
                                     <button
