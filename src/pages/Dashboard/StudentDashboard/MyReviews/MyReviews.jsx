@@ -4,6 +4,9 @@ import useAuth from '../../../../hooks/useAuth';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import { Link } from 'react-router';
+import { FaRegStar, FaStar } from 'react-icons/fa6';
+import { FaTrashAlt } from "react-icons/fa";
+import { MdOutlineRateReview } from 'react-icons/md';
 
 const MyReviews = () => {
 
@@ -55,30 +58,48 @@ const MyReviews = () => {
                 <table className="table table-zebra">
                     {/* head */}
                     <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Scholarship Name</th>
-                            <th>University Name</th>
-                            <th>Review</th>
-                            <th>Data</th>
-                            <th>View</th>
-                            <th>Delete</th>
+                        <tr className='grid grid-cols-21 items-center'>
+                            <th className='col-span-1'>#</th>
+                            <th className='col-span-7'>Scholarship Name</th>
+                            <th className='col-span-4'>University Name</th>
+                            <th className='col-span-3'>Review Comment</th>
+                            <th className='col-span-2'>Review Data</th>
+                            <th className='col-span-2'>Rating</th>
+                            <th className='col-span-2'>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            my_reviews.map((review, index) => <tr key={review._id}>
-                                <td>{index + 1}</td>
-                                <td>{review.scholarshipName}</td>
-                                <td>{review.universityName}</td>
-                                <td>{review.review}</td>
-                                <td>{review.createdAt?.slice(0, 10)}</td>
-                                <td>
-                                    <Link to={`/scholarship/details/${review.scholarshipId}`} className="btn btn-sm btn-outline btn-success">view
-                                    </Link>
+                            my_reviews.map((review, index) => <tr key={review._id} className='grid grid-cols-21 items-center'>
+                                <td className='col-span-1'>{index + 1}</td>
+                                <td className='col-span-7'>{review.scholarshipName}</td>
+                                <td className='col-span-4'>{review.universityName}</td>
+                                <td className='col-span-3'>{review.review}</td>
+                                <td className='col-span-2'>{review.createdAt?.slice(0, 10)}</td>
+                                <td className='flex items-center gap-1 mt-3 col-span-2'>
+                                    {
+                                        [...Array(review.rating)].map((_, index) => <span key={index} className='text-orange-400'><FaStar /></span>)
+                                    }
+                                    {
+                                        [...Array(5 - review.rating)].map((_, index) => <span key={index} className=''><FaRegStar /></span>)
+                                    }
                                 </td>
-                                <td>
-                                    <button onClick={() => deleteReview(review)} className='btn btn-sm btn-soft btn-secondary w-25'>Delete</button>
+                                <td className='flex items-center gap-1 col-span-2'>
+
+                                    {/* Update review button */}
+                                    <button
+                                        title={'Update review'}
+                                        className='btn btn-sm btn-soft btn-success border border-green-400'
+                                    >
+                                        <MdOutlineRateReview />
+                                    </button>
+                                    {/* delete button */}
+                                    <button
+                                        onClick={() => deleteReview(review)}
+                                        className='btn btn-sm btn-soft btn-secondary border border-pink-500'
+                                    >
+                                        <FaTrashAlt />
+                                    </button>
                                 </td>
                             </tr>)
                         }
