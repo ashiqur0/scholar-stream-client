@@ -8,8 +8,8 @@ const ApplicationCancelled = () => {
 
     return (
         <div className='md:max-w-7xl md:mx-auto p-4'>
-            <h1>Application is Canceled Please Try Again</h1>
-            <Link to={`/scholarship/details/${scholarshipId}`} className='btn btn-primary text-black'>Try Again</Link>
+            <h1 className='text-2xl font-bold'>Application is Canceled</h1>
+            <Link to={`/scholarship/details/${scholarshipId}`} className='btn  btn-soft btn-secondary border border-pink-500 mt-5'>Please Try Again</Link>
         </div>
     );
 };
