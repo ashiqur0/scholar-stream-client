@@ -379,7 +379,7 @@ const MyApplications = () => {
                                 className="textarea textarea-bordered w-full resize-y"
                             />
                         </fieldset>
-                        <button type='submit' className='btn btn-soft btn-warning border border-orange-400 w-full mt-2'>Post Review</button>
+                        <button type='submit' className='btn btn-soft btn-success border border-green-400 w-full mt-2'>Post Review</button>
                     </form>
                 </div>
 
