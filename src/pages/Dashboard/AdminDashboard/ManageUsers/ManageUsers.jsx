@@ -69,7 +69,7 @@ const ManageUsers = () => {
             <div className='flex justify-between items-center mb-2'>
                 <h2 className='text-xl font-bold mt-10'>Total Users ({users.length})</h2>
                 <div className="font-xl font-semibold mt-10">
-                    <select onChange={(e)=> setSort(e.target.value)} className="select w-60">
+                    <select onChange={(e) => setSort(e.target.value)} className="select w-60">
                         <option selected disabled={true}>
                             Sort User By Role
                         </option>
@@ -104,14 +104,40 @@ const ManageUsers = () => {
                                 <td>{user.email}</td>
                                 <td>{user.role}</td>
                                 <td className='flex items-center gap-2'>
-                                    <button onClick={() => handleSetRole(user, 'admin')} className={`btn btn-sm btn-soft border ${user.role === 'admin' && 'btn-secondary border-pink-500' || 'border-white'}`}><MdAdminPanelSettings size={24} /></button>
+                                    <button
+                                        title='Mark as admin'
+                                        onClick={() => handleSetRole(user, 'admin')}
+                                        className={`btn btn-sm btn-soft border ${user.role === 'admin' && 'btn-secondary border-pink-500' || 'border-white'}`}
+                                    >
+                                        <MdAdminPanelSettings size={24} />
+                                    </button>
 
-                                    <button onClick={() => handleSetRole(user, 'moderator')} className={`btn btn-sm btn-soft border ${user.role === 'moderator' && 'btn-info border-sky-400' || 'border-white'}`}><MdAddModerator size={19} /></button>
+                                    <button
+                                        title='Mark as moderator'
+                                        onClick={() => handleSetRole(user, 'moderator')}
+                                        className={`btn btn-sm btn-soft border ${user.role === 'moderator' && 'btn-info border-sky-400' || 'border-white'}`}
+                                    >
+                                        <MdAddModerator size={19} />
+                                    </button>
 
-                                    <button onClick={() => handleSetRole(user, 'student')} className={`btn btn-sm btn-soft border ${user.role === 'student' && 'btn-success border-green-400' || 'border-white'}`}><PiStudentFill size={20} /></button>
+                                    <button
+                                        title='Mark as student'
+                                        onClick={() => handleSetRole(user, 'student')}
+                                        className={`btn btn-sm btn-soft border ${user.role === 'student' && 'btn-success border-green-400' || 'border-white'}`}
+                                    >
+                                        <PiStudentFill size={20} />
+                                    </button>
                                 </td>
-                                
-                                <td><button onClick={() => deleteUser(user, 'student')} className={`btn btn-sm btn-soft btn-secondary border border-pink-500`}><FaRegTrashCan size={20} /></button></td>
+
+                                <td>
+                                    <button
+                                        title={`Delete ${user.displayName}`}
+                                        onClick={() => deleteUser(user, 'student')}
+                                        className={`btn btn-sm btn-soft btn-secondary border border-pink-500`}
+                                    >
+                                        <FaRegTrashCan size={20} />
+                                    </button>
+                                </td>
                             </tr>)
                         }
                     </tbody>
