@@ -196,13 +196,15 @@ const MyApplications = () => {
                                     }
 
                                     {/* review button  */}
-                                    <button
-                                        onClick={() => handleAddReviewModalOpen(application.scholarshipId)}
-                                        title={'Add review'}
-                                        className='btn btn-sm btn-soft btn-success border border-green-400'
-                                    >
-                                        <MdOutlineRateReview />
-                                    </button>
+                                    {
+                                        application.applicationStatus === 'completed' && <button
+                                            onClick={() => handleAddReviewModalOpen(application.scholarshipId)}
+                                            title={'Add review'}
+                                            className='btn btn-sm btn-soft btn-success border border-green-400'
+                                        >
+                                            <MdOutlineRateReview />
+                                        </button>
+                                    }
 
                                     {/* delete button: to remove application */}
                                     <button
