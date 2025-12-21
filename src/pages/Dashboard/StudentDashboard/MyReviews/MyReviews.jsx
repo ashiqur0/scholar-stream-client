@@ -95,6 +95,7 @@ const MyReviews = () => {
                                     </button>
                                     {/* delete button */}
                                     <button
+                                    title={'Delete review'}
                                         onClick={() => deleteReview(review)}
                                         className='btn btn-sm btn-soft btn-secondary border border-pink-500'
                                     >
