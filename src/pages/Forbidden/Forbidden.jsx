@@ -22,7 +22,7 @@ const Forbidden = () => {
 
             <div className='my-3 space-x-3'>
                 <Link to={'/'} className='btn btn-soft btn-success border border-green-400'>Go Home</Link>
-                <Link to={'/dashboard'} className='btn btn-secondary'>Go Dashboard</Link>
+                <Link to={'/dashboard'} className='btn btn-soft btn-warning border border-orange-400'>Go Dashboard</Link>
             </div>
         </div>
     );
