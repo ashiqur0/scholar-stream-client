@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { TiTick } from "react-icons/ti";
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
-import { Link } from 'react-router';
 import { TbListDetails } from "react-icons/tb";
 import { RiFeedbackFill } from "react-icons/ri";
 
 const ManageAppliedApplications = () => {
 
     const axiosSecure = useAxiosSecure();
+    const feedbackModalRef = useRef(null);
+    const [feedbackApplicationId, setFeedbackApplicationId] = useState('');
+    const [feedback, setFeedback] = useState('');
 
     const { data: applications = [], refetch } = useQuery({
         queryKey: ['applications'],
@@ -18,6 +20,31 @@ const ManageAppliedApplications = () => {
             return res.data;
         }
     });
+
+    const handleFeedbackModalOpen = (id) => {
+        setFeedbackApplicationId(id);
+        feedbackModalRef.current.showModal();
+    }
+
+    const handleFeedback = (e) => {
+        e.preventDefault();
+
+        const feedbackData = {
+            feedback: feedback
+        }
+
+        axiosSecure.patch(`/feedback/${feedbackApplicationId}`, feedbackData)
+            .then(() => {
+                refetch();
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: `Feedback given successfully`,
+                    showConfirmButton: false,
+                    timer: 2500
+                });
+            })
+    }
 
     const updateApplicationStatus = (application, status) => {
         const updatedStatus = {
@@ -72,7 +99,10 @@ const ManageAppliedApplications = () => {
                                 <td className='flex items-center gap-1'>
                                     <button title={'Details'} className='btn btn-sm btn-soft btn-success border border-green-400'><TbListDetails /></button>
 
-                                    <button title={'Feedback'} className='btn btn-sm btn-soft btn-accent border border-sky-500'><RiFeedbackFill /></button>
+                                    <button onClick={() => {
+                                        
+                                        handleFeedbackModalOpen(application._id)
+                                    }} title={'Feedback'} className='btn btn-sm btn-soft btn-accent border border-sky-500'><RiFeedbackFill /></button>
 
                                     <button onClick={() => updateApplicationStatus(application, application.applicationStatus !== 'processing' ? 'processing' : 'completed')} title={'Status Update'} className='btn btn-sm btn-soft btn-warning border border-orange-400'><RiFeedbackFill /></button>
 
@@ -83,6 +113,31 @@ const ManageAppliedApplications = () => {
                     </tbody>
                 </table>
             </div>
+
+            {/* modal */}
+            <dialog ref={feedbackModalRef} className="modal modal-bottom sm:modal-middle">
+                <div className="modal-box">
+
+                    <form onSubmit={handleFeedback} className={'flex flex-col justify-between'}>
+                        <fieldset className='fieldset'>
+
+                            {/* Scholarship Name */}
+                            <label className="label mt-4 text-[14px]">Moderator Feedback</label>
+                            <input
+                                type="text"
+                                className="input w-full"
+                                onChange={(e)=>setFeedback(e.target.value)}
+                            />
+
+                        </fieldset>
+                        <button type='submit' className='btn btn-primary mt-5'>Submit</button>
+                    </form>
+                </div>
+
+                <form method="dialog" className="modal-backdrop">
+                    <button>close</button>
+                </form>
+            </dialog>
         </div>
     );
 };
