@@ -132,16 +132,38 @@ const ManageAppliedApplications = () => {
                                 <td>{application.applicationStatus}</td>
                                 <td>{application.paymentStatus}</td>
                                 <td className='flex items-center gap-1'>
-                                    <button onClick={() => handleDetailsModalOpen(application.scholarshipId, application._id)} title={'Details'} className='btn btn-sm btn-soft btn-success border border-green-400'><TbListDetails /></button>
 
-                                    <button onClick={() => {
+                                    <button
+                                        onClick={() => handleDetailsModalOpen(application.scholarshipId, application._id)}
+                                        title={'Details'}
+                                        className='btn btn-sm btn-soft btn-success border border-green-400'
+                                    >
+                                        <TbListDetails />
+                                    </button>
 
-                                        handleFeedbackModalOpen(application._id)
-                                    }} title={'Feedback'} className='btn btn-sm btn-soft btn-accent border border-sky-500'><RiFeedbackFill /></button>
+                                    <button
+                                        onClick={() => handleFeedbackModalOpen(application._id)}
+                                        title={'Feedback'}
+                                        className='btn btn-sm btn-soft btn-accent border border-sky-500'
+                                    >
+                                        <RiFeedbackFill />
+                                    </button>
 
-                                    <button onClick={() => updateApplicationStatus(application, application.applicationStatus !== 'processing' ? 'processing' : 'completed')} title={'Status Update'} className='btn btn-sm btn-soft btn-warning border border-orange-400'><RiFeedbackFill /></button>
+                                    <button
+                                        onClick={() => updateApplicationStatus(application, application.applicationStatus !== 'processing' ? 'processing' : 'completed')}
+                                        title={'Status Update'}
+                                        className='btn btn-sm btn-soft btn-warning border border-orange-400'
+                                    >
+                                        <RiFeedbackFill />
+                                    </button>
 
-                                    <button onClick={() => updateApplicationStatus(application, 'rejected')} title={'Cancel'} className='btn btn-sm btn-soft btn-error border border-rose-400'><RiFeedbackFill /></button>
+                                    <button
+                                        onClick={() => updateApplicationStatus(application, 'rejected')}
+                                        title={'Cancel'}
+                                        className='btn btn-sm btn-soft btn-error border border-rose-400'
+                                    >
+                                        <RiFeedbackFill />
+                                    </button>
                                 </td>
                             </tr>)
                         }
