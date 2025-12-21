@@ -83,7 +83,7 @@ const AllScholarships = () => {
                             <h2 className="text-6xl font-semibold opacity-60">
                                 No Apps Found
                             </h2>
-                            <button className="btn btn-primary">Show All Apps</button>
+                            <button className="btn btn-soft btn-secondary border border-pink-500">Show All Apps</button>
                         </div>
                     ) : (
                         scholarships.map((scholarship) => <Scholarship key={scholarship.id} scholarship={scholarship}></Scholarship>)
