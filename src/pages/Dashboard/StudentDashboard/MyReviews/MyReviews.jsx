@@ -7,11 +7,18 @@ import { Link } from 'react-router';
 import { FaRegStar, FaStar } from 'react-icons/fa6';
 import { FaTrashAlt } from "react-icons/fa";
 import { MdOutlineRateReview } from 'react-icons/md';
+import { useRef } from 'react';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 
 const MyReviews = () => {
 
     const axiosSecure = useAxiosSecure();
     const { user } = useAuth();
+    const updateReviewModalRef = useRef(null);
+    const [review, setReview] = useState({});
+    const [rating, setRating] = useState(0);
+    const { register, handleSubmit } = useForm();
 
     const { data: my_reviews = [], refetch } = useQuery({
         queryKey: ['my_reviews'],
@@ -21,6 +28,34 @@ const MyReviews = () => {
         }
     });
     refetch();
+
+    const handleUpdateReviewModalOpen = (review) => {
+        updateReviewModalRef.current.showModal();
+        setReview(review);
+        setRating(review.rating);
+    }
+
+    const handleUpdateReview = data => {
+        const updatedReview = {
+            review: data.review,
+            rating: rating
+        }
+
+        axiosSecure.patch(`/review/${review._id}`, updatedReview)
+            .then(res => {
+                if (res.data.modifiedCount) {
+                    refetch();
+                    
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Review updated",
+                        showConfirmButton: false,
+                        timer: 2500
+                    });
+                }
+            })
+    }
 
     const deleteReview = review => {
         console.log(review);
@@ -88,6 +123,7 @@ const MyReviews = () => {
 
                                     {/* Update review button */}
                                     <button
+                                        onClick={() => handleUpdateReviewModalOpen(review)}
                                         title={'Update review'}
                                         className='btn btn-sm btn-soft btn-success border border-green-400'
                                     >
@@ -95,7 +131,7 @@ const MyReviews = () => {
                                     </button>
                                     {/* delete button */}
                                     <button
-                                    title={'Delete review'}
+                                        title={'Delete review'}
                                         onClick={() => deleteReview(review)}
                                         className='btn btn-sm btn-soft btn-secondary border border-pink-500'
                                     >
@@ -107,6 +143,49 @@ const MyReviews = () => {
                     </tbody>
                 </table>
             </div>
+
+            {/* add review modal */}
+            <dialog ref={updateReviewModalRef} className="modal modal-bottom sm:modal-middle">
+                <div className="modal-box">
+                    {/* Rating */}
+                    <div className='flex items-center gap-4 mb-2'>
+                        <p>Your rating for this scholarship: ({rating})</p>
+                        <div className='flex items-center gap-1'>
+                            <button onClick={() => setRating(1)} className={`${rating >= 1 && 'text-orange-400'}`}>{rating >= 1 ? <FaStar /> : <FaRegStar />}</button>
+                            <button onClick={() => setRating(2)} className={`${rating >= 2 && 'text-orange-400'}`}>{rating >= 2 ? <FaStar /> : <FaRegStar />}</button>
+                            <button onClick={() => setRating(3)} className={`${rating >= 3 && 'text-orange-400'}`}>{rating >= 3 ? <FaStar /> : <FaRegStar />}</button>
+                            <button onClick={() => setRating(4)} className={`${rating >= 4 && 'text-orange-400'}`}>{rating >= 4 ? <FaStar /> : <FaRegStar />}</button>
+                            <button onClick={() => setRating(5)} className={`${rating >= 5 && 'text-orange-400'}`}>{rating >= 5 ? <FaStar /> : <FaRegStar />}</button>
+                        </div>
+                    </div>
+
+                    {/* Create Review Section */}
+                    <form
+                        onSubmit={handleSubmit(handleUpdateReview)}
+                        className={'flex flex-col justify-between'}>
+                        <fieldset className="fieldset">
+                            <textarea
+                                {...register('review')}
+                                rows={3}
+                                maxLength={400}
+                                placeholder="Write your experience or opinion about this scholarship..."
+                                className="textarea textarea-bordered w-full resize-y"
+                                defaultValue={review.review}
+                            />
+                        </fieldset>
+                        <button type='submit' className='btn btn-soft btn-warning border border-orange-400 w-full mt-2'>Post Review</button>
+                    </form>
+
+
+                    {/* modal close */}
+                    <div className="modal-action">
+                        <form method="dialog">
+                            {/* if there is a button in form, it will close the modal */}
+                            <button className="btn btn-soft">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
         </div>
     );
 };
