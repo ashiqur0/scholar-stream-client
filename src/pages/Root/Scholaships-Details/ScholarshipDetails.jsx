@@ -180,7 +180,7 @@ const ScholarshipDetails = () => {
                                 defaultValue={serviceCharge}
                             />
                         </fieldset>
-                        <button type='submit' className='btn btn-primary mt-5'>Submit</button>
+                        <button type='submit' className='btn btn-soft btn-warning border border-orange-400 mt-5'>Apply</button>
                     </form>
                 </div>
 
