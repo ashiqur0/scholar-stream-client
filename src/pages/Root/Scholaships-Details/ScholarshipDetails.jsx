@@ -36,14 +36,15 @@ const ScholarshipDetails = () => {
         const applicationInfo = {
             scholarshipId: _id,
             scholarshipName: scholarshipName,
-            userId: userId,
+            userId: userId,            
             userName: data.userName,
             userEmail: data.userEmail,
+            userImage: user.photoURL,
             universityName: universityName,
             scholarshipCategory: scholarshipCategory,
             degree: degree,
             applicationFees: applicationFees,
-            serviceCharge: serviceCharge
+            serviceCharge: serviceCharge,            
         }
 
         const res = await axiosSecure.post(`/application`, applicationInfo);
