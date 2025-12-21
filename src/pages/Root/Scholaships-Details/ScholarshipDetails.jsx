@@ -27,6 +27,7 @@ const ScholarshipDetails = () => {
     }, [axios, id, axiosSecure])
 
     const { _id, universityImage, universityName, scholarshipName, universityCountry, universityCity, universityWorldRank, subjectCategory, scholarshipCategory, degree, scholarshipPostDate, applicationDeadline, applicationFees, serviceCharge, postedUserEmail, scholarshipDescription } = scholarship;
+    const universityAddress = `${universityCity}, ${universityCountry}`;
 
     const handleApplyModalOpen = () => {
         applyModalRef.current.showModal();
@@ -41,6 +42,8 @@ const ScholarshipDetails = () => {
             userEmail: data.userEmail,
             userImage: user.photoURL,
             universityName: universityName,
+            universityAddress: universityAddress,
+            subjectCategory: subjectCategory,
             scholarshipCategory: scholarshipCategory,
             degree: degree,
             applicationFees: applicationFees,
