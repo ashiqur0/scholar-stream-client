@@ -8,13 +8,18 @@ import { TbListDetails } from 'react-icons/tb';
 import { MdOutlineRateReview } from "react-icons/md";
 import { useRef } from 'react';
 import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 
 const MyApplications = () => {
 
     const axiosSecure = useAxiosSecure();
     const { user } = useAuth();
     const detailsModalRef = useRef(null);
+    const editApplicationModalRef = useRef(null);
     const [application, setApplication] = useState({});
+    const [scholarship, setScholarship] = useState({});
+    const { register, handleSubmit } = useForm();
+    const [applicationId, setApplicationId] = useState('');
 
     const { userImage, userName, userEmail, applicationFees: paid, paymentStatus, currency, applicationDate, universityName: appliedUniversity, scholarshipName: appliedScholarship, transactionId } = application;
 
@@ -30,6 +35,48 @@ const MyApplications = () => {
         detailsModalRef.current.showModal();
         const application = applications.find(a => a._id == applicationId);
         setApplication(application);
+    }
+
+    const handleEditApplicationModalOpen = (scholarshipId, applicationId) => {
+        editApplicationModalRef.current.showModal();
+        setApplicationId(applicationId);
+        axiosSecure.get(`/scholarship/${scholarshipId}`)
+            .then(res => {
+                setScholarship(res.data);
+            });
+    }
+
+
+    const { _id, universityName, scholarshipName, scholarshipCategory, degree, applicationFees, serviceCharge } = scholarship;
+
+    // patch
+    const handleSubmitUpdatedApplication = async (data) => {
+        const updatedApplicationInfo = {
+            scholarshipId: _id,
+            scholarshipName: scholarshipName,
+            userId: user.userId,
+            userName: data.userName,
+            userEmail: data.userEmail,
+            userImage: user.photoURL,
+            universityName: universityName,
+            scholarshipCategory: scholarshipCategory,
+            degree: degree,
+            applicationFees: applicationFees,
+            serviceCharge: serviceCharge,
+        }
+
+        axiosSecure.patch(`/applications/${applicationId}/update`, updatedApplicationInfo)
+            .then(res => {
+                if (res.data.modifiedCount) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: `Application update successfully`,
+                        showConfirmButton: false,
+                        timer: 2500
+                    });
+                }
+            })
     }
 
     const handleDeleteApplication = application => {
@@ -93,7 +140,7 @@ const MyApplications = () => {
 
                                     {/* details button to see application details in a modal */}
                                     <button
-                                        onClick={()=>handleDetailsModalOpen(application._id)}
+                                        onClick={() => handleDetailsModalOpen(application._id)}
                                         title={'See details'}
                                         className='btn btn-sm btn-soft btn-success border border-green-400'
                                     >
@@ -102,6 +149,7 @@ const MyApplications = () => {
 
                                     {/* edit button */}
                                     <button
+                                        onClick={() => handleEditApplicationModalOpen(application.scholarshipId, application._id)}
                                         title={'Edit application'}
                                         className='btn btn-sm btn-soft btn-success border border-green-400'
                                     >
@@ -176,6 +224,97 @@ const MyApplications = () => {
                     </div>
                 </div>
             </dialog>
+
+            {/* edit application modal */}
+            <dialog ref={editApplicationModalRef} className="modal modal-bottom sm:modal-middle">
+                <div className="modal-box">
+
+                    <form onSubmit={handleSubmit(handleSubmitUpdatedApplication)} className={'flex flex-col justify-between'}>
+                        <fieldset className='fieldset'>
+
+                            {/* Scholarship Name */}
+                            <label className="label mt-4 text-[14px]">Scholarship Name</label>
+                            <input
+                                type="text"
+                                {...register('scholarshipName')}
+                                className="input w-full"
+                                defaultValue={scholarship.scholarshipName}
+                            />
+
+                            {/* University Name */}
+                            <label className="label mt-4 text-[14px]">University Name</label>
+                            <input
+                                type="text"
+                                {...register('universityName')}
+                                className="input w-full"
+                                defaultValue={scholarship.universityName}
+                            />
+
+                            {/* Applicant Name */}
+                            <label className="label mt-4 text-[14px]">Applicant Name</label>
+                            <input
+                                type="text"
+                                {...register('userName')}
+                                className="input w-full"
+                                placeholder='Applicant Name'
+                                defaultValue={user?.displayName}
+                            />
+
+                            {/* Applicant Email */}
+                            <label className="label mt-4 text-[14px]">Applicant Email</label>
+                            <input
+                                type="text"
+                                {...register('userEmail')}
+                                className="input w-full"
+                                placeholder="Applicant Email"
+                                defaultValue={user?.email}
+                            />
+
+                            {/* Scholarship Category */}
+                            <label className="label mt-4 text-[14px]">Scholarship Category</label>
+                            <input
+                                type="text"
+                                {...register('scholarshipCategory')}
+                                className="input w-full"
+                                defaultValue={scholarship.scholarshipCategory}
+                            />
+
+                            {/* degree */}
+                            <label className="label mt-4 text-[14px]">Degree</label>
+                            <input
+                                type="text"
+                                {...register('degree')}
+                                className="input w-full"
+                                defaultValue={scholarship.degree}
+                            />
+
+                            {/* Application Fees */}
+                            <label className="label mt-4 text-[14px]">Application Fees</label>
+                            <input
+                                type="text"
+                                {...register('applicationFees')}
+                                className="input w-full"
+                                defaultValue={scholarship.applicationFees}
+                            />
+
+                            {/* Service Charge */}
+                            <label className="label mt-4 text-[14px]">Service Charge</label>
+                            <input
+                                type="text"
+                                {...register('serviceCharge')}
+                                className="input w-full"
+                                defaultValue={scholarship.serviceCharge}
+                            />
+                        </fieldset>
+                        <button type='submit' className='btn btn-soft btn-warning border border-orange-400 mt-5'>Update Application</button>
+                    </form>
+                </div>
+
+                <form method="dialog" className="modal-backdrop">
+                    <button>close</button>
+                </form>
+            </dialog>
+
         </div >
     );
 };

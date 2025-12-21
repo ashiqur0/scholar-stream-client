@@ -103,7 +103,7 @@ const ManageScholarship = () => {
             postedUserEmail: user.email,
         };
 
-        console.log(scholarshipInfo);
+        // console.log(scholarshipInfo);
 
         // 4. Send the patch request
         try {
