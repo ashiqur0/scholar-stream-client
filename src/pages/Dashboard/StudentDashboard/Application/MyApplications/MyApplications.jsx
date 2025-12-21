@@ -207,13 +207,15 @@ const MyApplications = () => {
                                     }
 
                                     {/* delete button: to remove application */}
-                                    <button
-                                        title='Remove Application'
-                                        onClick={() => handleDeleteApplication(application)}
-                                        className='btn btn-sm btn-soft btn-secondary border border-pink-500'
-                                    >
-                                        <FaTrashAlt />
-                                    </button>
+                                    {
+                                        application.applicationStatus === 'pending' && <button
+                                            title='Remove Application'
+                                            onClick={() => handleDeleteApplication(application)}
+                                            className='btn btn-sm btn-soft btn-secondary border border-pink-500'
+                                        >
+                                            <FaTrashAlt />
+                                        </button>
+                                    }
                                 </td>
                             </tr>)
                         }
