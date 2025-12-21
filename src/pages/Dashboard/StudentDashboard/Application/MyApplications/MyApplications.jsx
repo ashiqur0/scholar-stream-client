@@ -175,13 +175,15 @@ const MyApplications = () => {
                                     </button>
 
                                     {/* edit button */}
-                                    <button
-                                        onClick={() => handleEditApplicationModalOpen(application.scholarshipId, application._id)}
-                                        title={'Edit application'}
-                                        className='btn btn-sm btn-soft btn-success border border-green-400'
-                                    >
-                                        <FaEdit />
-                                    </button>
+                                    {
+                                        application.applicationStatus === 'pending' && <button
+                                            onClick={() => handleEditApplicationModalOpen(application.scholarshipId, application._id)}
+                                            title={'Edit application'}
+                                            className='btn btn-sm btn-soft btn-success border border-green-400'
+                                        >
+                                            <FaEdit />
+                                        </button>
+                                    }
 
                                     {/* pay button  */}
                                     <button
