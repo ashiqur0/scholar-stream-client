@@ -21,7 +21,7 @@ const Forbidden = () => {
             <p className='text-lg text-gray-600 mt-2'>Please contact the administrator if you believe this is an error.</p>
 
             <div className='my-3 space-x-3'>
-                <Link to={'/'} className='btn btn-primary'>Go Home</Link>
+                <Link to={'/'} className='btn btn-soft btn-success border border-green-400'>Go Home</Link>
                 <Link to={'/dashboard'} className='btn btn-secondary'>Go Dashboard</Link>
             </div>
         </div>
