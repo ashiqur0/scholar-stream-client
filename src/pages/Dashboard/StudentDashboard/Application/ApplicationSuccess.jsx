@@ -26,7 +26,7 @@ const ApplicationSuccess = () => {
             <h1 className='text-2xl font-bold mb-5'>Application Success</h1>
             <p>Your transaction id: <span className='text-green-500'>{paymentInfo.transactionId}</span></p>
 
-            <Link to={'/dashboard/my-applications'} className='btn btn-soft btn-success border border-green-400 mt-5 text-black'>My Application</Link>
+            <Link to={'/dashboard/my-applications'} className='btn btn-soft btn-success border border-green-400 mt-5'>My Application</Link>
         </div>
     );
 };
