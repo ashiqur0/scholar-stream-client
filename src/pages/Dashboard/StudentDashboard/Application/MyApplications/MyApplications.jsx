@@ -158,9 +158,9 @@ const MyApplications = () => {
                             applications.map((application, index) => <tr key={application._id}>
                                 <td>{index + 1}</td>
                                 <td>{application.universityName}</td>
-                                <td>address</td>
+                                <td>{application.universityAddress}</td>
                                 <td>{application.feedback}</td>
-                                <td>subject Category</td>
+                                <td>{application.subjectCategory}</td>
                                 <td>${application.applicationFees}</td>
                                 <td>{application.applicationStatus}</td>
                                 <td className='flex items-center gap-1'>
