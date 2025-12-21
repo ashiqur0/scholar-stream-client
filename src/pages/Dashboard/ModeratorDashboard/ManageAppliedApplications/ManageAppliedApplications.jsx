@@ -235,7 +235,7 @@ const ManageAppliedApplications = () => {
                     <div className="modal-action">
                         <form method="dialog">
                             {/* if there is a button in form, it will close the modal */}
-                            <button className="btn btn-soft">Close</button>
+                            <button className="btn btn-soft btn-success border border-green-400">Close</button>
                         </form>
                     </div>
                 </div>
