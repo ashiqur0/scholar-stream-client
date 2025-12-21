@@ -115,15 +115,6 @@ const ScholarshipDetails = () => {
                                 defaultValue={universityName}
                             />
 
-                            {/* University Address */}
-                            <label className="label mt-4 text-[14px]">University Address</label>
-                            <input
-                                type="text"
-                                {...register('universityAddress')}
-                                className="input w-full"
-                                defaultValue={universityAddress}
-                            />
-
                             {/* Applicant Name */}
                             <label className="label mt-4 text-[14px]">Applicant Name</label>
                             <input
@@ -151,6 +142,15 @@ const ScholarshipDetails = () => {
                                 {...register('scholarshipCategory')}
                                 className="input w-full"
                                 defaultValue={scholarshipCategory}
+                            />
+
+                            {/* Subject Category */}
+                            <label className="label mt-4 text-[14px]">Subject Category</label>
+                            <input
+                                type="text"
+                                {...register('subjectCategory')}
+                                className="input w-full"
+                                defaultValue={subjectCategory}
                             />
 
                             {/* degree */}
