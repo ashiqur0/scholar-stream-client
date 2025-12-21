@@ -16,6 +16,7 @@ const MyProfile = () => {
                 <img className='w-20 h-auto' src={user.photoURL} alt={user.displayName} />
                 <div className='space-y-3'>
                     <h2>Name: {user.displayName}</h2>
+                    <h2>Email: {user.email}</h2>
                     <p>Role: {role}</p>
                 </div>
             </div>
