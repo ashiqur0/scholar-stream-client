@@ -129,8 +129,15 @@ const ManageAppliedApplications = () => {
                                 <td>{application.userEmail}</td>
                                 <td>{application.universityName}</td>
                                 <td>{application.feedback}</td>
-                                <td>{application.applicationStatus}</td>
-                                <td>{application.paymentStatus}</td>
+                                <td className={`
+                                        ${application.applicationStatus == 'completed' && 'text-green-500'}
+                                        ${application.applicationStatus == 'rejected' && 'text-red-500'}
+                                        ${application.applicationStatus == 'processing' && 'text-orange-400'}
+                                    `}
+                                >
+                                    {application.applicationStatus}
+                                </td>
+                                <td className={`${application.paymentStatus && 'text-green-400' || 'text-red-500'}`}>{application.paymentStatus}</td>
                                 <td className='flex items-center gap-1'>
 
                                     <button
@@ -144,7 +151,7 @@ const ManageAppliedApplications = () => {
                                     <button
                                         onClick={() => handleFeedbackModalOpen(application._id)}
                                         title={'Feedback'}
-                                        className='btn btn-sm btn-soft btn-accent border border-sky-500'
+                                        className='btn btn-sm btn-soft btn-success border border-green-400'
                                     >
                                         <RiFeedbackFill />
                                     </button>
@@ -152,7 +159,7 @@ const ManageAppliedApplications = () => {
                                     <button
                                         onClick={() => updateApplicationStatus(application, application.applicationStatus !== 'processing' ? 'processing' : 'completed')}
                                         title={'Status Update'}
-                                        className='btn btn-sm btn-soft btn-warning border border-orange-400'
+                                        className='btn btn-sm btn-soft btn-success border border-green-400'
                                     >
                                         <RiFeedbackFill />
                                     </button>
@@ -160,7 +167,7 @@ const ManageAppliedApplications = () => {
                                     <button
                                         onClick={() => updateApplicationStatus(application, 'rejected')}
                                         title={'Cancel'}
-                                        className='btn btn-sm btn-soft btn-error border border-rose-400'
+                                        className='btn btn-sm btn-soft btn-secondary border border-pink-500'
                                     >
                                         <RiFeedbackFill />
                                     </button>
@@ -257,7 +264,7 @@ const ManageAppliedApplications = () => {
                             />
 
                         </fieldset>
-                        <button type='submit' className='btn btn-soft btn-accent border border-sky-400 mt-5'>Post Feedback</button>
+                        <button type='submit' className='btn btn-soft btn-success border border-green-400 mt-5'>Post Feedback</button>
                     </form>
                 </div>
 
