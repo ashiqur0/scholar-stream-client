@@ -150,7 +150,7 @@ const MyApplications = () => {
                             <th className='col-span-4'>Subject Category</th>
                             <th className='col-span-2'>Fees</th>
                             <th className='col-span-2'>Status</th>
-                            <th className='col-span-3'>Action</th>
+                            <th className='col-span-3 text-center'>Action</th>
                         </tr>
                     </thead>
                     <tbody>
