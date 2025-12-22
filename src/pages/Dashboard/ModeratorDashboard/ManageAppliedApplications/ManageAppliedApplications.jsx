@@ -118,7 +118,7 @@ const ManageAppliedApplications = () => {
                             <th>Application Feedback</th>
                             <th>Application Status</th>
                             <th>Payment Status</th>
-                            <th>Actions</th>
+                            <th className='pl-15'>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
