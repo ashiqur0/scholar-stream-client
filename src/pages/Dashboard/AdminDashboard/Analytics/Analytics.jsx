@@ -44,7 +44,7 @@ const Analytics = () => {
             <h1 className='text-2xl font-bold'>Analytics of Application Status</h1>
 
             <div className="overflow-x-auto">
-                <div className="stats shadow min-w-[800px] w-full">
+                <div className="stats shadow min-w-[800px] w-full">                    
                     <div className="stat mt-10">
                         <div className="stat-title text-2xl">Total Fees Collected</div>
                         <div className="stat-value flex justify-between items-center ">
