@@ -7,6 +7,7 @@ import { Link } from 'react-router';
 import { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../../../hooks/useAuth';
+import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 
 const ManageScholarship = () => {
 
@@ -103,8 +104,6 @@ const ManageScholarship = () => {
             postedUserEmail: user.email,
         };
 
-        // console.log(scholarshipInfo);
-
         // 4. Send the patch request
         try {
             const response = await axiosSecure.patch(`/scholarship/${scholarship._id}`, scholarshipInfo);
@@ -142,8 +141,7 @@ const ManageScholarship = () => {
                             <th>Subject</th>
                             <th>Category</th>
                             <th>Degree</th>
-                            <th>Edit</th>
-                            <th>Action</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -156,12 +154,21 @@ const ManageScholarship = () => {
                                 <td>{scholarship.subjectCategory}</td>
                                 <td>{scholarship.scholarshipCategory}</td>
                                 <td>{scholarship.degree}</td>
-                                <td>
-                                    <button onClick={handleUpdateScholarshipModalOpen} className="btn btn-sm btn-outline btn-warning">edit
+                                <td className='flex items-center gap-1'>
+                                    <button
+                                        title='Edit scholarship'
+                                        onClick={handleUpdateScholarshipModalOpen} className="btn btn-sm btn-outline btn-warning"
+                                    >
+                                        <FaEdit />
                                     </button>
-                                </td>
-                                <td>
-                                    <button onClick={() => manageScholarship(scholarship)} className='btn btn-sm btn-soft btn-secondary border border-secondary w-25'>Delete</button>
+
+                                    <button
+                                        title='Delete scholarship'
+                                        onClick={() => manageScholarship(scholarship)}
+                                        className='btn btn-sm btn-soft btn-secondary border border-secondary'
+                                    >
+                                        <FaTrashAlt />
+                                    </button>
                                 </td>
 
                                 {/* modal */}
