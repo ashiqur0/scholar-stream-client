@@ -89,8 +89,8 @@ const MyReviews = () => {
             <title>My Reviews</title>
             <h1 className='text-2xl font-bold'>Total Reviews ({my_reviews.length})</h1>
 
-            <div className="overflow-x-auto ">
-                <table className="table table-zebra">
+            <div className="overflow-x-auto">
+                <table className="table table-zebra min-w-[1200px] w-full">
                     {/* head */}
                     <thead>
                         <tr className='grid grid-cols-21 items-center'>
@@ -98,8 +98,8 @@ const MyReviews = () => {
                             <th className='col-span-7'>Scholarship Name</th>
                             <th className='col-span-4'>University Name</th>
                             <th className='col-span-3'>Review Comment</th>
-                            <th className='col-span-2'>Review Data</th>
                             <th className='col-span-2'>Rating</th>
+                            <th className='col-span-2'>Review Data</th>
                             <th className='col-span-2'>Action</th>
                         </tr>
                     </thead>
@@ -110,7 +110,6 @@ const MyReviews = () => {
                                 <td className='col-span-7'>{review.scholarshipName}</td>
                                 <td className='col-span-4'>{review.universityName}</td>
                                 <td className='col-span-3'>{review.review}</td>
-                                <td className='col-span-2'>{review.createdAt?.slice(0, 10)}</td>
                                 <td className='flex items-center gap-1 mt-3 col-span-2'>
                                     {
                                         [...Array(review.rating)].map((_, index) => <span key={index} className='text-orange-400'><FaStar /></span>)
@@ -119,6 +118,7 @@ const MyReviews = () => {
                                         [...Array(5 - review.rating)].map((_, index) => <span key={index} className=''><FaRegStar /></span>)
                                     }
                                 </td>
+                                <td className='col-span-2'>{review.createdAt?.slice(0, 10)}</td>
                                 <td className='flex items-center gap-1 col-span-2'>
 
                                     {/* Update review button */}
