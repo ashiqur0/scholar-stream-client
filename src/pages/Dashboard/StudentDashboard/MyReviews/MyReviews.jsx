@@ -100,7 +100,7 @@ const MyReviews = () => {
                             <th className='col-span-3'>Review Comment</th>
                             <th className='col-span-2'>Rating</th>
                             <th className='col-span-2'>Review Data</th>
-                            <th className='col-span-2'>Action</th>
+                            <th className='col-span-2 pl-7'>Action</th>
                         </tr>
                     </thead>
                     <tbody>
