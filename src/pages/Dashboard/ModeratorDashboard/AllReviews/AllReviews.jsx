@@ -49,33 +49,32 @@ const AllReviews = () => {
             <title>All Reviews</title>
             <h1 className='text-2xl font-bold'>All Reviews ({all_review.length})</h1>
 
-            <div className="overflow-x-auto ">
-                <table className="table table-zebra">
+            <div className="overflow-x-auto">
+                <table className="table table-zebra min-w-[1200px] w-full">
                     {/* head */}
                     <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Scholarship Name</th>
-                            <th>University Name</th>
-                            <th>Student Name</th>
-                            <th>Student Email</th>
-                            <th>Review</th>
-                            <th>Data</th>
-                            <th>View</th>
-                            <th>Delete</th>
+                        <tr className='grid grid-cols-21'>
+                            <th className='col-span-1'>#</th>
+                            <th className='col-span-4'>Scholarship Name</th>
+                            <th className='col-span-4'>University Name</th>
+                            <th className='col-span-2'>Student Name</th>
+                            <th className='col-span-3'>Student Email</th>
+                            <th className='col-span-3'>Review</th>
+                            <th className='col-span-2'>Data</th>
+                            <th className='col-span-2'>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            all_review.map((review, index) => <tr key={review._id}>
-                                <td>{index + 1}</td>
-                                <td>{review.scholarshipName}</td>
-                                <td>{review.universityName}</td>
-                                <td>{review.reviewerName}</td>
-                                <td>{review.reviewerEmail}</td>
-                                <td>{review.review}</td>
-                                <td>{review.createdAt?.slice(0, 10)}</td>
-                                <td>
+                            all_review.map((review, index) => <tr key={review._id} className='grid grid-cols-21'>
+                                <td className='col-span-1'>{index + 1}</td>
+                                <td className='col-span-4'>{review.scholarshipName}</td>
+                                <td className='col-span-4'>{review.universityName}</td>
+                                <td className='col-span-2'>{review.reviewerName}</td>
+                                <td className='col-span-3'>{review.reviewerEmail}</td>
+                                <td className='col-span-3'>{review.review}</td>
+                                <td className='col-span-2'>{review.createdAt?.slice(0, 10)}</td>
+                                <td className='col-span-2 flex items-center gap-1'>
                                     <Link
                                         title='see review'
                                         to={`/scholarship/details/${review.scholarshipId}`}
@@ -83,12 +82,11 @@ const AllReviews = () => {
                                     >
                                         <FaDirections />
                                     </Link>
-                                </td>
-                                <td>
+
                                     <button
                                         title='delete review'
                                         onClick={() => deleteReview(review)}
-                                        className='btn btn-sm btn-soft btn-secondary border border-pink-500 '
+                                        className='btn btn-sm btn-soft btn-secondary border border-pink-500'
                                     >
                                         <FaTrashAlt />
                                     </button>
