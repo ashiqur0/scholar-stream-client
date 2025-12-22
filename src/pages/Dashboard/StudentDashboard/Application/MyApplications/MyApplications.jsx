@@ -139,31 +139,31 @@ const MyApplications = () => {
 
             <h2 className='font-xl font-semibold mt-10'>Total Applied ({applications.length})</h2>
             <div className="overflow-x-auto ">
-                <table className="table table-zebra">
+                <table className="table table-zebra min-w-[1200px] w-full">
                     {/* head */}
                     <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>University Name</th>
-                            <th>Address</th>
-                            <th>Feedback</th>
-                            <th>Subject Category</th>
-                            <th>Application Fees</th>
-                            <th>Application Status</th>
-                            <th>Action</th>
+                        <tr className='grid grid-cols-24'>
+                            <th className='col-span-1'>#</th>
+                            <th className='col-span-4'>University Name</th>
+                            <th className='col-span-4'>Address</th>
+                            <th className='col-span-4'>Feedback</th>
+                            <th className='col-span-4'>Subject Category</th>
+                            <th className='col-span-2'>Fees</th>
+                            <th className='col-span-2'>Status</th>
+                            <th className='col-span-3'>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            applications.map((application, index) => <tr key={application._id}>
-                                <td>{index + 1}</td>
-                                <td>{application.universityName}</td>
-                                <td>{application.universityAddress}</td>
-                                <td>{application.feedback}</td>
-                                <td>{application.subjectCategory}</td>
-                                <td>${application.applicationFees}</td>
-                                <td>{application.applicationStatus}</td>
-                                <td className='flex items-center gap-1'>
+                            applications.map((application, index) => <tr key={application._id} className='grid grid-cols-24'>
+                                <td className='col-span-1'>{index + 1}</td>
+                                <td className='col-span-4'>{application.universityName}</td>
+                                <td className='col-span-4'>{application.universityAddress}</td>
+                                <td className='col-span-4'>{application.feedback}</td>
+                                <td className='col-span-4'>{application.subjectCategory}</td>
+                                <td className='col-span-2'>${application.applicationFees}</td>
+                                <td className='col-span-2'>{application.applicationStatus}</td>
+                                <td className='flex items-center gap-1 col-span-3'>
 
                                     {/* details button to see application details in a modal */}
                                     <button
