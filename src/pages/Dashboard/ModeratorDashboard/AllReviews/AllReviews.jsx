@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import { Link } from 'react-router';
+import { FaDirections, FaTrashAlt } from 'react-icons/fa';
 
 const AllReviews = () => {
 
@@ -75,11 +76,22 @@ const AllReviews = () => {
                                 <td>{review.review}</td>
                                 <td>{review.createdAt?.slice(0, 10)}</td>
                                 <td>
-                                    <Link to={`/scholarship/details/${review.scholarshipId}`} className="btn btn-sm btn-soft border border-green-400 btn-success">view
+                                    <Link
+                                        title='see review'
+                                        to={`/scholarship/details/${review.scholarshipId}`}
+                                        className="btn btn-sm btn-soft border border-green-400 btn-success"
+                                    >
+                                        <FaDirections />
                                     </Link>
                                 </td>
                                 <td>
-                                    <button onClick={() => deleteReview(review)} className='btn btn-sm btn-soft btn-secondary border border-pink-500 w-25'>Delete</button>
+                                    <button
+                                        title='delete review'
+                                        onClick={() => deleteReview(review)}
+                                        className='btn btn-sm btn-soft btn-secondary border border-pink-500 '
+                                    >
+                                        <FaTrashAlt />
+                                    </button>
                                 </td>
                             </tr>)
                         }
