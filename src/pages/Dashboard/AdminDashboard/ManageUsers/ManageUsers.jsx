@@ -66,9 +66,9 @@ const ManageUsers = () => {
         <div className='md:max-w-7xl md:mx-auto p-4'>
             <title>Manage Users</title>
             <h1 className='text-2xl font-bold'>Manage Users</h1>
-            <div className='flex justify-between items-center mb-2'>
+            <div className='flex md:flex-row flex-col md:justify-between items-start mb-2'>
                 <h2 className='text-xl font-bold mt-10'>Total Users ({users.length})</h2>
-                <div className="font-xl font-semibold mt-10">
+                <div className="font-xl font-semibold md:mt-10 md:mb-0 my-2">
                     <select onChange={(e) => setSort(e.target.value)} className="select w-60">
                         <option selected disabled={true}>
                             Sort User By Role
@@ -87,12 +87,12 @@ const ManageUsers = () => {
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Photo</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Role</th>
-                            <th>Set Role</th>
-                            <th>Delete</th>
+                            <th>User Image</th>
+                            <th>User Name</th>
+                            <th>User Email</th>
+                            <th>Authorized Role</th>
+                            <th className='pl-15'>Set Role</th>
+                            <th>Delete User</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -103,7 +103,7 @@ const ManageUsers = () => {
                                 <td>{user.displayName}</td>
                                 <td>{user.email}</td>
                                 <td>{user.role}</td>
-                                <td className='flex items-center gap-2'>
+                                <td className='flex items-center gap-1'>
                                     <button
                                         title='Mark as admin'
                                         onClick={() => handleSetRole(user, 'admin')}
@@ -133,7 +133,7 @@ const ManageUsers = () => {
                                     <button
                                         title={`Delete ${user.displayName}`}
                                         onClick={() => deleteUser(user, 'student')}
-                                        className={`btn btn-sm btn-soft btn-secondary border border-pink-500`}
+                                        className={`btn btn-sm btn-soft btn-secondary border border-pink-500 ml-5`}
                                     >
                                         <FaRegTrashCan size={20} />
                                     </button>
