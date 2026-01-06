@@ -34,7 +34,7 @@ The client-side focuses on:
 
 ## 🖼️ Project Preview
 
-![Project Preview](assets/scholar-stream.gif)
+![Project Preview](../src/assets/scholar-stream.gif)
 
 ---
 
