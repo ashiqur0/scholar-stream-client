@@ -34,7 +34,7 @@ The client-side focuses on:
 
 ## 🖼️ Project Preview
 
-![Project Preview](../src/assets/scholar-stream.gif)
+![Home Page](https://s8.ezgif.com/tmp/ezgif-84b8a665a14eb389.gif)
 
 ---
 
