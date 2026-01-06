@@ -32,6 +32,12 @@ The client-side focuses on:
 
 ---
 
+## 🖼️ Project Preview
+
+![Project Preview](assets/scholar-stream.gif)
+
+---
+
 ## 🎯 Key Features
 
 ### 🌍 Public Features
